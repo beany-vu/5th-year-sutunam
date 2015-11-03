@@ -1,0 +1,31 @@
+/*body {*/
+	/*background: #D74D26;*/
+	/*padding: 0;*/
+    /*overflow-x: hidden;*/
+/*}*/
+* {
+	box-sizing: border-box;
+}
+/*#container {*/
+	/*background: #D74D26;*/
+	/*width: 100%;*/
+	/*height: 100%;*/
+	/*padding: 0;*/
+	/*margin:0*/
+	/*;*/
+/*}*/
+#lion {
+    display: none;
+	/*border: 1px solid #ccc;*/
+	/*min-height: 600px;*/
+	/*margin: auto;*/
+    /*margin-top:100px;*/
+}
+
+#cresus {
+    background: #191919;
+}
+/*#lion svg {*/
+    /*transform: translateX(60%) scale(2,2);*/
+    /*width: 100%;*/
+/*}*/
