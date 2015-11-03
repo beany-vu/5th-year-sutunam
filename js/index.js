@@ -1,3 +1,18 @@
+function itemTransformEffect(item, vertial, horzirontal) {
+    var x = Math.cos(Math.PI * Math.round(Math.random())) * 800;
+    var y = Math.cos(Math.PI * Math.round(Math.random())) * 700;
+    if (vertial == true) {
+        y = 0;
+    }
+    if (horzirontal == true) {
+        x = 0;
+    }
+    item_i = Raphael.animation({transform: 't' + x + ',' + y, opacity: 0}, 0, function () {
+        var recombine_effect = Raphael.animation({transform: '', opacity: 1}, 3000);
+        item.animate(recombine_effect)
+    });
+    item.animate(item_i);
+}
 function transformEffect(group, vertial, horzirontal) {
 
     var x = Math.cos(Math.PI * Math.round(Math.random())) * 800;
@@ -889,6 +904,24 @@ jQuery(window).load(function () {
         "stroke-width": 0.7,
         "stroke-miterlimit": 10
     });
+
+    var cresus = [
+        cresus01, cresus02, cresus03, cresus04, cresus05, cresus06, cresus07, cresus08, cresus09, cresus10,
+        cresus11, cresus12, cresus13, cresus14, cresus15, cresus16, cresus17, cresus18, cresus19, cresus20,
+        cresus21, cresus22, cresus23, cresus24, cresus25, cresus26, cresus27, cresus28, cresus29, cresus30,
+        cresus31, cresus32, cresus33, cresus34, cresus35, cresus36, cresus37, cresus38, cresus39, cresus40,
+        cresus41, cresus42, cresus43, cresus44, cresus45, cresus46, cresus47, cresus48, cresus49, cresus50,
+        cresus51, cresus52, cresus53, cresus54, cresus55, cresus56, cresus57, cresus58, cresus59, cresus60,
+        cresus61, cresus62, cresus63, cresus64, cresus65, cresus66, cresus67, cresus68, cresus69, cresus70,
+        cresus71, cresus72, cresus73, cresus74, cresus75, cresus76, cresus77, cresus78, cresus79, cresus80,
+        cresus81, cresus82, cresus83, cresus84, cresus85, cresus86, cresus87, cresus88, cresus89, cresus90,
+        cresus91, cresus92, cresus93
+    ];
+    //alert('zzzzz');
+    for (i = 0; i < cresus.length; i++) {
+        floatUpEffect(cresus[i]);
+    }
+    //=============end cresus================
     //<polygon class="st129" points="896.333,427.234 882.733,452.486 913.875,451.041 	"/>
     var cresus94 = paper1.path('M 896.333 427.234 L 882.733 452.486 L 913.875 451.041 Z').attr({"fill": "#CCA46A"});
     //<polygon class="st128" points="545.166,546.958 582.195,551.183 584.906,570.844 	"/>
@@ -992,7 +1025,7 @@ jQuery(window).load(function () {
         floatUpEffect(group_18);
         floatUpEffect(group_19);
         floatUpEffect(group_20);
-    })
+    });
     jQuery('#scroll-up').click(function () {
         floatDownEffect(group_1);
         floatDownEffect(group_2);
@@ -1015,6 +1048,6 @@ jQuery(window).load(function () {
         floatDownEffect(group_19);
         floatDownEffect(group_20);
     })
-})
+});
 
 
