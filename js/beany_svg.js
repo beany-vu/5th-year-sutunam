@@ -233,25 +233,37 @@ var Beany = {
         ], paper);
     },
     drawHeading: function (paper) {
-        var txt_1 = paper.text(jQuery(window).width() / 2 - 70, jQuery(window).height() / 2, "5 ").attr({
+        var txt1 = paper.text(jQuery(window).width() / 2 - 90, jQuery(window).height() / 2 + 100, "5 ").attr({
             "fill": "#fff",
             "text-anchor": "start",
-            "font-size": 40,
+            "font-size": 50,
             "opacity": 0
         });
-        var txt_2 = paper.text(jQuery(window).width() / 2 - 35, jQuery(window).height() / 2, "YEARS").attr({
+        var txt2 = paper.text(jQuery(window).width() / 2 - 55, jQuery(window).height() / 2 + 100, "PROJECTS").attr({
             "fill": "#fff",
             "text-anchor": "start",
-            "font-size": 40,
+            "font-size": 50,
             "opacity": 0
         });
-        var txt_3 = paper.text(jQuery(window).width() / 2 - 35, jQuery(window).height() / 2 + 40, "PROJECT").attr({
+        var txt3 = paper.text(jQuery(window).width() / 2 - 55, jQuery(window).height() / 2 + 140, "YEARS").attr({
             "fill": "#fff",
             "text-anchor": "start",
-            "font-size": 40,
+            "font-size": 50,
             "opacity": 0
         });
-        return Beany.toSet([txt_1, txt_2, txt_3], paper);
+        var txt4 = paper.text(jQuery(window).width() / 2 - 50, jQuery(window).height() / 2 + 160, "WITH SUTUNAM").attr({
+            "fill": "#393939",
+            "text-anchor": "start",
+            "font-size": 18,
+            "opacity": 0
+        });
+        var txt_set = paper.set(txt1, txt2, txt4);
+        var faded_txt = Raphael.animation({transform: 't0' + ',-20', opacity: 1}, 2000, function () {
+            Beany.transformEffect(txt2, txt3);
+        });
+        txt_set.animate(faded_txt.delay(2000));
+
+        return paper.set([txt1, txt2, txt3, txt4]);
     },
     toSet: function (arr, paper) {
         var _set = paper.set();
@@ -275,36 +287,47 @@ var Beany = {
     },
     fadeUpTxt: function (txt) {
         console.log('start fadeUpTxt()');
-        var faded_txt = Raphael.animation({transform: 't0' + ',-20', opacity: 1}, 2000, function () {
-            Beany.transformEffect(txt[1], txt[2]);
-        });
-        txt.animate(faded_txt.delay(3000));
+
         console.log('end fadeUptxt()');
     },
-    transformEffect: function (beginning_txt, ending_txt) {
-        var animated_beginning_txt = Raphael.animation({transform: 't0' + ',-40', opacity: 1}, 1000, function () {
-            var animated_ending_txt = Raphael.animation({transform: 't0' + ',-20', opacity: 1}, 1000);
-            ending_txt.animate(animated_ending_txt)
+    transformEffect: function (from_txt, to_txt) {
+        var from_txt_move_to = Raphael.animation({transform: 't0' + ',-40', opacity: 0}, 1100, function () {
+            var to_txt_move_to = Raphael.animation({transform: 't0' + ',-60', opacity: 1}, 1100);
+            to_txt.animate(to_txt_move_to)
         });
-        beginning_txt.animate(animated_beginning_txt.delay(500));
+        from_txt.animate(from_txt_move_to.delay(10));
     }
     ,
     recombine: function (object, transform) {
         object.forEach(function (element, index) {
-            var x = Math.cos(Math.PI * Math.round(Math.random())) * 2000;
-            var y = Math.cos(Math.PI * Math.round(Math.random())) * 2000;
+            var x = Math.cos(Math.PI * Math.round(Math.random())) * 1000;
+            var y = Math.cos(Math.PI * Math.round(Math.random())) * 1000;
+            if (index % 12 == 0 || index % 15 == 0) x = 0;
+            if (index % 13 == 0 || index % 16 == 0) y = 0;
+            if (index % 14 == 0 || index % 17 == 0) x = y = 0;
             var exploded_object = Raphael.animation({transform: 't' + x + ',' + y, opacity: 0}, 0, function () {
-                var _recombined_effect = Raphael.animation({transform: transform, opacity: 1}, 2500);
+                var _recombined_effect = Raphael.animation({transform: transform, opacity: 1}, 2900);
                 element.animate(_recombined_effect)
             });
             element.animate(exploded_object);
+            setTimeout(function () {
+            }, 5);
         });
     },
-    floatUp: function (object) {
+    floatUp: function (object, transformX) {
         var y = Math.random() * -20000;
-        group_i = Raphael.animation({transform: 'T0 ' + y, opacity: 0}, 1000, function () {
+        var duration = Math.random() * 500;
+        object.forEach(function (element, index) {
+            setTimeout(function () {
+                fade_out_el = Raphael.animation({transform: 'T' + transformX + ',' + y, opacity: 0}, duration);
+                element.animate(fade_out_el);
+            }, 10);
+
         });
-        group.animate(group_i);
+    },
+    floatUpSync: function (object, transformX, transformY) {
+        var fade_out_el = Raphael.animation({transform: 'T' + transformX + ',' + transformY, opacity: 0}, 500);
+        object.animate(fade_out_el);
     },
     floatDown: function () {
 
@@ -316,4 +339,10 @@ jQuery(window).load(function () {
     var lion = Beany.drawLion(paper);
     var heading = Beany.drawHeading(paper);
     Beany.recombine(lion, 't' + (jQuery(window).width() / 2 - 300) + ',0');
+
+    jQuery('.scroll-down').click(function () {
+        Beany.floatUp(lion, (jQuery(window).width() / 2 - 300));
+        Beany.floatUpSync(paper.set(heading[0], heading[1], heading[3]), 0, -100);
+        Beany.floatUpSync(paper.set(heading[2]), 0, -160)
+    });
 });

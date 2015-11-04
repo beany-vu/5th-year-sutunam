@@ -1,11 +1,22 @@
 @import url(https://fonts.googleapis.com/css?family=Quicksand:400,300,700);
 
+* {
+    font-family: 'Quicksand', sans-serif;
+    box-sizing: border-box;
+}
 body {
     background: #D74D26;
     padding: 0;
     overflow: hidden;
+    position: relative;
 }
-* {
-    font-family: 'Quicksand', sans-serif;
-	box-sizing: border-box;
+
+.scroll_down {
+    position: absolute;
+    z-index: 999;
+    left: 10%;
+    width: 200px;
+    top: 10%;
+    transform: translateX(-80px);
+    z-index: 10;
 }
