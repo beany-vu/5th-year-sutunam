@@ -30,10 +30,7 @@ function transformEffect(group, vertial, horzirontal) {
     group.animate(group_i);
 }
 function floatUpEffect(group) {
-    var y = Math.random() * -20000;
-    group_i = Raphael.animation({transform: 'T0 ' + y, opacity: 0}, 1000, function () {
-    });
-    group.animate(group_i);
+
 }
 function floatDownEffect(group) {
     group_i = Raphael.animation({transform: ''}, 1400, function () {
