@@ -236,24 +236,29 @@ var Beany = {
         var txt1 = paper.text(jQuery(window).width() / 2 - 90, jQuery(window).height() / 2 + 100, "5 ").attr({
             "fill": "#fff",
             "text-anchor": "start",
+            "font-family": "gotham-xlight",
+            "font-weight": "100",
             "font-size": 50,
             "opacity": 0
         });
         var txt2 = paper.text(jQuery(window).width() / 2 - 55, jQuery(window).height() / 2 + 100, "PROJECTS").attr({
             "fill": "#fff",
             "text-anchor": "start",
+            "font-family": "gotham-xlight",
             "font-size": 50,
             "opacity": 0
         });
         var txt3 = paper.text(jQuery(window).width() / 2 - 55, jQuery(window).height() / 2 + 140, "YEARS").attr({
             "fill": "#fff",
             "text-anchor": "start",
+            "font-family": "gotham-xlight",
             "font-size": 50,
             "opacity": 0
         });
         var txt4 = paper.text(jQuery(window).width() / 2 - 50, jQuery(window).height() / 2 + 160, "WITH SUTUNAM").attr({
             "fill": "#393939",
             "text-anchor": "start",
+            "font-family": "gotham-xlight",
             "font-size": 18,
             "opacity": 0
         });
@@ -271,24 +276,6 @@ var Beany = {
             _set.push(arr[i]);
         }
         return _set;
-    }
-    ,
-    drawCresus: function () {
-
-    },
-    drawBys: function () {
-
-    },
-    drawDurance: function () {
-
-    },
-    drawRenault: function () {
-
-    },
-    fadeUpTxt: function (txt) {
-        console.log('start fadeUpTxt()');
-
-        console.log('end fadeUptxt()');
     },
     transformEffect: function (from_txt, to_txt) {
         var from_txt_move_to = Raphael.animation({transform: 't0' + ',-40', opacity: 0}, 1100, function () {
@@ -302,9 +289,16 @@ var Beany = {
         object.forEach(function (element, index) {
             var x = Math.cos(Math.PI * Math.round(Math.random())) * 1000;
             var y = Math.cos(Math.PI * Math.round(Math.random())) * 1000;
-            if (index % 12 == 0 || index % 15 == 0) x = 0;
-            if (index % 13 == 0 || index % 16 == 0) y = 0;
-            if (index % 14 == 0 || index % 17 == 0) x = y = 0;
+            if (index % 11 == 0) x = 0;
+            if (index % 12 == 0) y = 0;
+            if (index % 13 == 0) x = y = 1000;
+            if (index % 14 == 0) x = y = -1000;
+            if (index % 15 == 0) x = 0, y = -1000;
+            if (index % 16 == 0) x = -1000, y = 0;
+            if (index % 17 == 0) x = -1000, y = 500;
+            if (index % 18 == 0) x = 1000, y = -500;
+            if (index % 18 == 0) x = 500, y = -1000;
+            if (index % 19 == 0) x = -500, y = -1000;
             var exploded_object = Raphael.animation({transform: 't' + x + ',' + y, opacity: 0}, 0, function () {
                 var _recombined_effect = Raphael.animation({transform: transform, opacity: 1}, 2900);
                 element.animate(_recombined_effect)
@@ -326,11 +320,8 @@ var Beany = {
         });
     },
     floatUpSync: function (object, transformX, transformY) {
-        var fade_out_el = Raphael.animation({transform: 'T' + transformX + ',' + transformY, opacity: 0}, 500);
+        var fade_out_el = Raphael.animation({transform: 'T' + transformX + ',' + transformY, opacity: 0}, 1000);
         object.animate(fade_out_el);
-    },
-    floatDown: function () {
-
     }
 };
 
