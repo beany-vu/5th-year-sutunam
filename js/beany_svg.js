@@ -11,258 +11,249 @@ var Beany = {
         }
         return _paper;
     },
-    drawLion: function (paper) {
-        //=========lion===========
-        // <polygon fill="#B58F4F" points="376.2,300.8 285.8,226.4 336.3,219.5 376.2,300.8 "/>
-        var st01 = paper.path('M 276.2 300.8 L 285.8 226.4 L 336.3 219.5 L 276.2 300.8 Z').attr('fill', '#B58F4F').attr('stroke', 'none');
-        // <polygon fill="#CD9C4B" points="328.6,165.6 285.1,152.1 333.4,192.8 328.6,165.6 "/>
-        var st02 = paper.path('M 328.6 165.6 L 285.1 152.1 L 333.4 192.8 L 328.6 165.6 Z').attr('fill', '#CD9C4B').attr('stroke', 'none');
-        // <polygon fill="#986337" points="352.9,271.6 372.1,313.6 330.8,303.4 352.9,271.6 "/>
-        var st03 = paper.path('M 352.9 271.6 L 372.1 313.6 L 330.8 303.4 L 352.9 271.6 Z').attr('fill', '#986337').attr('stroke', 'none');
-        // <polygon fill="#CCA54E" points="326.7,177.7 336.3,219.5 379.8,202.8 326.7,177.7 "/>
-        var st04 = paper.path('M 326.7 177.7 L 336.3 219.5 L 379.8 202.8 L 326.7 177.7 Z').attr('fill', '#CCA54E').attr('stroke', 'none');
-        // <polygon fill="#DABD69" points="354.8,191.1 365.4,208.1 379.3,182 354.8,191.1 "/>
-        var st05 = paper.path('M 354.8 191.1 L 365.4 208.1 L 379.3 182 354.8 L 191.1 Z').attr('fill', '#DABD69').attr('stroke', 'none');
-        // <polygon fill="#91623B" points="355.9,260.4 325,235.6 326.1,254.7 355.9,260.4 "/>
-        var st06 = paper.path('M355.9 260.4 L 325 235.6 L 326.1 254.7 L 355.9 260.4 Z').attr('fill', '#91623B').attr('stroke', 'none');
-        // <polygon fill="#692619" points="349.8,373.1 328.8,353.2 334.3,400.8 349.8,373.1 "/>
-        var st07 = paper.path('M 349.8 373.1 L 328.8 353.2 L 334.3 400.8 L 349.8 373.1 Z').attr('fill', '#692619').attr('stroke', 'none');
-        // <polygon fill="#C7AD6C" points="330.8,303.4 315.6,340.8 295.1,318.3 330.8,303.4 "/>
-        var st08 = paper.path('M 349.8 373.1 L 328.8 353.2 L 334.3 400.8 L 349.8 373.1 Z').attr('fill', '#C7AD6C').attr('stroke', 'none');
-        // <polygon fill="#8E5433" points="368.8,350.9 347.3,349 349.8,373.1 368.8,350.9 "/>
-        var st09 = paper.path('M 368.8 350.9 L 347.3 349 L 349.8 373.1 L 368.8 350.9 Z').attr('fill', '#8E5433').attr('stroke', 'none');
-        // <polygon fill="#7F3822" points="315.6,340.8 299.2,384.6 260.1,341.3 315.6,340.8 "/>
-        var st10 = paper.path('M 315.6 340.8 L 299.2 384.6 L 260.1 341.3 L 315.6 340.8 Z').attr('fill', '#7F3822').attr('stroke', 'none');
-        // <polygon fill="#BD924B" points="417,307 372.1,313.6 398,343.5 417,307 "/>
-        var st11 = paper.path('M 417 307 L 372.1 313.6 L 398 343.5 L 417 307 Z').attr('fill', '#BD924B').attr('stroke', 'none');
-        // <polygon fill="#8D5432" points="352.9,271.6 330.8,303.4 326.1,254.7 352.9,271.6 "/>
-        var st12 = paper.path('M 352.9 271.6 L 330.8 303.4 L 326.1 254.7 L 352.9 271.6  Z').attr('fill', '#8D5432').attr('stroke', 'none');
-        // <polygon fill="#5A1E15" points="334.3,400.8 299.2,384.6 328.8,353.2 334.3,400.8 "/>
-        var st13 = paper.path('M 352.9 271.6 L 330.8 303.4 L 326.1 254.7 L 352.9 271.6  Z').attr('fill', '#5A1E15').attr('stroke', 'none');
-        // <polygon fill="#521810" points="334.3,400.8 307,445 299.2,384.6 334.3,400.8 "/>
-        var st14 = paper.path('M 334.3 400.8 L 307 445 L 299.2 384.6 L 334.3 400.8  Z').attr('fill', '#521810').attr('stroke', 'none');
-        // <polygon fill="#C9A155" points="300.4,287.5 258.7,289.6 257.9,248.5 300.4,287.5 "/>
-        var st15 = paper.path('M 300.4 287.5 L 258.7 289.6 L 257.9 248.5 L 300.4 287.5 Z').attr('fill', '#C9A155').attr('stroke', 'none');
-        // <polygon fill="#B6A054" points="280.2,402.4 239,412.8 260.1,341.3 280.2,402.4 "/>
-        var st16 = paper.path('M 280.2 402.4 L 239 412.8 L 260.1 341.3 L 280.2 402.4 Z').attr('fill', '#B6A054').attr('stroke', 'none');
-        // <polygon fill="#8B4B2B" points="280.2,402.4 260.1,341.3 299.2,384.6 280.2,402.4 "/>
-        var st17 = paper.path('M 280.2 402.4 L 260.1 341.3 L 299.2 384.6 L 280.2 402.4  Z').attr('fill', '#8B4B2B').attr('stroke', 'none');
-        // <polygon fill="#955C3B" points="365.9,273 372.1,313.6 352.9,271.6 365.9,273 "/>
-        var st18 = paper.path('M 280.2 402.4 L 260.1 341.3 L 299.2 384.6 L 280.2 402.4  Z').attr('fill', '#955C3B').attr('stroke', 'none');
-        // <polygon fill="#E5D591" points="373.5,260.1 404.7,262.9 383.7,237.3 373.5,260.1 "/>
-        var st19 = paper.path('M 373.5 260.1 L 404.7 262.9 L 383.7 237.3 L 373.5 260.1 Z').attr('fill', '#E5D591').attr('stroke', 'none');
-        // <polygon fill="#E2D187" points="237.8,272 167.8,278.4 258.7,289.6 237.8,272 "/>
-        var st20 = paper.path('M 237.8 272 L 167.8 278.4 L 258.7 289.6 L 237.8,272 Z').attr('fill', '#E2D187').attr('stroke', 'none');
-        // <polygon fill="#B58F4F" points="232.3,234.7 264.7,216 257.9,248.5 232.3,234.7 "/>
-        var st21 = paper.path('M 232.3 234.7 L 264.7 216 L 257.9 248.5 L 232.3 234.7 Z').attr('fill', '#B58F4F').attr('stroke', 'none');
-        // <polygon fill="#BBA661" points="258.7,289.6 274.3,324.5 260.1,341.3 258.7,289.6 "/>
-        var st22 = paper.path('M 258.7 289.6 L 274.3 324.5 L 260.1 341.3 L 258.7 289.6 Z').attr('fill', '#BBA661').attr('stroke', 'none');
-        // <polygon fill="#D4D6B8" points="368.8,350.9 397.2,347.1 416.8,371.2 368.8,350.9 "/>
-        var st23 = paper.path('M 368.8 350.9 L 397.2 347.1 L 416.8 371.2 L 368.8 350.9 Z').attr('fill', '#D4D6B8').attr('stroke', 'none');
-        // <polygon fill="#8C4526" points="372.8,332.5 368.8,350.9 347.3,349 372.8,332.5 "/>
-        var st24 = paper.path('M 372.8 332.5 L 368.8 350.9 L 347.3 349 L 372.8 332.5 Z').attr('fill', '#8C4526').attr('stroke', 'none');
-        // <polygon fill="#A97F42" points="368.8,350.9 390.2,359.6 349.8,373.1 368.8,350.9 "/>
-        var st25 = paper.path('M 368.8 350.9 L 390.2 359.6 L 349.8 373.1 L 368.8 350.9 Z').attr('fill', '#A97F42').attr('stroke', 'none');
-        // <polygon fill="none" stroke="#E27529" stroke-width="0.6" stroke-miterlimit="10" points="397.2,347.1 372.8,332.5 398,343.5 397.2,347.1 "/>
-        var st26 = paper.path('M 397.2 347.1 L 372.8 332.5 L 398 343.5 L 397.2 347.1 Z').attr({
-            'fill': 'none',
-            'stroke': '#E27529',
-            'stroke-width': 0.6,
-            "stroke-miterlimit": 10
-        });
-        // <polygon fill="#61261F" points="397.2,347.1 433.6,339.2 398,343.5 397.2,347.1 "/>
-        var st27 = paper.path('M 397.2 347.1 L 433.6 339.2 L 398 343.5 L 397.2 347.1 Z').attr('fill', '#61261F').attr('stroke', 'none');
-        // <polygon fill="#090509" points="365.9,273 352.9,271.6 355.9,260.4 365.9,273 "/>
-        var st28 = paper.path('M 365.9  273 L 352.9 271.6 L 355.9 260.4 L 365.9 273 Z').attr('fill', '#090509').attr('stroke', 'none');
-        // <polygon fill="#A87D44" points="355.9,260.4 326.1,254.7 352.9,271.6 355.9,260.4 "/>
-        var st29 = paper.path('M 355.9 260.4 L 326.1 254.7 L 352.9 271.6 L 355.9 260.4 Z').attr('fill', '#A87D44').attr('stroke', 'none');
-        // <polygon fill="#CAB160" points="195.4,319.2 260.1,341.3 258.7,289.6 195.4,319.2 "/>
-        var st30 = paper.path('M 195.4 319.2 L 260.1 341.3 L 258.7 289.6 L 195.4 319.2 Z').attr('fill', '#CAB160').attr('stroke', 'none');
-        // <polygon fill="#B63D1A" points="355.9,260.4 373.6,260.1 371.7,267.1 355.9,260.4 "/>
-        var st31 = paper.path('M 355.9 260.4 L 373.6 260.1 L 371.7 267.1 L 355.9 260.4 Z').attr('fill', '#B63D1A').attr('stroke', 'none');
-        // <polygon fill="#D34C1F" points="355.9,260.4 371.7,267.1 365.9,273 355.9,260.4 "/>
-        var st32 = paper.path('M 355.9 260.4 L 371.7 267.1 L 365.9 273 L 355.9 260.4 Z').attr('fill', '#D34C1F').attr('stroke', 'none');
-        // <polygon fill="#773522" points="315.6,340.8 347.3,349 349.8,373.1 315.6,340.8 "/>
-        var st33 = paper.path('M 315.6 340.8 L 347.3 349 L 349.8 373.1 L 315.6 340.8 Z').attr('fill', '#773522').attr('stroke', 'none');
-        // <polygon fill="#8F4125" points="372.1,313.6 372.8,332.5 330.8,303.4 372.1,313.6 "/>
-        var st34 = paper.path('M 372.1 313.6 L 372.8 332.5 L 330.8 303.4 L 372.1 313.6  Z').attr('fill', '#8F4125').attr('stroke', 'none');
-        // <polygon fill="#A4653C" points="315.6,340.8 299.2,384.6 328.8,353.2 315.6,340.8 "/>
-        var st35 = paper.path('M 315.6 340.8 L 299.2 384.6 L 328.8 353.2 L 315.6 340.8  Z').attr('fill', '#A4653C').attr('stroke', 'none');
-        // <polygon fill="#A4653C" points="274.3,324.5 315.6,340.8 260.1,341.3 274.3,324.5 "/>
-        var st36 = paper.path('M 274.3 324.5 L 315.6 340.8 L 260.1 341.3 L 274.3 324.5  Z').attr('fill', '#A4653C').attr('stroke', 'none');
-        // <polygon fill="#9E6D3A" points="274.3,324.5 295.1,318.3 315.6,340.8 274.3,324.5 "/>
-        var st37 = paper.path('M 274.3 324.5 L 295.1 318.3 L 315.6 340.8 L 274.3 324.5  Z').attr('fill', '#9E6D3A').attr('stroke', 'none');
-        // <polygon fill="#7F381F" points="372.8,332.5 330.8,303.4 315.6,340.8 372.8,332.5 "/>
-        var st38 = paper.path('M 372.8 332.5 L 330.8 303.4 L 315.6 340.8 L 372.8 332.5  Z').attr('fill', '#7F381F').attr('stroke', 'none');
-        // <polygon fill="#C09C51" points="300.4,287.5 295.1,318.3 330.8,303.4 300.4,287.5 "/>
-        var st39 = paper.path('M 300.4 287.5 L 295.1 318.3 L 330.8 303.4 L 300.4 287.5  Z').attr('fill', '#C09C51').attr('stroke', 'none');
-        // <polygon fill="#A88248" points="300.4,287.5 258.7,289.6 295.1,318.3 300.4,287.5 "/>
-        var st40 = paper.path('M 300.4 287.5 L 258.7 289.6 L 295.1 318.3 L 300.4 287.5  Z').attr('fill', '#A88248').attr('stroke', 'none');
-        // <polygon fill="#BA8F4B" points="274.3,324.5 258.7,289.6 295.1,318.3 274.3,324.5 "/>
-        var st41 = paper.path('M 274.3 324.5 L 258.7 289.6 L 295.1 318.3 L 274.3 324.5 Z').attr('fill', '#BA8F4B').attr('stroke', 'none');
-        // <polygon fill="#784A40" points="281.9,187.1 199.4,165.6 229,195.2 281.9,187.1 "/>
-        var st42 = paper.path('M 281.9 187.1 L 199.4 165.6 L 229 195.2 L 281.9 187.1 Z').attr('fill', '#784A40').attr('stroke', 'none');
-        // <polygon fill="#986936" points="315.6,340.8 372.8,332.5 347.3,349 315.6,340.8 "/>
-        var st43 = paper.path('M 315.6 340.8 L 372.8 332.5 L 347.3 349 L 315.6 340.8 Z').attr('fill', '#986936').attr('stroke', 'none');
-        // <polygon fill="#BDA564" points="417,307 408.3,269.9 446.8,304.4 417,307 "/>
-        var st44 = paper.path('M 417 307 L 408.3 269.9 L 446.8 304.4 L 417 307 Z').attr('fill', '#BDA564').attr('stroke', 'none');
-        // <polygon fill="#AC7F45" points="237.8,272 258.7,289.6 257.9,248.5 237.8,272 "/>
-        var st45 = paper.path('M 237.8 272 L 258.7 289.6 L 257.9 248.5 L 237.8 272  Z').attr('fill', '#AC7F45').attr('stroke', 'none');
-        // <polygon fill="#A4653C" points="237.8,272 257.9,248.5 192.5,251.9 237.8,272 "/>
-        var st46 = paper.path('M 237.8 272 L 257.9 248.5 L 192.5 251.9 L 237.8 272 Z').attr('fill', '#A4653C').attr('stroke', 'none');
-        // <polygon fill="#A4653C" points="185.5,233.4 232.3,234.7 257.9,248.5 185.5,233.4 "/>
-        var st47 = paper.path('M 185.5 233.4 L 232.3 234.7 L 257.9 248.5 L 185.5 233.4 Z').attr('fill', '#A4653C').attr('stroke', 'none');
-        // <polygon fill="#561F22" points="207.8,205.9 232.3,234.7 264.7,216 207.8,205.9 "/>
-        var st48 = paper.path('M 207.8 205.9 L 232.3 234.7 L 264.7 216 L 207.8 205.9 Z').attr('fill', '#561F22').attr('stroke', 'none');
-        // <polygon fill="#B78645" points="228.4,194.8 311.5,182.9 285.4,227.8 228.4,194.8 "/>
-        var st49 = paper.path('M 228.4 194.8 L 311.5 182.9 L 285.4 227.8 L 228.4 194.8  Z').attr('fill', '#B78645').attr('stroke', 'none');
-        // <polygon fill="#B4904B" points="336.3,219.5 385.5,219.8 383.7,237.3 336.3,219.5 "/>
-        var st50 = paper.path('M 336.3 219.5 L 385.5 219.8 L 383.7 237.3 L 336.3 219.5 Z').attr('fill', '#B4904B').attr('stroke', 'none');
-        // <polygon fill="#B4863E" points="336.3,219.5 385.5,219.8 365.4,208.1 336.3,219.5 "/>
-        var st51 = paper.path('M 336.3 219.5 L 385.5 219.8 L 365.4 208.1 L 336.3 219.5  Z').attr('fill', '#B4863E').attr('stroke', 'none');
-        // <polygon fill="#CFCA9A" points="386,271.5 372.1,313.6 365.9,273 386,271.5 "/>
-        var st52 = paper.path('M 386 271.5 L 372.1 313.6 L 365.9 273 L 386 271.5 Z').attr('fill', '#CFCA9A').attr('stroke', 'none');
-        // <polygon fill="#E4CD80" points="365.4,208.1 379.3,182 385.5,219.8 365.4,208.1 "/>
-        var st53 = paper.path('M 365.4 208.1 L 379.3 182 L 385.5 219.8 L 365.4 208.1  Z').attr('fill', '#E4CD80').attr('stroke', 'none');
-        // <polygon fill="#762D1E" points="326.7,177.7 310.1,223.2 336.3,219.5 326.7,177.7 "/>
-        var st54 = paper.path('M 326.7 177.7 L 310.1 223.2 L 336.3 219.5 L 326.7 177.7  Z').attr('fill', '#762D1E').attr('stroke', 'none');
-        // <polygon fill="#D6BE75" points="281.9,187.1 282.9,213.7 310.1,223.2 281.9,187.1 "/>
-        var st55 = paper.path('M 281.9 187.1 L 282.9 213.7 L 310.1 223.2 L 281.9 187.1 Z').attr('fill', '#D6BE75').attr('stroke', 'none');
-        // <polygon fill="#A26E36" points="364.6,368 357.4,389.6 349.8,373.1 364.6,368 "/>
-        var st56 = paper.path('M 364.6 368 L 357.4 389.6 L 349.8 373.1 L 364.6 368 Z').attr('fill', '#A26E36').attr('stroke', 'none');
-        // <polygon fill="#FEF2C7" points="257.9,248.5 282.9,213.7 300.4,287.5 257.9,248.5 "/>
-        var st57 = paper.path('M 257.9 248.5 L 282.9 213.7 L 300.4 287.5 L 257.9 248.5 Z').attr('fill', '#FEF2C7').attr('stroke', 'none');
-        // <polygon fill="#9A7040" points="330.8,303.4 326.1,254.7 300.4,287.5 330.8,303.4 "/>
-        var st58 = paper.path('M 330.8 303.4 L 326.1 254.7 L 300.4 287.5 L 330.8 303.4 Z').attr('fill', '#9A7040').attr('stroke', 'none');
-        // <polygon fill="#DCC193" points="402.8,239.4 385.5,219.8 383.7,237.3 402.8,239.4 "/>
-        var st59 = paper.path('M 402.8 239.4 L 385.5 219.8 L 383.7 237.3 L 402.8 239.4 Z').attr('fill', '#DCC193').attr('stroke', 'none');
-        // <polygon fill="#AC8148" points="422.4,328.6 398,343.5 417,307 422.4,328.6 "/>
-        var st60 = paper.path('M 422.4 328.6 L 398 343.5 L 417 307 L 422.4 328.6  Z').attr('fill', '#AC8148').attr('stroke', 'none');
-        // <polygon fill="#89462B" points="282.9,213.7 285.3,248.5 309.6,242 282.9,213.7 "/>
-        var st61 = paper.path('M 282.9 213.7 L 285.3 248.5 L 309.6 242 L 282.9 213.7  Z').attr('fill', '#89462B').attr('stroke', 'none');
-        // <polygon fill="#AC8245" points="309.6,242 310.1,223.2 282.9,213.7 309.6,242 "/>
-        var st62 = paper.path('M 309.6 242 L 310.1 223.2 L 282.9 213.7 L 309.6 242  Z').attr('fill', '#AC824').attr('stroke', 'none');
-        // <polygon fill="#854F33" points="310.1,223.2 325.4,236 309.6,242 310.1,223.2 "/>
-        var st63 = paper.path('M 310.1 223.2 L 325.4 236 L 309.6 242 L 310.1 223.2 Z').attr('fill', '#854F33').attr('stroke', 'none');
-        // <polygon fill="#E9E3D7" points="404.7,262.9 414.5,253.2 402.8,239.4 404.7,262.9 "/>
-        var st64 = paper.path('M 310.1 223.2 L 325.4 236 L 309.6 242 L 310.1 223.2 Z').attr('fill', '#E9E3D7').attr('stroke', 'none');
-        // <polygon fill="#B17D4E" points="383.7,237.3 402.8,239.4 404.7,262.9 383.7,237.3 "/>
-        var st65 = paper.path('M 383.7 237.3 L 402.8 239.4 L 404.7 262.9 L 383.7 237.3 Z').attr('fill', '#B17D4E').attr('stroke', 'none');
-        // <polygon fill="#CDC584" points="355.9,260.4 336.3,219.5 383.7,237.3 355.9,260.4 "/>
-        var st66 = paper.path('M 355.9 260.4 L 336.3 219.5 L 383.7 237.3 L 355.9 260.4  Z').attr('fill', '#CDC584').attr('stroke', 'none');
-        // <polygon fill="#B68F4F" points="355.9,260.4 373.6,260.1 383.7,237.3 355.9,260.4 "/>
-        var st67 = paper.path('M 355.9 260.4 L 373.6 260.1 L 383.7 237.3 L 355.9 260.4   Z').attr('fill', '#B68F4F').attr('stroke', 'none');
-        // <polygon fill="#F6E1B2" points="354.8,191.1 379.3,182 370.6,166.7 354.8,191.1 "/>
-        var st68 = paper.path('M 354.8 191.1 L 379.3 182 L 370.6 166.7 L 354.8 191.1 Z').attr('fill', '#F6E1B2').attr('stroke', 'none');
-        // <polygon fill="#D6DBB6" points="354.8,164 349.4,149.8 370.6,166.7 354.8,164 "/>
-        var st69 = paper.path('M 354.8 164 L 349.4 149.8 L 370.6 166.7 L 354.8 164 Z').attr('fill', '#D6DBB6').attr('stroke', 'none');
-        // <polygon fill="#A99253" points="354.8,191.1 327.4,149 370.6,166.7 354.8,191.1 "/>
-        var st70 = paper.path('M 354.8 191.1 L 327.4 149 L 370.6 166.7 L 354.8 191.1  Z').attr('fill', '#A99253').attr('stroke', 'none');
-        // <polygon fill="#E1D080" points="326.7,177.7 315.7,145.9 330.5,153.8 326.7,177.7 "/>
-        var st71 = paper.path('M 326.7 177.7 L 315.7 145.9 L 330.5 153.8 L 326.7 177.7 Z').attr('fill', '#E1D080').attr('stroke', 'none');
-        // <polygon fill="#7D402D" points="354.8,191.1 326.7,177.7 330.5,153.8 354.8,191.1 "/>
-        var st72 = paper.path('M 354.8 191.1 L 326.7 177.7 L 330.5 153.8 L 354.8 191.1 Z').attr('fill', '#7D402D').attr('stroke', 'none');
-        // <polygon fill="#E9DC8C" points="317.4,151.1 296.9,144.7 326.7,177.7 317.4,151.1 "/>
-        var st73 = paper.path('M 317.4 151.1 L 296.9 144.7 L 326.7 177.7 L 317.4 151.1  Z').attr('fill', '#E9DC8C').attr('stroke', 'none');
-        // <polygon fill="#622B2B" points="308.3,171.6 255.4,158.1 281.9,187.1 308.3,171.6 "/>
-        var st74 = paper.path('M 308.3 171.6 L 255.4 158.1 L 281.9 187.1 L 308.3 171.6   Z').attr('fill', '#622B2B').attr('stroke', 'none');
-        // <polygon fill="#7D2C1E" points="372.8,332.5 368.8,350.9 397.2,347.1 372.8,332.5 "/>
-        var st75 = paper.path('M 372.8 332.5 L 368.8 350.9 L 397.2 347.1 L 372.8 332.5  Z').attr('fill', '#7D2C1E').attr('stroke', 'none');
-        // <polygon fill="#AA7237" points="372.8,332.5 372.1,313.6 398,343.5 372.8,332.5 "/>
-        var st76 = paper.path('M 372.8 332.5 L 372.1 313.6 L 398 343.5 L 372.8 332.5    Z').attr('fill', '#AA7237').attr('stroke', 'none');
-        // <polygon fill="#FCFAED" points="397.2,347.1 433.6,339.2 416.8,371.2 397.2,347.1 "/>
-        var st77 = paper.path('M 397.2 347.1 L 433.6 339.2 L 416.8 371.2 L 397.2 347.1 Z').attr('fill', '#FCFAED').attr('stroke', 'none');
-        // <polygon fill="#220C09" points="397.2,347.1 372.8,332.5 398,343.5 397.2,347.1 "/>
-        var st78 = paper.path('M 397.2 347.1 L 372.8 332.5 L 398 343.5 L 397.2 347.1 Z').attr('fill', '#220C09').attr('stroke', 'none');
-        // <polygon fill="none" stroke="#E27529" stroke-width="0.6" stroke-miterlimit="10" points="397.2,347.1 433.6,339.2 398,343.5 397.2,347.1 "/>
-        var st79 = paper.path('M 397.2 347.1 L 433.6 339.2 L 398 343.5 L 397.2 347.1 Z').attr({
-            'fill': 'none',
-            'stroke': '#E27529',
-            'stroke-width': 0.6,
-            'stroke-miterlimit': 10
-        });
-        // <polygon fill="#461D22" points="417,307 439,307.9 437.7,319.3 417,307 "/>
-        var st80 = paper.path('M 417 307 L 439 307.9 L 437.7 319.3 L 417,307 Z').attr('fill', '#461D22').attr('stroke', 'none');
-        // <polygon fill="#693F51" points="446.9,304.7 439,307.9 437.7,319.3 446.9,304.7 "/>
-        var st81 = paper.path('M 446.9 304.7 L 439 307.9 L 437.7 319.3 L 446.9 304.7 Z').attr('fill', '#693F51').attr('stroke', 'none');
-        // <polygon fill="#9D7441" points="386,271.5 372.1,313.6 417,307 386,271.5 "/>
-        var st82 = paper.path('M 386 271.5 L 372.1 313.6 L 417 307 L 386 271.5 Z').attr('fill', '#9D7441').attr('stroke', 'none');
-        // <polygon fill="#B5A164" points="386,271.5 408.3,269.9 417,307 386,271.5 "/>
-        var st83 = paper.path('M 386 271.5 L 408.3 269.9 L 417 307 L 386 271.5  Z').attr('fill', '#B5A164').attr('stroke', 'none');
-        // <polygon fill="#090509" points="373.6,260.1 386,271.5 371.7,267.1 373.6,260.1 "/>
-        var st84 = paper.path('M 373.6 260.1 L 386 271.5 L 371.7 267.1 L 373.6 260.1  Z').attr('fill', '#090509').attr('stroke', 'none');
-        // <polygon fill="#290808" points="365.9,273 386,271.5 371.7,267.1 365.9,273 "/>
-        var st85 = paper.path('M 365.9 273 L 386 271.5 L 371.7 267.1 L 365.9 273  Z').attr('fill', '#290808').attr('stroke', 'none');
-        // <polygon fill="#CCB285" points="373.6,260.1 386,271.5 408.3,269.9 373.6,260.1 "/>
-        var st86 = paper.path('M 373.6 260.1 L 386 271.5 L 408.3 269.9 L 373.6 260.1 Z').attr('fill', '#CCB285').attr('stroke', 'none');
-        // <polygon fill="#884E39" points="408.3,269.9 404.7,262.9 373.6,260.1 408.3,269.9 "/>
-        var st87 = paper.path('M 408.3 269.9 L 404.7 262.9 L 373.6 260.1 L 408.3,269.9  Z').attr('fill', '#884E39').attr('stroke', 'none');
-        // <polygon fill="#E0D6C0" points="410.7,263.6 408.3,269.9 446.9,304.7 410.7,263.6 "/>
-        var st88 = paper.path('M 410.7 263.6 L 408.3 269.9 L 446.9 304.7 L 410.7 263.6 Z').attr('fill', '#E0D6C0').attr('stroke', 'none');
-        // <polygon fill="#B38D60" points="408.3,269.9 414.5,253.2 404.7,262.9 408.3,269.9 "/>
-        var st89 = paper.path('M 408.3 269.9 L 414.5 253.2 L 404.7 262.9 L 408.3 269.9 Z').attr('fill', '#B38D60').attr('stroke', 'none');
-        // <polygon fill="#B9B67D" points="437.7,319.3 398,343.5 433.6,339.2 437.7,319.3 "/>
-        var st90 = paper.path('M 437.7 319.3 L 398 343.5 L 433.6 339.2 L 437.7 319.3 Z').attr('fill', '#B9B67D').attr('stroke', 'none');
-        // <polygon fill="#895331" points="433.6,339.2 446.9,304.7 437.7,319.3 433.6,339.2 "/>
-        var st91 = paper.path('M 433.6 339.2 L 446.9 304.7 L 437.7 319.3 L 433.6 339.2 Z').attr('fill', '#895331').attr('stroke', 'none');
-        // <polygon fill="#A07F4D" points="422.4,328.6 417,307 437.7,319.3 422.4,328.6 "/>
-        var st92 = paper.path('M 422.4 328.6 L 417 307 L 437.7 319.3 L 422.4 328.6 Z').attr('fill', '#A07F4D').attr('stroke', 'none');
-        // <polygon fill="#C2985B" points="326.1,254.7 300.4,287.5 285.3,248.5 326.1,254.7 "/>
-        var st93 = paper.path('M 326.1 254.7 L 300.4 287.5 L 285.3 248.5 L 326.1 254.7 Z').attr('fill', '#C2985B').attr('stroke', 'none');
-        // <polygon fill="#AF7B41" points="285.3,248.5 309.6,242 325.5,254.8 285.3,248.5 "/>
-        var st94 = paper.path('M 285.3 248.5 L 309.6 242 L 325.5 254.8 L 285.3 248.5 Z').attr('fill', '#AF7B41').attr('stroke', 'none');
-        // <polygon fill="#56171F" points="308.3,171.6 281.9,187.1 310.1,223.2 308.3,171.6 "/>
-        var st95 = paper.path('M 308.3 171.6 L 281.9 187.1 L 310.1 223.2 L 308.3 171.6 Z').attr('fill', '#56171F').attr('stroke', 'none');
-        // <polygon fill="#7A3827" points="282.9,213.7 264.7,216 257.9,248.5 282.9,213.7 "/>
-        var st96 = paper.path('M 282.9 213.7 L 264.7 216 L 257.9 248.5 L 282.9 213.7 Z').attr('fill', '#7A3827').attr('stroke', 'none');
-        // <polygon fill="#401616" points="308.3,171.6 310.1,223.2 326.7,177.7 308.3,171.6 "/>
-        var st97 = paper.path('M 308.3 171.6 L 310.1 223.2 L 326.7 177.7 L 308.3 171.6 Z').attr('fill', '#401616').attr('stroke', 'none');
-        //==============end lion================
-
-        return Beany.toSet([
-            st01, st02, st03, st04, st05, st06, st07, st08, st09, st10,
-            st11, st12, st13, st14, st15, st16, st17, st18, st19, st20,
-            st21, st22, st23, st24, st25, st26, st27, st28, st29, st30,
-            st31, st32, st33, st34, st35, st36, st37, st38, st39, st40,
-            st41, st42, st43, st44, st45, st46, st47, st48, st49, st50,
-            st51, st52, st53, st54, st55, st56, st57, st58, st59, st60,
-            st61, st62, st63, st64, st65, st66, st67, st68, st69, st70,
-            st71, st72, st73, st74, st75, st76, st77, st78, st79, st80,
-            st81, st82, st83, st84, st85, st86, st87, st88, st89, st90,
-            st91, st92, st93, st94, st95, st96, st97
-        ], paper);
+    drawLion: function (rsr) {
+        var path_a = rsr.path("M 521,390.301 295,204.301 421.333,187.19 521,390.301 521,390.301 521,390.301 521,390.301 z");
+        path_a.attr({fill: '#B58F4F', 'stroke-width': '0', 'stroke-opacity': '1'}).data('id', 'path_a');
+        var path_b = rsr.path("M 402,52.301 293.417,18.504 414,120.301 402,52.301 402,52.301 402,52.301 402,52.301 z");
+        path_b.attr({fill: '#CD9C4B', 'stroke-width': '0', 'stroke-opacity': '1'}).data('id', 'path_b');
+        var path_c = rsr.path("M 462.928,317.467 510.784,422.312 407.659,396.879 462.928,317.467 462.928,317.467 462.928,317.467 462.928,317.467 z");
+        path_c.attr({fill: '#986337', 'stroke-width': '0', 'stroke-opacity': '1'}).data('id', 'path_c');
+        var path_d = rsr.path("M 397.197,82.616 421.333,187.19 530,145.301 397.197,82.616 397.197,82.616 397.197,82.616 397.197,82.616 z");
+        path_d.attr({fill: '#CCA54E', 'stroke-width': '0', 'stroke-opacity': '1'}).data('id', 'path_d');
+        var path_e = rsr.path("M 467.456,116.205 494.076,158.563 528.892,93.399 467.456,116.205 467.456,116.205 467.456,116.205 467.456,116.205 z");
+        path_e.attr({fill: '#DABD69', 'stroke-width': '0', 'stroke-opacity': '1'}).data('id', 'path_e');
+        var path_f = rsr.path("M 470.397,289.319 393,227.301 395.924,275.192 470.397,289.319 470.397,289.319 470.397,289.319 470.397,289.319 z");
+        path_f.attr({fill: '#91623B', 'stroke-width': '0', 'stroke-opacity': '1'}).data('id', 'path_f');
+        var path_g = rsr.path("M 455.17,570.994 402.444,521.301 416.25,640.301 455.17,570.994 455.17,570.994 455.17,570.994 455.17,570.994 z");
+        path_g.attr({fill: '#692619', 'stroke-width': '0', 'stroke-opacity': '1'}).data('id', 'path_g');
+        var path_h = rsr.path("M 407.659,396.879 369.526,490.261 318.4,434.101 407.659,396.879 407.659,396.879 407.659,396.879 407.659,396.879 z");
+        path_h.attr({fill: '#C7AD6C', 'stroke-width': '0', 'stroke-opacity': '1'}).data('id', 'path_h');
+        var path_i = rsr.path("M 502.612,515.665 448.734,510.931 455.17,570.994 502.612,515.665 502.612,515.665 502.612,515.665 502.612,515.665 z");
+        path_i.attr({fill: '#8E5433', 'stroke-width': '0', 'stroke-opacity': '1'}).data('id', 'path_i');
+        var path_j = rsr.path("M 369.526,490.261 328.517,599.843 230.903,491.69 369.526,490.261 z");
+        path_j.attr({fill: '#7F3822', 'stroke-width': '0', 'stroke-opacity': '1'}).data('id', 'path_j');
+        var path_k = rsr.path("M 622.962,405.739 510.784,422.312 575.636,497.013 622.962,405.739 622.962,405.739 622.962,405.739 622.962,405.739 z");
+        path_k.attr({fill: '#BD924B', 'stroke-width': '0', 'stroke-opacity': '1'}).data('id', 'path_k');
+        var path_l = rsr.path("M 462.928,317.467 407.659,396.879 395.924,275.192 462.928,317.467 462.928,317.467 462.928,317.467 462.928,317.467 z");
+        path_l.attr({fill: '#8D5432', 'stroke-width': '0', 'stroke-opacity': '1'}).data('id', 'path_l');
+        var path_m = rsr.path("M 416.25,640.301 328.517,599.843 402.444,521.301 416.25,640.301 416.25,640.301 416.25,640.301 416.25,640.301 z");
+        path_m.attr({fill: '#5A1E15', 'stroke-width': '0', 'stroke-opacity': '1'}).data('id', 'path_m');
+        var path_n = rsr.path("M 416.25,640.301 347.955,750.821 328.517,599.843 416.25,640.301 416.25,640.301 416.25,640.301 416.25,640.301 z");
+        path_n.attr({fill: '#521810', 'stroke-width': '0', 'stroke-opacity': '1'}).data('id', 'path_n');
+        var path_o = rsr.path("M 331.634,357.034 227.227,362.25 225.295,259.479 331.634,357.034 331.634,357.034 331.634,357.034 331.634,357.034 z");
+        path_o.attr({fill: '#C9A155', 'stroke-width': '0', 'stroke-opacity': '1'}).data('id', 'path_o');
+        var path_p = rsr.path("M 281.031,644.398 178,670.301 230.903,491.69 281.031,644.398 281.031,644.398 281.031,644.398 281.031,644.398 z");
+        path_p.attr({fill: '#B6A054', 'stroke-width': '0', 'stroke-opacity': '1'}).data('id', 'path_p');
+        var path_q = rsr.path("M 281.031,644.398 230.903,491.69 328.517,599.843 281.031,644.398 281.031,644.398 281.031,644.398 281.031,644.398 z");
+        path_q.attr({fill: '#8B4B2B', 'stroke-width': '0', 'stroke-opacity': '1'}).data('id', 'path_q');
+        var path_r = rsr.path("M 495.238,320.828 510.784,422.312 462.928,317.467 495.238,320.828 495.238,320.828 495.238,320.828 495.238,320.828 z");
+        path_r.attr({fill: '#955C3B', 'stroke-width': '0', 'stroke-opacity': '1'}).data('id', 'path_r');
+        var path_s = rsr.path("M 514.333,288.634 592.217,295.557 539.87,231.674 514.333,288.634 514.333,288.634 514.333,288.634 514.333,288.634 z");
+        path_s.attr({fill: '#E5D591', 'stroke-width': '0', 'stroke-opacity': '1'}).data('id', 'path_s');
+        var path_t = rsr.path("M 175,318.301 0,334.301 227.227,362.25 175,318.301 175,318.301 175,318.301 175,318.301 z");
+        path_t.attr({fill: '#E2D187', 'stroke-width': '0', 'stroke-opacity': '1'}).data('id', 'path_t');
+        var path_u = rsr.path("M 161.204,225.14 242.207,178.344 225.295,259.479 161.204,225.14 161.204,225.14 161.204,225.14 161.204,225.14 z");
+        path_u.attr({fill: '#B58F4F', 'stroke-width': '0', 'stroke-opacity': '1'}).data('id', 'path_u');
+        var path_v = rsr.path("M 227.227,362.25 266.427,449.567 230.903,491.69 227.227,362.25 227.227,362.25 227.227,362.25 227.227,362.25 z");
+        path_v.attr({fill: '#BBA661', 'stroke-width': '0', 'stroke-opacity': '1'}).data('id', 'path_v');
+        var path_w = rsr.path("M 502.612,515.665 573.663,506.195 622.605,566.301 502.612,515.665 502.612,515.665 502.612,515.665 502.612,515.665 z");
+        path_w.attr({fill: '#D4D6B8', 'stroke-width': '0', 'stroke-opacity': '1'}).data('id', 'path_w');
+        var path_x = rsr.path("M 512.612,469.598 502.612,515.665 448.734,510.931 512.612,469.598 512.612,469.598 512.612,469.598 512.612,469.598 z");
+        path_x.attr({fill: '#8C4526', 'stroke-width': '0', 'stroke-opacity': '1'}).data('id', 'path_x');
+        var path_y = rsr.path("M 502.612,515.665 556,537.301 455.17,570.994 502.612,515.665 502.612,515.665 502.612,515.665 502.612,515.665 z");
+        path_y.attr({fill: '#A97F42', 'stroke-width': '0', 'stroke-opacity': '1'}).data('id', 'path_y');
+        var path_z = rsr.path("M 573.663,506.195 512.612,469.598 575.636,497.013 573.663,506.195 573.663,506.195 573.663,506.195 573.663,506.195 z");
+        path_z.attr({
+            fill: 'none',
+            stroke: '#E27529',
+            "stroke-width": '0.6',
+            "stroke-miterlimit": '10',
+            'stroke-opacity': '1'
+        }).data('id', 'path_z');
+        var path_aa = rsr.path("M 573.663,506.195 664.569,486.373 575.636,497.013 573.663,506.195 573.663,506.195 573.663,506.195 573.663,506.195 z");
+        path_aa.attr({fill: '#61261F', 'stroke-width': '0', 'stroke-opacity': '1'}).data('id', 'path_aa');
+        var path_ab = rsr.path("M 495.238,320.828 462.928,317.467 470.397,289.319 495.238,320.828 495.238,320.828 495.238,320.828 495.238,320.828 z");
+        path_ab.attr({fill: '#090509', 'stroke-width': '0', 'stroke-opacity': '1'}).data('id', 'path_ab');
+        var path_ac = rsr.path("M 470.397,289.319 395.924,275.192 462.928,317.467 470.397,289.319 470.397,289.319 470.397,289.319 470.397,289.319 z");
+        path_ac.attr({fill: '#A87D44', 'stroke-width': '0', 'stroke-opacity': '1'}).data('id', 'path_ac');
+        var path_ad = rsr.path("M 69,436.301 230.903,491.69 227.227,362.25 69,436.301 69,436.301 69,436.301 69,436.301 z");
+        path_ad.attr({fill: '#CAB160', 'stroke-width': '0', 'stroke-opacity': '1'}).data('id', 'path_ad');
+        var path_ae = rsr.path("M 470.397,289.319 514.653,288.598 509.901,305.994 470.397,289.319 470.397,289.319 470.397,289.319 470.397,289.319 z");
+        path_ae.attr({fill: '#B63D1A', 'stroke-width': '0', 'stroke-opacity': '1'}).data('id', 'path_ae');
+        var path_af = rsr.path("M 470.397,289.319 509.901,305.994 495.238,320.828 470.397,289.319 470.397,289.319 470.397,289.319 470.397,289.319 z");
+        path_af.attr({fill: '#D34C1F', 'stroke-width': '0', 'stroke-opacity': '1'}).data('id', 'path_af');
+        var path_ag = rsr.path("M 369.526,490.261 448.734,510.931 455.17,570.994 369.526,490.261 369.526,490.261 369.526,490.261 369.526,490.261 z");
+        path_ag.attr({fill: '#773522', 'stroke-width': '0', 'stroke-opacity': '1'}).data('id', 'path_ag');
+        var path_ah = rsr.path("M 510.784,422.312 512.612,469.598 407.659,396.879 510.784,422.312 510.784,422.312 510.784,422.312 510.784,422.312 z");
+        path_ah.attr({fill: '#8F4125', 'stroke-width': '0', 'stroke-opacity': '1'}).data('id', 'path_ah');
+        var path_ai = rsr.path("M 369.526,490.261 328.517,599.843 402.444,521.301 369.526,490.261 369.526,490.261 369.526,490.261 369.526,490.261 z");
+        path_ai.attr({fill: '#A4653C', 'stroke-width': '0', 'stroke-opacity': '1'}).data('id', 'path_ai');
+        var path_aj = rsr.path("M 266.427,449.567 369.526,490.261 230.903,491.69 266.427,449.567 266.427,449.567 266.427,449.567 266.427,449.567 z");
+        path_aj.attr({fill: '#A4653C', 'stroke-width': '0', 'stroke-opacity': '1'}).data('id', 'path_aj');
+        var path_ak = rsr.path("M 266.427,449.567 318.4,434.101 369.526,490.261 266.427,449.567 266.427,449.567 266.427,449.567 266.427,449.567 z");
+        path_ak.attr({fill: '#9E6D3A', 'stroke-width': '0', 'stroke-opacity': '1'}).data('id', 'path_ak');
+        var path_al = rsr.path("M 512.612,469.598 407.659,396.879 369.526,490.261 512.612,469.598 512.612,469.598 512.612,469.598 512.612,469.598 z");
+        path_al.attr({fill: '#7F381F', 'stroke-width': '0', 'stroke-opacity': '1'}).data('id', 'path_al');
+        var path_am = rsr.path("M 331.634,357.034 318.4,434.101 407.659,396.879 331.634,357.034 331.634,357.034 331.634,357.034 331.634,357.034 z");
+        path_am.attr({fill: '#C09C51', 'stroke-width': '0', 'stroke-opacity': '1'}).data('id', 'path_am');
+        var path_an = rsr.path("M 331.634,357.034 227.227,362.25 318.4,434.101 331.634,357.034 331.634,357.034 331.634,357.034 331.634,357.034 z");
+        path_an.attr({fill: '#A88248', 'stroke-width': '0', 'stroke-opacity': '1'}).data('id', 'path_an');
+        var path_ao = rsr.path("M 266.427,449.567 227.227,362.25 318.4,434.101 266.427,449.567 266.427,449.567 266.427,449.567 266.427,449.567 z");
+        path_ao.attr({fill: '#BA8F4B', 'stroke-width': '0', 'stroke-opacity': '1'}).data('id', 'path_ao');
+        var path_ap = rsr.path("M 285.273,106.136 79,52.301 153,126.301 285.273,106.136 285.273,106.136 285.273,106.136 285.273,106.136 z");
+        path_ap.attr({fill: '#784A40', 'stroke-width': '0', 'stroke-opacity': '1'}).data('id', 'path_ap');
+        var path_aq = rsr.path("M 369.526,490.261 512.612,469.598 448.734,510.931 369.526,490.261 369.526,490.261 369.526,490.261 369.526,490.261 z");
+        path_aq.attr({fill: '#986936', 'stroke-width': '0', 'stroke-opacity': '1'}).data('id', 'path_aq');
+        var path_ar = rsr.path("M 622.962,405.739 601.384,313.208 697.667,399.301 622.962,405.739 622.962,405.739 622.962,405.739 622.962,405.739 z");
+        path_ar.attr({fill: '#BDA564', 'stroke-width': '0', 'stroke-opacity': '1'}).data('id', 'path_ar');
+        var path_as = rsr.path("M 175,318.301 227.227,362.25 225.295,259.479 175,318.301 175,318.301 175,318.301 175,318.301 z");
+        path_as.attr({fill: '#AC7F45', 'stroke-width': '0', 'stroke-opacity': '1'}).data('id', 'path_as');
+        var path_at = rsr.path("M 175,318.301 225.295,259.479 61.744,267.972 175,318.301 175,318.301 175,318.301 175,318.301 z");
+        path_at.attr({fill: '#A4653C', 'stroke-width': '0', 'stroke-opacity': '1'}).data('id', 'path_at');
+        var path_au = rsr.path("M 44.253,221.782 161.204,225.14 225.295,259.479 44.253,221.782 44.253,221.782 44.253,221.782 44.253,221.782 z");
+        path_au.attr({fill: '#A4653C', 'stroke-width': '0', 'stroke-opacity': '1'}).data('id', 'path_au');
+        var path_av = rsr.path("M 100,153.051 161.204,225.14 242.207,178.344 100,153.051 100,153.051 100,153.051 100,153.051 z");
+        path_av.attr({fill: '#561F22', 'stroke-width': '0', 'stroke-opacity': '1'}).data('id', 'path_av');
+        var path_aw = rsr.path("M 151.452,125.437 359.333,95.634 294,207.967 151.452,125.437 151.452,125.437 151.452,125.437 151.452,125.437 z");
+        path_aw.attr({fill: '#B78645', 'stroke-width': '0', 'stroke-opacity': '1'}).data('id', 'path_aw');
+        var path_ax = rsr.path("M 421.333,187.19 544.207,187.742 539.87,231.674 421.333,187.19 421.333,187.19 421.333,187.19 421.333,187.19 z");
+        path_ax.attr({fill: '#B4904B', 'stroke-width': '0', 'stroke-opacity': '1'}).data('id', 'path_ax');
+        var path_ay = rsr.path("M 421.333,187.19 544.207,187.742 494.076,158.563 421.333,187.19 421.333,187.19 421.333,187.19 421.333,187.19 z");
+        path_ay.attr({fill: '#B4863E', 'stroke-width': '0', 'stroke-opacity': '1'}).data('id', 'path_ay');
+        var path_az = rsr.path("M 545.518,316.986 510.784,422.312 495.238,320.828 545.518,316.986 545.518,316.986 545.518,316.986 545.518,316.986 z");
+        path_az.attr({fill: '#CFCA9A', 'stroke-width': '0', 'stroke-opacity': '1'}).data('id', 'path_az');
+        var path_ba = rsr.path("M 494.076,158.563 528.892,93.399 544.207,187.742 494.076,158.563 494.076,158.563 494.076,158.563 494.076,158.563 z");
+        path_ba.attr({fill: '#E4CD80', 'stroke-width': '0', 'stroke-opacity': '1'}).data('id', 'path_ba');
+        var path_bb = rsr.path("M 397.197,82.616 355.826,196.239 421.333,187.19 397.197,82.616 397.197,82.616 397.197,82.616 397.197,82.616 z");
+        path_bb.attr({fill: '#762D1E', 'stroke-width': '0', 'stroke-opacity': '1'}).data('id', 'path_bb');
+        var path_bc = rsr.path("M 285.273,106.136 287.87,172.502 355.826,196.239 285.273,106.136 285.273,106.136 285.273,106.136 285.273,106.136 z");
+        path_bc.attr({fill: '#D6BE75', 'stroke-width': '0', 'stroke-opacity': '1'}).data('id', 'path_bc');
+        var path_bd = rsr.path("M 492,558.301 474,612.301 455.17,570.994 492,558.301 492,558.301 492,558.301 492,558.301 z");
+        path_bd.attr({fill: '#A26E36', 'stroke-width': '0', 'stroke-opacity': '1'}).data('id', 'path_bd');
+        var path_be = rsr.path("M 225.295,259.479 287.87,172.502 331.634,357.034 225.295,259.479 225.295,259.479 225.295,259.479 225.295,259.479 z");
+        path_be.attr({fill: '#FEF2C7', 'stroke-width': '0', 'stroke-opacity': '1'}).data('id', 'path_be');
+        var path_bf = rsr.path("M 407.659,396.879 395.924,275.192 331.634,357.034 407.659,396.879 407.659,396.879 407.659,396.879 407.659,396.879 z");
+        path_bf.attr({fill: '#9A7040', 'stroke-width': '0', 'stroke-opacity': '1'}).data('id', 'path_bf');
+        var path_bg = rsr.path("M 587.65,236.933 544.207,187.742 539.87,231.674 587.65,236.933 587.65,236.933 587.65,236.933 587.65,236.933 z");
+        path_bg.attr({fill: '#DCC193', 'stroke-width': '0', 'stroke-opacity': '1'}).data('id', 'path_bg');
+        var path_bh = rsr.path("M 636.667,459.759 575.636,497.013 622.962,405.739 636.667,459.759 636.667,459.759 636.667,459.759 636.667,459.759 z");
+        path_bh.attr({fill: '#AC8148', 'stroke-width': '0', 'stroke-opacity': '1'}).data('id', 'path_bh');
+        var path_bi = rsr.path("M 287.87,172.502 293.917,259.634 354.613,243.232 287.87,172.502 287.87,172.502 287.87,172.502 287.87,172.502 z");
+        path_bi.attr({fill: '#89462B', 'stroke-width': '0', 'stroke-opacity': '1'}).data('id', 'path_bi');
+        var path_bj = rsr.path("M 354.613,243.232 355.826,196.239 287.87,172.502 354.613,243.232 354.613,243.232 354.613,243.232 354.613,243.232 z");
+        path_bj.attr({fill: '#AC8245', 'stroke-width': '0', 'stroke-opacity': '1'}).data('id', 'path_bj');
+        var path_bk = rsr.path("M 355.826,196.239 394,228.301 354.613,243.232 355.826,196.239 355.826,196.239 355.826,196.239 355.826,196.239 z");
+        path_bk.attr({fill: '#854F33', 'stroke-width': '0', 'stroke-opacity': '1'}).data('id', 'path_bk');
+        var path_bl = rsr.path("M 592.217,295.557 616.868,271.463 587.65,236.933 592.217,295.557 592.217,295.557 592.217,295.557 592.217,295.557 z");
+        path_bl.attr({fill: '#E9E3D7', 'stroke-width': '0', 'stroke-opacity': '1'}).data('id', 'path_bl');
+        var path_bm = rsr.path("M 539.87,231.674 587.65,236.933 592.217,295.557 539.87,231.674 539.87,231.674 539.87,231.674 539.87,231.674 z");
+        path_bm.attr({fill: '#B17D4E', 'stroke-width': '0', 'stroke-opacity': '1'}).data('id', 'path_bm');
+        var path_bn = rsr.path("M 470.397,289.319 421.333,187.19 539.87,231.674 470.397,289.319 470.397,289.319 470.397,289.319 470.397,289.319 z");
+        path_bn.attr({fill: '#CDC584', 'stroke-width': '0', 'stroke-opacity': '1'}).data('id', 'path_bn');
+        var path_bo = rsr.path("M 470.397,289.319 514.653,288.598 539.87,231.674 470.397,289.319 470.397,289.319 470.397,289.319 470.397,289.319 z");
+        path_bo.attr({fill: '#B68F4F', 'stroke-width': '0', 'stroke-opacity': '1'}).data('id', 'path_bo');
+        var path_bp = rsr.path("M 467.456,116.205 528.892,93.399 507.055,55.124 467.456,116.205 467.456,116.205 467.456,116.205 467.456,116.205 z");
+        path_bp.attr({fill: '#F6E1B2', 'stroke-width': '0', 'stroke-opacity': '1'}).data('id', 'path_bp');
+        var path_bq = rsr.path("M 467.59,48.449 454.096,12.75 507.055,55.124 467.59,48.449 467.59,48.449 467.59,48.449 467.59,48.449 z");
+        path_bq.attr({fill: '#D6DBB6', 'stroke-width': '0', 'stroke-opacity': '1'}).data('id', 'path_bq');
+        var path_br = rsr.path("M 467.456,116.205 399.06,10.837 507.055,55.124 467.456,116.205 467.456,116.205 467.456,116.205 467.456,116.205 z");
+        path_br.attr({fill: '#A99253', 'stroke-width': '0', 'stroke-opacity': '1'}).data('id', 'path_br');
+        var path_bs = rsr.path("M 397.197,82.616 369.842,3.187 406.816,22.843 397.197,82.616 397.197,82.616 397.197,82.616 397.197,82.616 z");
+        path_bs.attr({fill: '#E1D080', 'stroke-width': '0', 'stroke-opacity': '1'}).data('id', 'path_bs');
+        var path_bt = rsr.path("M 467.456,116.205 397.197,82.616 406.816,22.843 467.456,116.205 467.456,116.205 467.456,116.205 467.456,116.205 z");
+        path_bt.attr({fill: '#7D402D', 'stroke-width': '0', 'stroke-opacity': '1'}).data('id', 'path_bt');
+        var path_bu = rsr.path("M 373.985,16.043 322.88,0 397.197,82.616 373.985,16.043 373.985,16.043 373.985,16.043 373.985,16.043 z");
+        path_bu.attr({fill: '#E9DC8C', 'stroke-width': '0', 'stroke-opacity': '1'}).data('id', 'path_bu');
+        var path_bv = rsr.path("M 351.189,67.297 219.071,33.608 285.273,106.136 351.189,67.297 351.189,67.297 351.189,67.297 351.189,67.297 z");
+        path_bv.attr({fill: '#622B2B', 'stroke-width': '0', 'stroke-opacity': '1'}).data('id', 'path_bv');
+        var path_bw = rsr.path("M 512.612,469.598 502.612,515.665 573.663,506.195 512.612,469.598 512.612,469.598 512.612,469.598 512.612,469.598 z");
+        path_bw.attr({fill: '#7D2C1E', 'stroke-width': '0', 'stroke-opacity': '1'}).data('id', 'path_bw');
+        var path_bx = rsr.path("M 512.612,469.598 510.784,422.312 575.636,497.013 512.612,469.598 512.612,469.598 512.612,469.598 512.612,469.598 z");
+        path_bx.attr({fill: '#AA7237', 'stroke-width': '0', 'stroke-opacity': '1'}).data('id', 'path_bx');
+        var path_by = rsr.path("M 573.663,506.195 664.569,486.373 622.605,566.301 573.663,506.195 573.663,506.195 573.663,506.195 573.663,506.195 z");
+        path_by.attr({fill: '#FCFAED', 'stroke-width': '0', 'stroke-opacity': '1'}).data('id', 'path_by');
+        var path_bz = rsr.path("M 573.663,506.195 512.612,469.598 575.636,497.013 573.663,506.195 573.663,506.195 573.663,506.195 573.663,506.195 z");
+        path_bz.attr({fill: '#220C09', 'stroke-width': '0', 'stroke-opacity': '1'}).data('id', 'path_bz');
+        var path_ca = rsr.path("M 573.663,506.195 664.569,486.373 575.636,497.013 573.663,506.195 573.663,506.195 573.663,506.195 573.663,506.195 z");
+        path_ca.attr({
+            fill: 'none',
+            stroke: '#E27529',
+            "stroke-width": '0.6',
+            "stroke-miterlimit": '10',
+            'stroke-opacity': '1'
+        }).data('id', 'path_ca');
+        var path_cb = rsr.path("M 622.962,405.739 678.033,408.176 674.767,436.601 622.962,405.739 622.962,405.739 622.962,405.739 622.962,405.739 z");
+        path_cb.attr({fill: '#461D22', 'stroke-width': '0', 'stroke-opacity': '1'}).data('id', 'path_cb');
+        var path_cc = rsr.path("M 697.889,399.995 678.033,408.176 674.767,436.601 697.889,399.995 697.889,399.995 697.889,399.995 697.889,399.995 z");
+        path_cc.attr({fill: '#693F51', 'stroke-width': '0', 'stroke-opacity': '1'}).data('id', 'path_cc');
+        var path_cd = rsr.path("M 545.518,316.986 510.784,422.312 622.962,405.739 545.518,316.986 545.518,316.986 545.518,316.986 545.518,316.986 z");
+        path_cd.attr({fill: '#9D7441', 'stroke-width': '0', 'stroke-opacity': '1'}).data('id', 'path_cd');
+        var path_ce = rsr.path("M 545.518,316.986 601.384,313.208 622.962,405.739 545.518,316.986 545.518,316.986 545.518,316.986 545.518,316.986 z");
+        path_ce.attr({fill: '#B5A164', 'stroke-width': '0', 'stroke-opacity': '1'}).data('id', 'path_ce');
+        var path_cf = rsr.path("M 514.653,288.598 545.518,316.986 509.917,306.051 514.653,288.598 514.653,288.598 514.653,288.598 514.653,288.598 z");
+        path_cf.attr({fill: '#090509', 'stroke-width': '0', 'stroke-opacity': '1'}).data('id', 'path_cf');
+        var path_cg = rsr.path("M 495.238,320.828 545.518,316.986 509.917,306.051 495.238,320.828 495.238,320.828 495.238,320.828 495.238,320.828 z");
+        path_cg.attr({fill: '#290808', 'stroke-width': '0', 'stroke-opacity': '1'}).data('id', 'path_cg');
+        var path_ch = rsr.path("M 514.653,288.598 545.518,316.986 601.384,313.208 514.653,288.598 514.653,288.598 514.653,288.598 514.653,288.598 z");
+        path_ch.attr({fill: '#CCB285', 'stroke-width': '0', 'stroke-opacity': '1'}).data('id', 'path_ch');
+        var path_ci = rsr.path("M 601.384,313.208 592.217,295.557 514.653,288.598 601.384,313.208 601.384,313.208 601.384,313.208 601.384,313.208 z");
+        path_ci.attr({fill: '#884E39', 'stroke-width': '0', 'stroke-opacity': '1'}).data('id', 'path_ci');
+        var path_cj = rsr.path("M 607.333,297.301 601.384,313.208 697.889,399.995 607.333,297.301 607.333,297.301 607.333,297.301 607.333,297.301 z");
+        path_cj.attr({fill: '#E0D6C0', 'stroke-width': '0', 'stroke-opacity': '1'}).data('id', 'path_cj');
+        var path_ck = rsr.path("M 601.384,313.208 616.868,271.463 592.217,295.557 601.384,313.208 601.384,313.208 601.384,313.208 601.384,313.208 z");
+        path_ck.attr({fill: '#B38D60', 'stroke-width': '0', 'stroke-opacity': '1'}).data('id', 'path_ck');
+        var path_cl = rsr.path("M 674.767,436.601 575.636,497.013 664.569,486.373 674.767,436.601 674.767,436.601 674.767,436.601 674.767,436.601 z");
+        path_cl.attr({fill: '#B9B67D', 'stroke-width': '0', 'stroke-opacity': '1'}).data('id', 'path_cl');
+        var path_cm = rsr.path("M 664.569,486.373 697.889,399.995 674.767,436.601 664.569,486.373 664.569,486.373 664.569,486.373 664.569,486.373 z");
+        path_cm.attr({fill: '#895331', 'stroke-width': '0', 'stroke-opacity': '1'}).data('id', 'path_cm');
+        var path_cn = rsr.path("M 636.667,459.759 622.962,405.739 674.767,436.601 636.667,459.759 636.667,459.759 636.667,459.759 636.667,459.759 z");
+        path_cn.attr({fill: '#A07F4D', 'stroke-width': '0', 'stroke-opacity': '1'}).data('id', 'path_cn');
+        var path_co = rsr.path("M 395.924,275.192 331.634,357.034 293.917,259.634 395.924,275.192 395.924,275.192 395.924,275.192 395.924,275.192 z");
+        path_co.attr({fill: '#C2985B', 'stroke-width': '0', 'stroke-opacity': '1'}).data('id', 'path_co');
+        var path_cp = rsr.path("M 293.917,259.634 354.613,243.232 394.333,275.301 293.917,259.634 293.917,259.634 293.917,259.634 293.917,259.634 z");
+        path_cp.attr({fill: '#AF7B41', 'stroke-width': '0', 'stroke-opacity': '1'}).data('id', 'path_cp');
+        var path_cq = rsr.path("M 351.189,67.297 285.273,106.136 355.826,196.239 351.189,67.297 351.189,67.297 351.189,67.297 351.189,67.297 z");
+        path_cq.attr({fill: '#56171F', 'stroke-width': '0', 'stroke-opacity': '1'}).data('id', 'path_cq');
+        var path_cr = rsr.path("M 287.87,172.502 242.207,178.344 225.295,259.479 287.87,172.502 287.87,172.502 287.87,172.502 287.87,172.502 z");
+        path_cr.attr({fill: '#7A3827', 'stroke-width': '0', 'stroke-opacity': '1'}).data('id', 'path_cr');
+        var path_cs = rsr.path("M 351.189,67.297 355.826,196.239 397.197,82.616 351.189,67.297 351.189,67.297 351.189,67.297 351.189,67.297 z");
+        path_cs.attr({fill: '#401616', 'stroke-width': '0', 'stroke-opacity': '1'}).data('id', 'path_cs');
+        var _x3C_Slice_x3E_ = rsr.path("M -0.864,749.536 -0.864,0.536 695.136,0.536 695.136,749.536 -0.864,749.536 -0.864,749.536 -0.864,749.536 -0.864,749.536 z");
+        _x3C_Slice_x3E_.attr({
+            id: '_x3C_Slice_x3E_',
+            fill: 'none',
+            'stroke-width': '0',
+            'stroke-opacity': '1'
+        }).data('id', '_x3C_Slice_x3E_');
+        return Beany.toSet([path_a, path_b, path_c, path_d, path_e, path_f, path_g, path_h, path_i, path_j, path_k, path_l, path_m, path_n,
+            path_o, path_p, path_q, path_r, path_s, path_t, path_u, path_v, path_w, path_x, path_y, path_x, path_z,
+            path_aa, path_ab, path_ac, path_ad, path_ae, path_af, path_ag, path_ah, path_ai, path_aj, path_ak, path_al, path_am, path_an,
+            path_ao, path_ap, path_aq, path_ar, path_as, path_at, path_au, path_av, path_aw, path_ax, path_ay, path_ax, path_az,
+            path_ba, path_bb, path_bc, path_bd, path_be, path_bf, path_bg, path_bh, path_bi, path_bj, path_bk, path_bl, path_bm, path_bn,
+            path_bo, path_bp, path_bq, path_br, path_bs, path_bt, path_bu, path_bv, path_bw, path_bx, path_by, path_bx, path_bz,
+            path_ca, path_cb, path_cc, path_cd, path_ce, path_cf, path_cg, path_ch, path_ci, path_cj, path_ck, path_cl, path_cm, path_cn,
+            path_co, path_cp, path_cq, path_cr, path_cs, _x3C_Slice_x3E_], rsr);
     },
     drawHeading: function (paper) {
-        var txt1 = paper.text(jQuery(window).width() / 2 - 90, jQuery(window).height() / 2 + 100, "5 ").attr({
+        var txt1 = paper.text(jQuery(window).width() / 2 - 200, jQuery(window).height() / 2 + 180, "5 ");
+        var txt2 = paper.text(jQuery(window).width() / 2 - 75, jQuery(window).height() / 2 + 180, "PROJECTS");
+        var txt3 = paper.text(jQuery(window).width() / 2 - 75, jQuery(window).height() / 2 + 190, "YEARS");
+        var txt4 = paper.text(jQuery(window).width() / 2 - 20, jQuery(window).height() / 2 + 270, "WITH");
+        var txt5 = paper.text(jQuery(window).width() / 2 + 140, jQuery(window).height() / 2 + 270, "SUTUNAM");
+
+        var big_txt = paper.set(txt1, txt2, txt3);
+        var small_txt = paper.set(txt4, txt5);
+
+        big_txt.attr({
             "fill": "#fff",
+            "font-size": 100,
             "text-anchor": "start",
-            "font-family": "gotham-xlight",
-            "font-weight": "100",
-            "font-size": 50,
+            "font-family": "gotham-exlight",
+            "letter-spacing": "2px",
             "opacity": 0
         });
-        var txt2 = paper.text(jQuery(window).width() / 2 - 55, jQuery(window).height() / 2 + 100, "PROJECTS").attr({
-            "fill": "#fff",
-            "text-anchor": "start",
-            "font-family": "gotham-xlight",
-            "font-size": 50,
-            "opacity": 0
-        });
-        var txt3 = paper.text(jQuery(window).width() / 2 - 55, jQuery(window).height() / 2 + 140, "YEARS").attr({
-            "fill": "#fff",
-            "text-anchor": "start",
-            "font-family": "gotham-xlight",
-            "font-size": 50,
-            "opacity": 0
-        });
-        var txt4 = paper.text(jQuery(window).width() / 2 - 50, jQuery(window).height() / 2 + 160, "WITH SUTUNAM").attr({
-            "fill": "#393939",
-            "text-anchor": "start",
-            "font-family": "gotham-xlight",
-            "font-size": 18,
-            "opacity": 0
-        });
-        var txt_set = paper.set(txt1, txt2, txt4);
+        small_txt.attr({"fill": "brown", "font-size": 35, "font-family": "gotham-bold", "opacity": 1});
+        var txt_set = paper.set(txt1, txt2);
         var faded_txt = Raphael.animation({transform: 't0' + ',-20', opacity: 1}, 2000, function () {
             Beany.transformEffect(txt2, txt3);
         });
@@ -270,6 +261,96 @@ var Beany = {
 
         return paper.set([txt1, txt2, txt3, txt4]);
     },
+    drawBtn: function (paper) {
+        var path_a = paper.path("M24,30c0,5.5-4.5,10-10,10h-4C4.5,40,0,35.5,0,30V10 C0,4.5,4.5,0,10,0h4c5.5,0,10,4.5,10,10V30z");
+        path_a.attr({
+            fill: 'none',
+            stroke: '#000000',
+            "stroke-miterlimit": '10',
+            'stroke-width': '1',
+            'stroke-opacity': '1'
+        }).data('id', 'path_a');
+        var path_b = paper.path("M16,17.7c0,1.8-1.5,3.3-3.3,3.3h-1.5C9.5,21,8,19.5,8,17.7V9.3 C8,7.5,9.5,6,11.3,6h1.5C14.5,6,16,7.5,16,9.3V17.7z");
+        path_b.attr({
+            fill: '#393939',
+            stroke: '#000000',
+            "stroke-miterlimit": '10',
+            'stroke-width': '0',
+            'stroke-opacity': '1'
+        }).data('id', 'path_b');
+        var ellipse_c = paper.ellipse(12.7, 9.5, 2.2, 2.5);
+        ellipse_c.attr({
+            fill: '#FFFFFF',
+            stroke: '#000000',
+            "stroke-miterlimit": '10',
+            'stroke-width': '0',
+            'stroke-opacity': '1'
+        }).data('id', 'ellipse_c');
+        var tbn_el = paper.set(path_a, path_b, ellipse_c);
+        tbn_el.attr({"transform": "t" + (jQuery(window).width() / 2 - 10) + "," + (jQuery(window).height() / 1.15)});
+
+
+    },
+    drawBackground: function (rsr) {
+        var path_a = rsr.path("M 38.896,176.805 215.519,219.662 29.805,302.779 z");
+        path_a.attr({
+            fill: '#E65525',
+            'stroke-width': '0',
+            'stroke-opacity': '1',
+            'transform': 't0,700 s2,2 r45',
+            'opacity': 0
+        }).data('id', 'path_a');
+        var path_a_animated = Raphael.animation({'transform': 't0,600 s2,2 r0', 'opacity': 1}, 5000, "easeInOut");
+        path_a.animate(path_a_animated);
+
+        var path_b = rsr.path("M 393.442,359.273 363.571,458.623 489.545,422.909 z");
+        path_b.attr({
+            fill: '#E65525',
+            'stroke-width': '0',
+            'stroke-opacity': '1',
+            'transform': 't1300,800 s2,2',
+            'opacity': 0
+        }).data('id', 'path_b');
+        var path_b_animated = Raphael.animation({'transform': 't1300,600 s2,2 r0', 'opacity': 1}, 5000, "easeInOut");
+        path_b.animate(path_b_animated);
+
+        var path_c = rsr.path("M 246.688,538.494 192.143,542.39 227.857,478.753 z");
+        path_c.attr({
+            fill: '#E65525',
+            'stroke-width': '0',
+            'stroke-opacity': '1',
+            'transform': 't200,300 s2,2',
+            'opacity': 0
+        }).data('id', 'path_c');
+        var path_c_animated = Raphael.animation({'transform': 't200,-200 s2,2', 'opacity': 1}, 5000, "easeInOut");
+        path_c.animate(path_c_animated);
+
+        var path_d = rsr.path("M 206.429,95.636 219.416,56.675 259.026,119.013 z");
+        path_d.attr({
+            fill: '#E65525',
+            'stroke-width': '0',
+            'stroke-opacity': '1',
+            'transform': 't1300,-200 s2,2 r0',
+            'opacity': 1
+        }).data('id', 'path_d');
+        var path_d_animated = Raphael.animation({'transform': 't1300,-100 s2,2 r0', 'opacity': 1}, 5000, "easeInOut");
+        path_d.animate(path_d_animated);
+
+        var path_e = rsr.path("M 414.221,156.675 413.571,168.364 426.558,162.519 z");
+        path_e.attr({fill: '#E65525', 'stroke-width': '0', 'stroke-opacity': '1'}).data('id', 'path_e');
+
+        var path_f = rsr.path("M 502.532,4.078 405.13,56.675 511.623,43.039 z");
+        path_f.attr({
+            fill: '#E65525',
+            'stroke-width': '0',
+            'stroke-opacity': '1',
+            'transform': 't1300,100 s2,2',
+            'opacity': 0
+        }).data('id', 'path_f');
+        var path_f_animated = Raphael.animation({'transform': 't1300,0 s2,2 r0', 'opacity': 1}, 5000, "easeInOut");
+        path_f.animate(path_f_animated);
+    }
+    ,
     toSet: function (arr, paper) {
         var _set = paper.set();
         for (var i = 0; i < arr.length; i++) {
@@ -279,7 +360,7 @@ var Beany = {
     },
     transformEffect: function (from_txt, to_txt) {
         var from_txt_move_to = Raphael.animation({transform: 't0' + ',-40', opacity: 0}, 1100, function () {
-            var to_txt_move_to = Raphael.animation({transform: 't0' + ',-60', opacity: 1}, 1100);
+            var to_txt_move_to = Raphael.animation({transform: 't0' + ',-30', opacity: 1}, 1100);
             to_txt.animate(to_txt_move_to)
         });
         from_txt.animate(from_txt_move_to.delay(10));
@@ -299,6 +380,10 @@ var Beany = {
             if (index % 18 == 0) x = 1000, y = -500;
             if (index % 18 == 0) x = 500, y = -1000;
             if (index % 19 == 0) x = -500, y = -1000;
+            if (index % 20 == 0) x = -200, y = -1000;
+            if (index % 21 == 0) x = 200, y = 1000;
+            if (index % 23 == 0) x = -200, y = -1000;
+            if (index % 25 == 0) x = 200, y = 1000;
             var exploded_object = Raphael.animation({transform: 't' + x + ',' + y, opacity: 0}, 0, function () {
                 var _recombined_effect = Raphael.animation({transform: transform, opacity: 1}, 2900);
                 element.animate(_recombined_effect)
@@ -327,9 +412,11 @@ var Beany = {
 
 jQuery(window).load(function () {
     var paper = Beany.getPaperSingleton("container", jQuery(window).width(), jQuery(window).height());
+    Beany.drawBackground(paper);
     var lion = Beany.drawLion(paper);
     var heading = Beany.drawHeading(paper);
-    Beany.recombine(lion, 't' + (jQuery(window).width() / 2 - 300) + ',0');
+    var btn = Beany.drawBtn(paper);
+    Beany.recombine(lion, 't' + (jQuery(window).width() / 2 - 360) + ',100');
 
     jQuery('.scroll-down').click(function () {
         Beany.floatUp(lion, (jQuery(window).width() / 2 - 300));

@@ -1,5 +1,5 @@
 @font-face {
-    font-family: "../fonts/gotham-light";
+    font-family: "gotham-light";
     src: url("../fonts/gothamlight.eot");
     src: url("../fonts/gothamlight.eot#iefix") format("embedded-opentype"),
     url("../fonts/gothamlight.woff") format("woff"),
@@ -10,7 +10,7 @@
 }
 
 @font-face {
-    font-family: "../fonts/gotham-medium";
+    font-family: "gotham-medium";
     src: url("../fonts/gotham-medium.eot");
     src: url("../fonts/gotham-medium.eot#iefix") format("embedded-opentype"),
     url("../fonts/gotham-medium.woff") format("woff"),
@@ -21,7 +21,7 @@
 }
 
 @font-face {
-    font-family: "../fonts/gotham-book";
+    font-family: "gotham-book";
     src: url("../fonts/gotham-book.eot");
     src: url("../fonts/gotham-book.eot#iefix") format("embedded-opentype"),
     url("../fonts/gotham-book.woff") format("woff"),
@@ -32,7 +32,7 @@
 }
 
 @font-face {
-    font-family: "../fonts/gotham-bold";
+    font-family: "gotham-bold";
     src: url("../fonts/gotham-bold.eot");
     src: url("../fonts/gotham-bold.eot#iefix") format("embedded-opentype"),
     url("../fonts/gotham-bold.woff") format("woff"),
@@ -43,7 +43,7 @@
 }
 
 @font-face {
-    font-family: "../fonts/gotham-xlight";
+    font-family: "fonts/gotham-xlight";
     src: url("../fonts/gotham-xlight.eot");
     src: url("../fonts/gotham-xlight.eot#iefix") format("embedded-opentype"),
     url("../fonts/gotham-xlight.woff") format("woff"),
@@ -53,8 +53,18 @@
     font-style: normal;
 }
 
+@font-face {
+    font-family: "gotham-exlight";
+    src: url("../fonts/gothamexlight.eot");
+    src: url("../fonts/gothamexlight.eot#iefix") format("embedded-opentype"),
+    url("../fonts/gothamexlight.woff") format("woff"),
+    url("../fonts/gothamexlight.ttf") format("truetype"),
+    url("../fonts/gothamexlight.svg") format("svg");
+    font-weight: normal;
+    font-style: normal;
+}
 * {
-    font-family: 'gotham-xlight', sans-serif;
+    font-family: 'gotham-exlight', arial, helvetica, sans-serif;
     box-sizing: border-box;
 }
 body {
