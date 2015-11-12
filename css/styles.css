@@ -68,7 +68,7 @@
     box-sizing: border-box;
 }
 body {
-    background: #D74D26;
+    /*background: #D74D26;*/
     padding: 0;
     overflow: hidden;
     position: relative;

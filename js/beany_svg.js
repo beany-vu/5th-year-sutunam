@@ -14,6 +14,12 @@ var Beany = {
         }
         return _paper;
     },
+    drawBg: function(paper) {
+        var rect = paper.rect(0, 0, '100%', '100%');
+        rect.attr("fill", "#D74D26");
+        rect.attr("stroke", "none");
+        return rect;
+    },
     drawLion: function (rsr) {
         var path_a = rsr.path("M 521,390.301 295,204.301 421.333,187.19 521,390.301 521,390.301 521,390.301 521,390.301 z");
         path_a.attr({fill: '#B58F4F', 'stroke-width': '0', 'stroke-opacity': '1'}).data('id', 'path_a');
@@ -411,32 +417,37 @@ var Beany = {
     floatUpSync: function (object,transformX, transformY) {
         var fade_out_el = Raphael.animation({transform: 'T' +transformX+',' + transformY, opacity: 0}, 3000);
         object.animate(fade_out_el);
+    },
+    changeBgColor: function(object, color) {
+        object.animate({fill : color},2000);
+    },
+    fadeOut: function(object) {
+        object.animate({opacity: 0}, 1000);
     }
 };
 
 jQuery(window).load(function () {
     var state = 1;
     var paper = Beany.getPaperSingleton("container", jQuery(window).width(), jQuery(window).height());
-    console.log(paper.width)
-
-    Beany.drawBackground(paper);
+    var bg = Beany.drawBg(paper);
     var lion = Beany.drawLion(paper);
     var heading = Beany.drawHeading(paper);
     var btn = Beany.drawBtn(paper);
     var lion_wrapper = (1920/2)-(lion[lion.length - 1 ].getBBox(true).width/2);
-    console.log(lion_wrapper)
     Beany.recombine(lion, 't' + (lion_wrapper)+ ',50');
 
 
     btn.click(function() {
+        console.log('click')
         if(state == 1) {
             Beany.transformEffect(heading[1], heading[2])
             state++;
         }
-        if(state == 2) {
+        else if(state == 2) {
             Beany.floatUp(lion, lion_wrapper);
-            Beany.floatUpSync(heading,lion_wrapper, -2000);
-            Beany.floatUpSync(btn,(1920 / 2), -2000);
+            Beany.floatUpSync(heading,0, -1000);
+            Beany.fadeOut(btn);
+            Beany.changeBgColor(bg, '#000');
             state++;
         }
     })
