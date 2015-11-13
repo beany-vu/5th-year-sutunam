@@ -69,6 +69,7 @@
 }
 body {
     /*background: #D74D26;*/
+    background:#000;
     padding: 0;
     overflow: hidden;
     position: relative;
