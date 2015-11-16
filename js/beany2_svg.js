@@ -1072,4 +1072,4 @@ var arr = rsr.set(path_d,path_e,path_f,path_g,path_h, path_i,path_j,path_k,path_
 //setTimeout(function (){
 //    arr.animate({transform:'', path:''}, 1500);
 //},3000);
-//arr.animate({transform:''}, 1500);
+//arr.animate({transform:''}, 1500);n

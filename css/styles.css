@@ -91,3 +91,19 @@ h1 {
     transform: translateX(-80px);
     z-index: 10;
 }
+.nav_wrapper {
+    position: absolute;
+    z-index: 11111;
+    background: green;
+    top: 0;
+    left: 0;
+}
+
+.nav_wrapper button {
+    background: green;
+}
+.nav_wrapper button.disabled {
+    color: grey;
+    cursor: not-allowed;
+    background: grey;
+}
