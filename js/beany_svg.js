@@ -2755,6 +2755,63 @@ var Beany = {
         }
         console.log('--End morph--');
         return object1;
+    },
+    drawNavProgressBar: function (paper) {
+        var progress_bar = paper.rect(0, 0, 1920, 2);
+        progress_bar.attr({
+            fill: '#ccc',
+            'stroke-width': 0,
+            "stroke-opacity": '0',
+            'opacity': 0.2
+        });
+        progress_bar.attr({transform: 'T0, 950'})
+    },
+    drawNavPassedProgressBar: function (paper) {
+        var passed_progress_bar = paper.rect(0, 0, 0, 2);
+        passed_progress_bar.attr({
+            fill: '#ccc',
+            'stroke-width': 0,
+            "stroke-opacity": '0',
+            'opacity': 1
+        });
+        passed_progress_bar.attr({transform: 'T0, 950'});
+        passed_progress_bar.animate({width: 1920}, 1500, 'linear');
+    },
+    drawNavNextBackBtn: function (paper) {
+        var next_btn = paper.path('M10.129,22.186 16.316,15.999 10.129,9.812 13.665,6.276 23.389,15.999 13.665,25.725z');
+        next_btn.attr({transform: 'T1200, 955', cursor: 'pointer'})
+    },
+    drawNavBackBtn: function (paper) {
+        var back_btn = paper.path('M21.871,9.814 15.684,16.001 21.871,22.188 18.335,25.725 8.612,16.001 18.335,6.276z');
+        back_btn.attr({transform: 'T800, 955', cursor: 'pointer'})
+    },
+    drawNavDot1: function (paper) {
+        var dot1 = paper.circle(50, 40, 5);
+        dot1.attr({transform: 'T920, 935', cursor: 'pointer'});
+    },
+    drawNavDot2: function (paper) {
+        var dot2 = paper.circle(50, 40, 5);
+        dot2.attr({transform: 'T950, 935', cursor: 'pointer'});
+    },
+    drawNavDot3: function (paper) {
+        var dot3 = paper.circle(50, 40, 5);
+        dot3.attr({transform: 'T980, 935', cursor: 'pointer'});
+    },
+    drawNavDot4: function (paper) {
+        var dot4 = paper.circle(50, 40, 5);
+        dot4.attr({transform: 'T1010, 935', cursor: 'pointer'});
+    },
+    drawNavDot5: function (paper) {
+        var dot5 = paper.circle(50, 40, 5);
+        dot5.attr({transform: 'T1040, 935', cursor: 'pointer'});
+    },
+    drawPlayIcon: function (paper) {
+        var play_icon = paper.path('M6.684,25.682L24.316,15.5L6.684,5.318V25.682z');
+        play_icon.attr({transform: 'T1240, 955', cursor: 'pointer'});
+    },
+    drawPauseIcon: function (paper) {
+        var pause_icon = paper.path('M5.5,5.5 h5 v20 h-5z M15.5,5.5 h5 v20 h-5z');
+        pause_icon.attr({transform: 'T1240, 955', cursor: 'pointer'});
     }
 };
 
@@ -2801,8 +2858,9 @@ jQuery(window).load(function () {
         jQuery('.prev').removeClass('disabled');
         jQuery('.next').addClass('disabled');
     }
-
-
+    Beany.drawNavProgressBar(paper);
+    Beany.drawNavPassedProgressBar(paper);
+    Beany.drawNavNextBackBtn(paper);
     btn.click(function () {
         switch (state) {
             case 1:
@@ -2821,7 +2879,6 @@ jQuery(window).load(function () {
                 state++;
                 // start with cresus
                 setTimeout(function () {
-
                     Beany.fadeInUp(shape_obj);
                     Beany.morph(shape_obj, cresus, 1500);
                 }, 2300);
@@ -2854,7 +2911,6 @@ jQuery(window).load(function () {
                             break;
                     }
                 });
-
                 jQuery('.prev').click(function () {
                     switch (slide_nav) {
                         case 5:
