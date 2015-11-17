@@ -1838,7 +1838,7 @@ var Beany = {
             path_ba, path_bb, path_bc, path_bd, path_be, path_bf, path_bg, path_bh, path_bi, path_bj, path_bk, path_bl, path_bm, path_bn,
             path_bo, path_bp, path_bq, path_br, path_bs, path_bt, path_bu, path_bv, path_bw, path_bx, path_by, path_bx, path_bz,
             path_ca, path_cb, path_cc, path_cd, path_ce, path_cf, path_cg, path_ch, path_ci, path_cj, path_ck, path_cl, path_cm, path_cn,
-            path_co, path_cp, path_cq, path_cr, path_cs, path_ct, path_cu, path_cv,path_cw, path_cx, path_cy, path_cz], rsr);
+            path_co, path_cp, path_cq, path_cr, path_cs, path_ct, path_cu, path_cv, path_cw, path_cx, path_cy, path_cz], rsr);
     },
     drawClub75: function (rsr) {
         var path_b = rsr.path("M 1068.3,474.9 1079.3,428.7 1090.7,474.9 z");
@@ -2580,7 +2580,7 @@ var Beany = {
             path_ba, path_bb, path_bc, path_bd, path_be, path_bf, path_bg, path_bh, path_bi, path_bj, path_bk, path_bl, path_bm, path_bn,
             path_bo, path_bp, path_bq, path_br, path_bs, path_bt, path_bu, path_bv, path_bw, path_bx, path_by, path_bx, path_bz,
             path_ca, path_cb, path_cc, path_cd, path_ce, path_cf, path_cg, path_ch, path_ci, path_cj, path_ck, path_cl, path_cm, path_cn,
-            path_co, path_cp, path_cq, path_cr, path_cs, path_ct, path_cu, path_cv,path_cw,path_cx,path_cy, path_cz, path_da], rsr);
+            path_co, path_cp, path_cq, path_cr, path_cs, path_ct, path_cu, path_cv, path_cw, path_cx, path_cy, path_cz, path_da], rsr);
     },
     drawHeading: function (paper) {
         var txt1 = paper.text(1920 / 2 - 200, 1080 / 2 + 160, "5 ");
@@ -2771,39 +2771,39 @@ var Beany = {
         object.animate({opacity: 0}, 1000);
     },
     morph: function (object1, object2, duration) {
+        console.log('--Start morph--');
+        var max = object1.length;
+        if (max == undefined) max = 0;
+        console.log('object2.length = ' + object2.length);
+        if (max < object2.length) {
 
-            var max = object1.length;
-            //alert(max)
-            if (object1.length < object2.length) {
-                max = object2.length;
-            }
-            for (var i = 0; i < max; i++) {
-                //console.log(object1[i].attr('path').toString());
-                //console.log(object2[i].attr('path').toString());
-                //console.log(object2[i].attr('opacity'));
-                //console.log('----------------------');
-                //console.log(i)
-                if (object1[i]) {
-                    if (object2[i]) {
-                        object1[i].animate({
-                            'path': object2[i].attr('path').toString(),
-                            'opacity': object2[i].attr('fill-opacity'),
-                            'stroke-opacity': object2[i].attr('stoke-opacity'),
-                            'stroke-width': object2[i].attr('stroke-width'),
-                            'stroke-miterlimit': object2[i].attr('stroke-miterlimit'),
-                            'stroke': object2[i].attr('stroke'),
-                            'fill': object2[i].attr('fill')
-                        }, duration);
-                    }
-                    else {
-                        object1[i].animate({'opacity': 1}, duration);
-                    }
+            max = object2.length;
+        }
+        console.log('--max = ' + max + '--');
+        for (var i = 0; i < max; i++) {
+            console.log('--' + i + '--');
+            if (object1[i]) {
+                if (object2[i]) {
+                    object1[i].animate({
+                        'path': object2[i].attr('path').toString(),
+                        'opacity': object2[i].attr('fill-opacity'),
+                        'stroke-opacity': object2[i].attr('stoke-opacity'),
+                        'stroke-width': object2[i].attr('stroke-width'),
+                        'stroke-miterlimit': object2[i].attr('stroke-miterlimit'),
+                        'stroke': object2[i].attr('stroke'),
+                        'fill': object2[i].attr('fill')
+                    }, duration, 'easeInOut');
                 }
-                else if (object2[i]) {
-                    object2[i].animate({'opacity': 0}, duration);
+                else {
+                    object1[i].animate({'opacity': 1}, duration);
                 }
             }
-            return [object1, object2];
+            else if (object2[i]) {
+                object2[i].animate({'opacity': 0}, duration);
+            }
+        }
+        console.log('--End morph--');
+        return object1;
     }
 };
 
@@ -2834,30 +2834,8 @@ jQuery(window).load(function () {
 
     var renault = Beany.drawRenault(paper);
     renault.attr({'opacity': 0});
-    //var morphed_shapes1 = [];
-    //var morphed_shapes2 = [];
-    //var morphed_shapes3 = [];
-    //var morhped_shapes4 = [];
-    //var morhped_shapes5 = [];
-    //var morph_shape = Beany.morph(cresus, durance, 1500);
+
     var morph_shape = [];
-
-    //morphed_shapes1[0].animate({'opacity': 0}, 800);
-    //morphed_shapes1[1].animate({'opacity': 0}, 800);
-    //morphed_shapes2 = Beany.morph(durance, bys, 1500);
-    //
-    //morphed_shapes2[0].animate({'opacity': 0}, 800);
-    //morhped_shapes2[1].animate({'opacity': 0}, 800);
-    //morhped_shapes3 = Beany.morph(bys, club75, 1500);
-
-    //morph_shape = Beany.morph(cresus, durance, 1500);
-    //
-    //setTimeout(function() {
-    //    morph_shape[0].animate({'opacity': 0}, 500);
-    //    morph_shape[1].animate({'opacity': 0}, 500);
-    //    Beany.morph(durance, cresus, 1500);
-    //},1500)
-
     var slide_nav = 1;
     var slide_limit_nav = 5;
     if (slide_nav == 1) {
@@ -2868,160 +2846,57 @@ jQuery(window).load(function () {
         jQuery('.prev').removeClass('disabled');
         jQuery('.next').addClass('disabled');
     }
-
+    // start with cresus
+    var shape_obj = cresus.clone();
+    Beany.morph(shape_obj, cresus, 1500);
     jQuery('.next').click(function () {
-        if (slide_nav == 1) {
-            jQuery('.prev').removeClass('disabled');
+        switch (slide_nav) {
+            case 1:
+                Beany.morph(shape_obj, durance, 1500);
+                slide_nav++;
+                jQuery('.prev').removeClass('disabled');
+                break;
+            case 2:
+                Beany.morph(shape_obj, bys, 1500);
+                slide_nav++;
+                break;
+            case 3:
+                Beany.morph(shape_obj, club75, 1500);
+                slide_nav++;
+                break;
+            case 4:
+                Beany.morph(shape_obj, renault, 1500);
+                slide_nav++;
+                jQuery('.next').addClass('disabled');
+                break;
+            default:
+                break;
         }
-        if (slide_nav == slide_limit_nav - 1) {
-            jQuery('.next').addClass('disabled');
-        }
-        if (slide_nav == 1) {
-            var durance_copy = [];
-            var cresus_copy = [];
-            if (morph_shape.length == 2) {
-                //morph_shape[0].animate({'opacity': 0}, 500);
-                //morph_shape[1].animate({'opacity': 0}, 500);
-                //morph_shape = [];
-                cresus_copy = morph_shape[0];
-            }
-            else {
-                cresus_copy = cresus.clone();
-                durance_copy = durance.clone();
-            }
-            morph_shape = Beany.morph(cresus_copy, durance_copy, 1500);
-            console.log('-----');
-            console.log(morph_shape);
-            console.log('-----');
-            //cresus.toBack();
-            //durance.toFront();
-            console.log(morph_shape);
-            slide_nav++;
-        }
-        else if (slide_nav == 2) {
-            if (morph_shape.length == 2) {
-                //morph_shape[0].animate({'opacity': 0}, 500);
-                //morph_shape[1].animate({'opacity': 0}, 500);
-                morph_shape = [];
-            }
-            //durance.toBack();
-            //bys.toFront();
-            var durance_copy = durance.clone();
-            var bys_copy = bys.clone();
-            morph_shape = Beany.morph(durance_copy, bys_copy, 1500);
-            console.log(morph_shape);
-            slide_nav++;
-        }
-        else if(slide_nav == 3) {
-            if(morph_shape.length == 2) {
-                //morph_shape[0].animate({'opacity': 0}, 550);
-                //morph_shape[1].animate({'opacity': 0}, 550);
-                morph_shape = [];
-            }
-            //bys.toBack();
-            //club75.toFront();
-            var bys_copy = bys.clone();
-            var club_75_copy = club75.clone()
-            morph_shape = Beany.morph(bys_copy,club_75_copy, 1500);
-            console.log(morph_shape);
-            slide_nav++;
-        }
-        else if(slide_nav == 4) {
-            if(morph_shape.length == 2) {
-                //morph_shape[0].animate({'opacity': 0}, 500);
-                //morph_shape[1].animate({'opacity': 0}, 500);
-                console.log(morph_shape);
-                morph_shape = [];
-            }
-            //club75.toBack();
-            //renault.toFront();
-            var club75_copy = club75.clone();
-            var renault_copy = renault.clone();
-            morph_shape = Beany.morph(club75_copy, renault_copy, 1500);
-            slide_nav++;
-            jQuery('.prev').removeClass('disabled');
-            jQuery('.next').addClass('disabled');
-        }
-        if(slide_nav == 5) {
+    });
 
-        }
-    })
     jQuery('.prev').click(function () {
-        if (slide_nav == 1) {
-            jQuery('.prev').addClass('disabled');
+        switch (slide_nav) {
+            case 5:
+                Beany.morph(shape_obj, club75, 1500);
+                slide_nav--;
+                jQuery('.next').removeClass('disabled');
+                break;
+            case 4:
+                Beany.morph(shape_obj, bys, 1500);
+                slide_nav--;
+                break;
+            case 3:
+                Beany.morph(shape_obj, durance, 1500);
+                slide_nav--;
+                break;
+            case 2:
+                Beany.morph(shape_obj, cresus, 1500);
+                slide_nav--;
+                jQuery('.prev').addClass('disabled');
+            default:
+                break;
         }
-        if (slide_nav == slide_limit_nav) {
-            jQuery('.next').addClass('disabled');
-        }
-        if (slide_nav == 5) {
-            if (morph_shape.length == 2) {
-                //morph_shape[0].animate({'opacity': 0}, 500);
-                //morph_shape[1].animate({'opacity': 0}, 500);
-            }
-            //var renault_copy = renault.clone();
-            var club75_copy = club75.clone();
-            morph_shape = Beany.morph(morph_shape[0], club75_copy, 1500);
-            //renault.toBack();
-            //club75.toFront();
-            //console.log(morph_shape);
-            slide_nav--;
-        }
-        else if (slide_nav == 4) {
-            if (morph_shape.length == 2) {
-                //morph_shape[0].animate({'opacity': 0}, 500);
-                //morph_shape[1].animate({'opacity': 0}, 500);
-            }
-            //club75.toBack();
-            //bys.toFront();
-            var club75_copy = club75.clone();
-            var bys_copy = bys.clone();
-            morph_shape = Beany.morph(morph_shape[0], bys_copy, 1500);
-            console.log(morph_shape);
-            slide_nav--;
-        }
-        else if(slide_nav == 3) {
-            if(morph_shape.length == 2) {
-                //morph_shape[0].animate({'opacity': 0}, 500);
-                //morph_shape[1].animate({'opacity': 0}, 500);
-            }
-            //bys.toBack();
-            //durance.toFront();
-            var bys_copy = bys.clone();
-            var durance_copy = durance.clone();
-            morph_shape = Beany.morph(morph_shape[0], durance_copy, 1500);
-            console.log(morph_shape);
-            slide_nav--;
-        }
-        else if(slide_nav == 2) {
-            //alert(slide_nav)
-            console.log('????????????')
-            console.log(morph_shape);
-            console.log('????????????')
-            if(morph_shape.length == 2) {
-                //morph_shape[0].animate({'opacity': 0}, 10);
-                //morph_shape[1].animate({'opacity': 0}, 10);
-            }
-            //durance.toBack();
-            //cresus.toFront();
-            var durance_copy = durance.clone();
-            var cresus_copy = cresus.clone();
-            morph_shape = Beany.morph(morph_shape[0], cresus_copy, 1500);
-            console.log(morph_shape);
-            slide_nav--;
-        }
-        else if (slide_nav == 1) {
-            jQuery('.prev').addClass('disabled');
-            jQuery('.next').removeClass('disabled');
-        }
-    })
-
-    //setTimeout(function () {
-    //    morhped_shapes3[0].animate({'opacity': 0}, 500);
-    //    morhped_shapes3[1].animate({'opacity': 0}, 500);
-    //    morphed_shaspes4 = Beany.morph(bys, club75, 1500);
-    //}, 1500)
-
-    //console.log(durance[10]);
+    });
     //btn.click(function () {
     //    console.log('click')
     //    if (state == 1) {
