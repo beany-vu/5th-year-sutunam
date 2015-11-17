@@ -2584,13 +2584,14 @@ var Beany = {
     },
     drawHeading: function (paper) {
         var txt1 = paper.text(1920 / 2 - 200, 1080 / 2 + 160, "5 ");
-        var txt2 = paper.text(1920 / 2 - 75, 1080 / 2 + 160, "PROJECTS");
-        var txt3 = paper.text(1920 / 2 - 75, 1080 / 2 + 170, "YEARS");
-        var txt4 = paper.text(1920 / 2 - 20, 1080 / 2 + 230, "WITH");
-        var txt5 = paper.text(1920 / 2 + 140, 1080 / 2 + 230, "SUTUNAM");
+        var txt2 = paper.text(1920 / 2 - 75, 1080 / 2 + 160, "YEARS");
+        var txt3 = paper.text(1920 / 2 - 75, 1080 / 2 + 170, "PROJECTS");
+        var txt4 = paper.text(1920 / 2 - 75, 1080 / 2 + 170, "YEARS");
+        var txt5 = paper.text(1920 / 2 - 20, 1080 / 2 + 230, "WITH");
+        var txt6 = paper.text(1920 / 2 + 140, 1080 / 2 + 230, "SUTUNAM");
 
-        var big_txt = paper.set(txt1, txt2, txt3);
-        var small_txt = paper.set(txt4, txt5);
+        var big_txt = paper.set(txt1, txt2, txt3, txt4);
+        var small_txt = paper.set(txt5, txt6);
 
         big_txt.attr({
             "fill": "#fff",
@@ -2600,123 +2601,68 @@ var Beany = {
             "letter-spacing": "2px",
             "opacity": 0
         });
-        small_txt.attr({"fill": "brown", "font-size": 35, "font-family": "gotham-bold", "opacity": 1});
+
+        small_txt.attr({
+            "fill": "brown",
+            "font-size": 35,
+            "font-family": "gotham-bold",
+            "opacity": 1
+        });
+
         var txt_set = paper.set(txt1, txt2);
         var faded_txt = Raphael.animation({transform: 't0' + ',-20', opacity: 1}, 2000, function () {
             //Beany.transformEffect(txt2, txt3);
         });
         txt_set.animate(faded_txt.delay(2000));
 
-        return paper.set([txt1, txt2, txt3, txt4, txt5]);
-    }
-    ,
+        return paper.set([txt1, txt2, txt3, txt4, txt5, txt6]);
+    },
     drawBtn: function (paper) {
-        var path_a = paper.path("M24,30c0,5.5-4.5,10-10,10h-4C4.5,40,0,35.5,0,30V10 C0,4.5,4.5,0,10,0h4c5.5,0,10,4.5,10,10V30z");
-        path_a.attr({
-            fill: 'none',
-            stroke: '#000000',
-            "stroke-miterlimit": '10',
-            'stroke-width': '1',
-            'stroke-opacity': '1'
-        }).data('id', 'path_a');
-        var path_b = paper.path("M16,17.7c0,1.8-1.5,3.3-3.3,3.3h-1.5C9.5,21,8,19.5,8,17.7V9.3 C8,7.5,9.5,6,11.3,6h1.5C14.5,6,16,7.5,16,9.3V17.7z");
-        path_b.attr({
-            fill: '#393939',
-            stroke: '#000000',
-            "stroke-miterlimit": '10',
-            'stroke-width': '0',
-            'stroke-opacity': '1'
-        }).data('id', 'path_b');
-        var ellipse_c = paper.ellipse(12.7, 9.5, 2.2, 2.5);
-        ellipse_c.attr({
-            fill: '#FFFFFF',
-            stroke: '#000000',
-            "stroke-miterlimit": '10',
-            'stroke-width': '0',
-            'stroke-opacity': '1'
-        }).data('id', 'ellipse_c');
-        var tbn_el = paper.set(path_a, path_b, ellipse_c);
-        tbn_el.attr({"transform": "t" + (1920 / 2 - 10) + "," + (1080 / 2 + 300)});
-
-        return Beany.toSet([path_a, path_b, ellipse_c], paper);
-    }
-    ,
-    drawBackground: function (rsr) {
-        var path_a = rsr.path("M 38.896,176.805 215.519,219.662 29.805,302.779 z");
-        path_a.attr({
-            fill: '#E65525',
-            'stroke-width': '0',
-            'stroke-opacity': '1',
-            'transform': 't0,700 s2,2 r45',
-            'opacity': 0
-        }).data('id', 'path_a');
-        var path_a_animated = Raphael.animation({'transform': 't0,600 s2,2 r0', 'opacity': 1}, 5000, "easeInOut");
-        path_a.animate(path_a_animated);
-
-        var path_b = rsr.path("M 393.442,359.273 363.571,458.623 489.545,422.909 z");
-        path_b.attr({
-            fill: '#E65525',
-            'stroke-width': '0',
-            'stroke-opacity': '1',
-            'transform': 't1300,800 s2,2',
-            'opacity': 0
-        }).data('id', 'path_b');
-        var path_b_animated = Raphael.animation({'transform': 't1300,600 s2,2 r0', 'opacity': 1}, 5000, "easeInOut");
-        path_b.animate(path_b_animated);
-
-        var path_c = rsr.path("M 246.688,538.494 192.143,542.39 227.857,478.753 z");
-        path_c.attr({
-            fill: '#E65525',
-            'stroke-width': '0',
-            'stroke-opacity': '1',
-            'transform': 't200,300 s2,2',
-            'opacity': 0
-        }).data('id', 'path_c');
-        var path_c_animated = Raphael.animation({'transform': 't200,-200 s2,2', 'opacity': 1}, 5000, "easeInOut");
-        path_c.animate(path_c_animated);
-
-        var path_d = rsr.path("M 206.429,95.636 219.416,56.675 259.026,119.013 z");
-        path_d.attr({
-            fill: '#E65525',
-            'stroke-width': '0',
-            'stroke-opacity': '1',
-            'transform': 't1300,-200 s2,2 r0',
-            'opacity': 1
-        }).data('id', 'path_d');
-        var path_d_animated = Raphael.animation({'transform': 't1300,-100 s2,2 r0', 'opacity': 1}, 5000, "easeInOut");
-        path_d.animate(path_d_animated);
-
-        var path_e = rsr.path("M 414.221,156.675 413.571,168.364 426.558,162.519 z");
-        path_e.attr({fill: '#E65525', 'stroke-width': '0', 'stroke-opacity': '1'}).data('id', 'path_e');
-
-        var path_f = rsr.path("M 502.532,4.078 405.13,56.675 511.623,43.039 z");
-        path_f.attr({
-            fill: '#E65525',
-            'stroke-width': '0',
-            'stroke-opacity': '1',
-            'transform': 't1300,100 s2,2',
-            'opacity': 0
-        }).data('id', 'path_f');
-        var path_f_animated = Raphael.animation({'transform': 't1300,0 s2,2 r0', 'opacity': 1}, 5000, "easeInOut");
-        path_f.animate(path_f_animated);
-    }
-    ,
+        //var path_a = paper.path("M24,30c0,5.5-4.5,10-10,10h-4C4.5,40,0,35.5,0,30V10 C0,4.5,4.5,0,10,0h4c5.5,0,10,4.5,10,10V30z");
+        //path_a.attr({
+        //    fill: 'none',
+        //    stroke: '#000000',
+        //    "stroke-miterlimit": '10',
+        //    'stroke-width': '1',
+        //    'stroke-opacity': '1'
+        //}).data('id', 'path_a');
+        //var path_b = paper.path("M16,17.7c0,1.8-1.5,3.3-3.3,3.3h-1.5C9.5,21,8,19.5,8,17.7V9.3 C8,7.5,9.5,6,11.3,6h1.5C14.5,6,16,7.5,16,9.3V17.7z");
+        //path_b.attr({
+        //    fill: '#393939',
+        //    stroke: '#000000',
+        //    "stroke-miterlimit": '10',
+        //    'stroke-width': '0',
+        //    'stroke-opacity': '1'
+        //}).data('id', 'path_b');
+        //var ellipse_c = paper.ellipse(12.7, 9.5, 2.2, 2.5);
+        //ellipse_c.attr({
+        //    fill: '#FFFFFF',
+        //    stroke: '#000000',
+        //    "stroke-miterlimit": '10',
+        //    'stroke-width': '0',
+        //    'stroke-opacity': '1'
+        //}).data('id', 'ellipse_c');
+        //var tbn_el = paper.set(path_a, path_b, ellipse_c);
+        //tbn_el.attr({"transform": "t" + (1920 / 2 - 10) + "," + (1080 / 2 + 300)});
+        //
+        //return Beany.toSet([path_a, path_b, ellipse_c], paper);
+        btn = paper.image('images/btn.gif', (1920 / 2 - 10), (1080 / 2 + 300), 20, 35);
+        return btn;
+    },
     toSet: function (arr, paper) {
         var _set = paper.set();
         for (var i = 0; i < arr.length; i++) {
             _set.push(arr[i]);
         }
         return _set;
-    }
-    ,
+    },
     transformEffect: function (from_txt, to_txt) {
         var from_txt_move_to = Raphael.animation({transform: 't0' + ',-40', opacity: 0}, 1000, function () {
             var to_txt_move_to = Raphael.animation({transform: 't0' + ',-30', opacity: 1}, 1000);
             to_txt.animate(to_txt_move_to)
         });
         from_txt.animate(from_txt_move_to.delay(10));
-    }
-    ,
+    },
     recombine: function (object, transform) {
         object.forEach(function (element, index) {
             var x = Math.cos(Math.PI * Math.round(Math.random())) * 1000;
@@ -2743,10 +2689,8 @@ var Beany = {
             setTimeout(function () {
             }, 5);
         });
-    }
-    ,
+    },
     floatUp: function (object, transformX) {
-
         object.forEach(function (element, index) {
             var y = Math.random() * -20000;
             var duration = Math.random() * 1800;
@@ -2756,19 +2700,26 @@ var Beany = {
             }, 100);
 
         });
-    }
-    ,
+    },
     floatUpSync: function (object, transformX, transformY) {
         var fade_out_el = Raphael.animation({transform: 'T' + transformX + ',' + transformY, opacity: 0}, 3000);
         object.animate(fade_out_el);
-    }
-    ,
+    },
     changeBgColor: function (object, color) {
-        object.animate({fill: color}, 2000);
-    }
-    ,
+        object.animate({fill: color}, 2000, 'easeInOut');
+    },
     fadeOut: function (object) {
         object.animate({opacity: 0}, 1000);
+    },
+    fadeInUp: function (object) {
+        object.forEach(function (element, index) {
+            var duration = Math.random() * 2000;
+            fade_out_el = Raphael.animation({
+                transform: 'T0,0',
+                opacity: 1
+            }, duration, 'cubic-bezier(.24, .51, 0, 1)').delay(100);
+            element.animate(fade_out_el);
+        });
     },
     morph: function (object1, object2, duration) {
         console.log('--Start morph--');
@@ -2808,25 +2759,18 @@ var Beany = {
 };
 
 jQuery(window).load(function () {
-    //var state = 1;
+    var state = 1;
     var paper = Beany.getPaperSingleton("container", jQuery(window).width(), jQuery(window).height());
-    //var bg = Beany.drawBg(paper);
+    var bg = Beany.drawBg(paper);
 
-    var lion = Beany.drawLion(paper);
-    lion.attr({'opacity': 0});
-    //var heading = Beany.drawHeading(paper);
-    //var btn = Beany.drawBtn(paper);
-    //var lion_wrapper = (1920 / 2) - (lion[lion.length - 1].getBBox(true).width / 2);
-    //Beany.recombine(lion, 't' + (lion_wrapper) + ',50');
+
     var cresus = Beany.drawCresus(paper);
     cresus.attr({'opacity': 0});
 
     var durance = Beany.drawDurance(paper);
     durance.attr({'opacity': 0});
 
-    //console.log(durance.length)
     var bys = Beany.drawBYS(paper);
-    //console.log(bys.length)
     bys.attr({'opacity': 0});
 
     var club75 = Beany.drawClub75(paper);
@@ -2834,6 +2778,17 @@ jQuery(window).load(function () {
 
     var renault = Beany.drawRenault(paper);
     renault.attr({'opacity': 0});
+
+    var shape_obj = cresus.clone();
+    shape_obj.attr({transform: 'T0,1000', opacity: 0});
+
+    // lion part
+    var lion = Beany.drawLion(paper);
+    lion.attr({'opacity': 0});
+    var heading = Beany.drawHeading(paper);
+    var btn = Beany.drawBtn(paper);
+    var lion_wrapper = (1920 / 2) - (lion[lion.length - 1].getBBox(true).width / 2);
+    Beany.recombine(lion, 't' + (lion_wrapper) + ',50');
 
     var morph_shape = [];
     var slide_nav = 1;
@@ -2846,69 +2801,90 @@ jQuery(window).load(function () {
         jQuery('.prev').removeClass('disabled');
         jQuery('.next').addClass('disabled');
     }
-    // start with cresus
-    var shape_obj = cresus.clone();
-    Beany.morph(shape_obj, cresus, 1500);
-    jQuery('.next').click(function () {
-        switch (slide_nav) {
-            case 1:
-                Beany.morph(shape_obj, durance, 1500);
-                slide_nav++;
-                jQuery('.prev').removeClass('disabled');
-                break;
-            case 2:
-                Beany.morph(shape_obj, bys, 1500);
-                slide_nav++;
-                break;
-            case 3:
-                Beany.morph(shape_obj, club75, 1500);
-                slide_nav++;
-                break;
-            case 4:
-                Beany.morph(shape_obj, renault, 1500);
-                slide_nav++;
-                jQuery('.next').addClass('disabled');
-                break;
-            default:
-                break;
-        }
-    });
 
-    jQuery('.prev').click(function () {
-        switch (slide_nav) {
-            case 5:
-                Beany.morph(shape_obj, club75, 1500);
-                slide_nav--;
-                jQuery('.next').removeClass('disabled');
-                break;
-            case 4:
-                Beany.morph(shape_obj, bys, 1500);
-                slide_nav--;
-                break;
-            case 3:
-                Beany.morph(shape_obj, durance, 1500);
-                slide_nav--;
+
+    btn.click(function () {
+        switch (state) {
+            case 1:
+                Beany.transformEffect(heading[1], heading[2]);
+                state++;
                 break;
             case 2:
-                Beany.morph(shape_obj, cresus, 1500);
-                slide_nav--;
-                jQuery('.prev').addClass('disabled');
+                Beany.transformEffect(heading[2], heading[3]);
+                state++;
+                break;
+            case 3:
+                Beany.floatUp(lion, lion_wrapper);
+                Beany.floatUpSync(heading, 0, -1000);
+                Beany.fadeOut(btn);
+                Beany.changeBgColor(bg, '#000');
+                state++;
+                // start with cresus
+                setTimeout(function () {
+
+                    Beany.fadeInUp(shape_obj);
+                    Beany.morph(shape_obj, cresus, 1500);
+                }, 2300);
+
+                jQuery('.next').click(function () {
+                    switch (slide_nav) {
+                        case 1:
+                            Beany.morph(shape_obj, durance, 1500);
+                            slide_nav++;
+                            jQuery('.prev').removeClass('disabled');
+                            Beany.changeBgColor(bg, '#EE5688');
+                            break;
+                        case 2:
+                            Beany.morph(shape_obj, bys, 1500);
+                            slide_nav++;
+                            Beany.changeBgColor(bg, '#AB39DB');
+                            break;
+                        case 3:
+                            Beany.morph(shape_obj, club75, 1500);
+                            Beany.changeBgColor(bg, '#157C80');
+                            slide_nav++;
+                            break;
+                        case 4:
+                            Beany.morph(shape_obj, renault, 1500);
+                            slide_nav++;
+                            Beany.changeBgColor(bg, '#A90806');
+                            jQuery('.next').addClass('disabled');
+                            break;
+                        default:
+                            break;
+                    }
+                });
+
+                jQuery('.prev').click(function () {
+                    switch (slide_nav) {
+                        case 5:
+                            Beany.morph(shape_obj, club75, 1500);
+                            slide_nav--;
+                            Beany.changeBgColor(bg, '#157C80');
+                            jQuery('.next').removeClass('disabled');
+                            break;
+                        case 4:
+                            Beany.morph(shape_obj, bys, 1500);
+                            Beany.changeBgColor(bg, '#AB39DB');
+                            slide_nav--;
+                            break;
+                        case 3:
+                            Beany.morph(shape_obj, durance, 1500);
+                            Beany.changeBgColor(bg, '#EE5688');
+                            slide_nav--;
+                            break;
+                        case 2:
+                            Beany.morph(shape_obj, cresus, 1500);
+                            slide_nav--;
+                            Beany.changeBgColor(bg, '#191919');
+                            jQuery('.prev').addClass('disabled');
+                        default:
+                            break;
+                    }
+                });
+                break;
             default:
                 break;
         }
-    });
-    //btn.click(function () {
-    //    console.log('click')
-    //    if (state == 1) {
-    //        Beany.transformEffect(heading[1], heading[2])
-    //        state++;
-    //    }
-    //    else if (state == 2) {
-    //        Beany.floatUp(lion, lion_wrapper);
-    //        Beany.floatUpSync(heading, 0, -1000);
-    //        Beany.fadeOut(btn);
-    //        Beany.changeBgColor(bg, '#000');
-    //        state++;
-    //    }
-    //})
+    })
 });
