@@ -2756,6 +2756,7 @@ var Beany = {
         console.log('--End morph--');
         return object1;
     },
+
     drawNavProgressBar: function (paper) {
         var progress_bar = paper.rect(0, 0, 1920, 2);
         progress_bar.attr({
@@ -2777,46 +2778,69 @@ var Beany = {
         passed_progress_bar.attr({transform: 'T0, 950'});
         passed_progress_bar.animate({width: 1920}, 1500, 'linear');
     },
-    drawNavNextBackBtn: function (paper) {
+    drawNavNextBtn: function (paper) {
         var next_btn = paper.path('M10.129,22.186 16.316,15.999 10.129,9.812 13.665,6.276 23.389,15.999 13.665,25.725z');
-        next_btn.attr({transform: 'T1200, 955', cursor: 'pointer'})
+        next_btn.attr({transform: 'T1200, 955', cursor: 'pointer', fill: "#fff", 'stroke-width': 0});
+        return next_btn;
+
     },
     drawNavBackBtn: function (paper) {
         var back_btn = paper.path('M21.871,9.814 15.684,16.001 21.871,22.188 18.335,25.725 8.612,16.001 18.335,6.276z');
-        back_btn.attr({transform: 'T800, 955', cursor: 'pointer'})
+        back_btn.attr({transform: 'T800, 955', cursor: 'pointer', fill: "#fff", 'stroke-width': 0});
+        return back_btn;
     },
     drawNavDot1: function (paper) {
         var dot1 = paper.circle(50, 40, 5);
-        dot1.attr({transform: 'T920, 935', cursor: 'pointer'});
+        dot1.attr({transform: 'T920, 935', cursor: 'pointer', fill: "#fff", 'stroke-width': 0});
+        return dot1;
     },
     drawNavDot2: function (paper) {
         var dot2 = paper.circle(50, 40, 5);
-        dot2.attr({transform: 'T950, 935', cursor: 'pointer'});
+        dot2.attr({transform: 'T950, 935', cursor: 'pointer', fill: "#fff", 'stroke-width': 0});
+        return dot2;
     },
     drawNavDot3: function (paper) {
         var dot3 = paper.circle(50, 40, 5);
-        dot3.attr({transform: 'T980, 935', cursor: 'pointer'});
+        dot3.attr({transform: 'T980, 935', cursor: 'pointer', fill: "#fff", 'stroke-width': 0});
+        return dot3;
     },
     drawNavDot4: function (paper) {
         var dot4 = paper.circle(50, 40, 5);
-        dot4.attr({transform: 'T1010, 935', cursor: 'pointer'});
+        dot4.attr({transform: 'T1010, 935', cursor: 'pointer', fill: "#fff", 'stroke-width': 0});
+        return dot4;
     },
     drawNavDot5: function (paper) {
         var dot5 = paper.circle(50, 40, 5);
-        dot5.attr({transform: 'T1040, 935', cursor: 'pointer'});
+        dot5.attr({transform: 'T1040, 935', cursor: 'pointer', fill: "#fff", 'stroke-width': 0});
+        return dot5;
     },
-    drawPlayIcon: function (paper) {
+    drawNavPlayIcon: function (paper) {
         var play_icon = paper.path('M6.684,25.682L24.316,15.5L6.684,5.318V25.682z');
-        play_icon.attr({transform: 'T1240, 955', cursor: 'pointer'});
+        play_icon.attr({transform: 'T1240, 955', cursor: 'pointer', fill: "#fff", 'stroke-width': 0});
+        return play_icon;
     },
-    drawPauseIcon: function (paper) {
+    drawNavPauseIcon: function (paper) {
         var pause_icon = paper.path('M5.5,5.5 h5 v20 h-5z M15.5,5.5 h5 v20 h-5z');
-        pause_icon.attr({transform: 'T1240, 955', cursor: 'pointer'});
+        pause_icon.attr({transform: 'T1240, 955', cursor: 'pointer', fill: "#fff", 'stroke-width': 0});
+        return pause_icon;
+    },
+    fireEvent: function (element, event) {
+        if (document.createEventObject) {
+            // dispatch for IE
+            var evt = document.createEventObject();
+            return element.fireEvent('on' + event, evt)
+        } else {
+            // dispatch for firefox + others
+            var evt = document.createEvent("HTMLEvents");
+            evt.initEvent(event, true, true); // event type,bubbling,cancelable
+            return !element.dispatchEvent(evt);
+        }
     }
 };
 
 jQuery(window).load(function () {
     var state = 1;
+    var auto_play_status = 1;
     var paper = Beany.getPaperSingleton("container", jQuery(window).width(), jQuery(window).height());
     var bg = Beany.drawBg(paper);
 
@@ -2858,9 +2882,8 @@ jQuery(window).load(function () {
         jQuery('.prev').removeClass('disabled');
         jQuery('.next').addClass('disabled');
     }
-    Beany.drawNavProgressBar(paper);
-    Beany.drawNavPassedProgressBar(paper);
-    Beany.drawNavNextBackBtn(paper);
+
+
     btn.click(function () {
         switch (state) {
             case 1:
@@ -2883,12 +2906,70 @@ jQuery(window).load(function () {
                     Beany.morph(shape_obj, cresus, 1500);
                 }, 2300);
 
-                jQuery('.next').click(function () {
+
+                var nav_progress_bar = Beany.drawNavProgressBar(paper);
+                var nav_passed_progress_bar = Beany.drawNavPassedProgressBar(paper);
+                var nav_next_btn = Beany.drawNavNextBtn(paper);
+                var nav_back_btn = Beany.drawNavBackBtn(paper);
+                var nav_dot_1 = Beany.drawNavDot1(paper);
+                var nav_dot_2 = Beany.drawNavDot2(paper);
+                var nav_dot_3 = Beany.drawNavDot3(paper);
+                var nav_dot_4 = Beany.drawNavDot4(paper);
+                var nav_dot_5 = Beany.drawNavDot5(paper);
+                var nav_pause_icon = Beany.drawNavPauseIcon(paper);
+                var nav_play_icon = Beany.drawNavPlayIcon(paper);
+                nav_pause_icon.attr({'opacity': 0});
+
+                nav_dot_1.click(function () {
+                    if (slide_nav != 1) {
+                        Beany.morph(shape_obj, cresus, 1500);
+                        slide_nav = 1;
+                        Beany.changeBgColor(bg, '#191919');
+                        jQuery('.prev').addClass('disabled');
+                        jQuery('.next').removeClass('disabled');
+                    }
+                });
+                nav_dot_2.click(function () {
+                    if (slide_nav != 2) {
+                        Beany.morph(shape_obj, durance, 1500);
+                        slide_nav = 2;
+                        Beany.changeBgColor(bg, '#EE5688');
+                        jQuery('.prev').addClass('disabled');
+                        jQuery('.next').addClass('disabled');
+                    }
+                });
+                nav_dot_3.click(function () {
+                    if (slide_nav != 3) {
+                        Beany.morph(shape_obj, bys, 1500);
+                        slide_nav = 3;
+                        Beany.changeBgColor(bg, '#AB39DB');
+                        jQuery('.prev').addClass('disabled');
+                        jQuery('.next').addClass('disabled');
+                    }
+                });
+                nav_dot_4.click(function () {
+                    if (slide_nav != 4) {
+                        Beany.morph(shape_obj, club75, 1500);
+                        slide_nav = 4;
+                        Beany.changeBgColor(bg, '#157C80');
+                        jQuery('.prev').addClass('disabled');
+                        jQuery('.next').addClass('disabled');
+                    }
+                });
+                nav_dot_5.click(function () {
+                    if (slide_nav != 5) {
+                        Beany.morph(shape_obj, renault, 1500);
+                        slide_nav = 5;
+                        Beany.changeBgColor(bg, '#A90806');
+                        jQuery('.prev').removeClass('disabled');
+                        jQuery('.next').addClass('disabled');
+                    }
+                });
+                nav_next_btn.click(function () {
                     switch (slide_nav) {
                         case 1:
                             Beany.morph(shape_obj, durance, 1500);
                             slide_nav++;
-                            jQuery('.prev').removeClass('disabled');
                             Beany.changeBgColor(bg, '#EE5688');
                             break;
                         case 2:
@@ -2905,13 +2986,17 @@ jQuery(window).load(function () {
                             Beany.morph(shape_obj, renault, 1500);
                             slide_nav++;
                             Beany.changeBgColor(bg, '#A90806');
-                            jQuery('.next').addClass('disabled');
+                            break;
+                        case 5:
+                            Beany.morph(shape_obj, cresus, 1500);
+                            slide_nav = 1;
+                            Beany.changeBgColor(bg, '#191919');
                             break;
                         default:
                             break;
                     }
                 });
-                jQuery('.prev').click(function () {
+                nav_back_btn.click(function () {
                     switch (slide_nav) {
                         case 5:
                             Beany.morph(shape_obj, club75, 1500);
@@ -2934,10 +3019,36 @@ jQuery(window).load(function () {
                             slide_nav--;
                             Beany.changeBgColor(bg, '#191919');
                             jQuery('.prev').addClass('disabled');
+                            break;
                         default:
                             break;
                     }
                 });
+                nav_pause_icon.click(function () {
+                    auto_play_status = 1;
+                    nav_pause_icon.attr({'opacity': 0});
+                    nav_play_icon.attr({'opacity': 1});
+                });
+
+                nav_play_icon.click(function () {
+                    auto_play_status = 0;
+                    nav_pause_icon.attr({'opacity': 1});
+                    nav_play_icon.attr({'opacity': 0});
+                });
+                // auto play
+                setInterval(function () {
+                    if (auto_play_status == 1) {
+                        Beany.fireEvent(nav_next_btn.node, 'click');
+                        nav_pause_icon.attr({'opacity': 0});
+                        nav_play_icon.attr({'opacity': 1});
+                        console.log('zzzz');
+                    }
+                    else {
+                        Beany.fireEvent(nav_pause_icon.node, 'click');
+                        nav_pause_icon.attr({'opacity': 1});
+                        nav_play_icon.attr({'opacity': 0});
+                    }
+                }, 4000);
                 break;
             default:
                 break;
