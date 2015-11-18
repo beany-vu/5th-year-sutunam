@@ -2920,6 +2920,12 @@ jQuery(window).load(function () {
                 var nav_play_icon = Beany.drawNavPlayIcon(paper);
                 nav_pause_icon.attr({'opacity': 0});
 
+                setTimeout(function () {
+                    jQuery('.prj').hide();
+                    jQuery('.prj_1').show();
+                }, 2500);
+
+
                 nav_dot_1.click(function () {
                     if (slide_nav != 1) {
                         Beany.morph(shape_obj, cresus, 1500);
@@ -2971,26 +2977,37 @@ jQuery(window).load(function () {
                             Beany.morph(shape_obj, durance, 1500);
                             slide_nav++;
                             Beany.changeBgColor(bg, '#EE5688');
+                            jQuery('.prj').hide();
+                            jQuery('.prj_2').show();
                             break;
                         case 2:
                             Beany.morph(shape_obj, bys, 1500);
                             slide_nav++;
                             Beany.changeBgColor(bg, '#AB39DB');
+                            jQuery('.prj').hide();
+                            jQuery('.prj_3').show();
                             break;
+
                         case 3:
                             Beany.morph(shape_obj, club75, 1500);
                             Beany.changeBgColor(bg, '#157C80');
                             slide_nav++;
+                            jQuery('.prj').hide();
+                            jQuery('.prj_4').show();
                             break;
                         case 4:
                             Beany.morph(shape_obj, renault, 1500);
                             slide_nav++;
                             Beany.changeBgColor(bg, '#A90806');
+                            jQuery('.prj').hide();
+                            jQuery('.prj_5').show();
                             break;
                         case 5:
                             Beany.morph(shape_obj, cresus, 1500);
                             slide_nav = 1;
                             Beany.changeBgColor(bg, '#191919');
+                            jQuery('.prj').hide();
+                            jQuery('.prj_1').show();
                             break;
                         default:
                             break;

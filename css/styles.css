@@ -91,12 +91,15 @@ h1 {
     transform: translateX(-80px);
     z-index: 10;
 }
-.nav_wrapper {
+
+.prj {
+    display: none;
     position: absolute;
     z-index: 11111;
-    background: green;
     top: 0;
     left: 0;
+    font-size: 50px;
+    color: #fff;
 }
 
 .nav_wrapper button {
