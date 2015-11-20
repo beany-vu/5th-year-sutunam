@@ -1,0 +1,145 @@
+.home_wrapper {
+  position: relative;
+  // the lion area
+  .scroll_down {
+    position: absolute;
+    z-index: 999;
+    left: 10%;
+    width: 200px;
+    top: 10%;
+    transform: translateX(-80px);
+    z-index: 10;
+  }
+
+  // the project detail area
+  .prj_wrapper {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    padding: 0 10px;
+    width: 960px;
+    transform: translateX(-50%);
+
+    .prj {
+      display: none;
+      position: absolute;
+      top: 0;
+      left: 0;
+      .prj_name {
+        overflow: hidden;
+        h2 {
+          position: relative;
+          padding-left: 30px;
+          margin: 0;
+          color: #f6f4f1;
+          font-size: 68px;
+          text-transform: uppercase;
+          &:before {
+            content: attr(data-order);
+            position: absolute;
+            top: 50%;
+            left: 0;
+            font-size: 12px;
+            transform: translateY(-50%);
+          }
+        }
+      }
+      .prj_desc {
+        overflow: hidden;
+        padding-left: 30px;
+        margin-top: 20px;
+        font-size: 14px;
+        text-transform: uppercase;
+        p {
+          padding-bottom: 10px;
+          color: #514032;
+          position: relative;
+          &:after {
+            content: "";
+            position: absolute;
+            bottom: 0px;
+            right: 0;
+            left: 0;
+            width: 190px;
+            height: 1px;
+            background: #514032;
+          }
+        }
+      }
+      .prj_detail {
+        overflow: hidden;
+        margin: 30px 0 0 20px;
+        a {
+          color: #fff;
+        }
+        .btn-more {
+          border-color: #696576;
+        }
+      }
+    }
+  }
+
+  // the nav area
+  .nav {
+    position: fixed;
+    bottom: 0;
+    height: 50px;
+    border-top: 1px solid #fff;
+    left: 0;
+    right: 0;
+    .a-left {
+      #logo {
+        display: inline-block;
+        float: left;
+        position: relative;
+        width: 60px;
+        &:after {
+          content: "";
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          right: 0;
+          width: 1px;
+          background: #fff;
+          transform: skew(-10deg) rotate(2deg);
+        }
+      }
+      .slogan {
+        display: inline-block;
+        float: left;
+        p {
+          font-family: 'gotham-medium', arial, helvetica, sans-serif;
+          margin: 2px 15px;
+          text-transform: uppercase;
+          color: #fff;
+        }
+        .txt-big {
+          font-size: 22px;
+        }
+        .txt-small {
+          font-size: 10px;
+        }
+      }
+    }
+    .a-center {
+      margin: 20px auto;
+      display: block;
+      width: 500px;
+      i {
+        color: #fff;
+        padding: 0 20px;
+        &.slide {
+          color: rgba(255, 255, 255, 0.5);
+          &.active {
+            color: rgba(255, 255, 255, 1);
+          }
+        }
+
+      }
+    }
+
+  }
+}
+
+
+
