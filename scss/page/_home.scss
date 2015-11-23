@@ -11,6 +11,58 @@
     z-index: 10;
   }
 
+  // the heading(h1) area
+  .heading_wrapper {
+    display: none;
+    position: absolute;
+    height: 100px;
+    width: 650px;
+    top: 50%;
+    left: 55%;
+    transform: translateX(-50%);
+    h1 {
+      text-transform: uppercase;
+      letter-spacing: 15px;
+    }
+    span {
+      &.txt-big {
+        position: relative;
+        display: block;
+        height: 90px;
+        overflow: hidden;
+        color: #fff;
+        font-size: 80px;
+        text-align: left;
+        .txt-left {
+          font-style: normal;
+          float: left;
+          display: block;
+        }
+        .txt-right {
+          display: none;
+          position: absolute;
+          font-style: normal;
+          margin-left: 100px;
+        }
+      }
+      &.txt-small {
+        display: block;
+        text-align: center;
+        color: #a52a2a;
+        font-size: 30px;
+        .txt-bold {
+          color: #a52a2a;
+          font-family: 'gotham-medium', arial, helvetica, sans-serif;
+        }
+      }
+      &.txt {
+        display: none;
+        margin-left: 100px;
+      }
+    }
+
+  }
+
   // the project detail area
   .prj_wrapper {
     position: absolute;
@@ -81,6 +133,7 @@
 
   // the nav area
   .nav {
+    display: none;
     position: fixed;
     bottom: 0;
     height: 50px;
@@ -122,22 +175,230 @@
       }
     }
     .a-center {
-      margin: 20px auto;
       display: block;
       width: 500px;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
       i {
+        cursor: pointer;
         color: #fff;
-        padding: 0 20px;
+        margin: 15px 20px;
         &.slide {
           color: rgba(255, 255, 255, 0.5);
+          transition: all 0.5s ease;
           &.active {
             color: rgba(255, 255, 255, 1);
           }
         }
+      }
+    }
+    .a-right {
+      .social-link {
+        margin: 0;
+        li {
+          position: relative;
+          display: inline-block;
+          padding: 20px 0;
+          &:after {
+            content: "";
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            width: 1px;
+            background: #fff;
+            -webkit-transform: skew(-10deg) rotate(2deg);
+            -ms-transform: skew(-10deg) rotate(2deg);
+            transform: skew(-10deg) rotate(2deg);
+          }
+          a {
+            padding: 20px;
+            i {
+              color: #fff;
+            }
+          }
+        }
+      }
+
+    }
+  }
+  .main-menu {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    bottom: 50px;
+    background: #404040;
+    text-align: center;
+    ul {
+      list-style-type: none;
+    }
+    li {
+      list-style-type: none;
+      font-size: 100px;
+      text-transform: uppercase;
+      text-align: center;
+      .bg-left {
+        float: left;
+        width: 50%;
+        height: 100%;
+      }
+      .bg-right {
+        float: right;
+        width: 50%;
+        height: 100%;
+        background-size: 80%;
+      }
+      .item-cresus {
+        &:hover {
+          display: none;
+          .bg-left, .bg-right {
+            display: block;
+            background-size: 80%;
+          }
+        }
+      }
+      #cresus-nav-bg {
+        display: none;
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        opacity: 0.2;
+        .bg-left {
+          background: url(../images/menu-bg/cresus-reflect.svg) no-repeat;
+          background-position-x: -200%;
+        }
+        .bg-right {
+          background: url(../images/menu-bg/cresus.svg) no-repeat;
+          background-position-x: 300%;
+        }
+      }
+      #durance-nav-bg {
+        display: none;
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        opacity: 0.2;
+        .bg-left {
+          background: url(../images/menu-bg/durance-reflect.svg) no-repeat;
+          background-position-x: -400px;
+        }
+        .bg-right {
+          background: url(../images/menu-bg/durance.svg) no-repeat;
+          background-position-x: 500px;
+        }
+      }
+      #bys-nav-bg {
+        display: none;
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        opacity: 0.2;
+        .bg-left {
+          background: url(../images/menu-bg/bys-reflect.svg) no-repeat;
+          background-position-x: -400px;
+        }
+        .bg-right {
+          background: url(../images/menu-bg/bys.svg) no-repeat;
+          background-position-x: 500px;
+        }
+      }
+      #club75-nav-bg {
+        display: none;
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        opacity: 0.2;
+        .bg-left {
+          background: url(../images/menu-bg/club75-reflect.svg) no-repeat;
+          background-position-x: -400px;
+          background-size: 90%;
+          background-position-y: 50%;
+        }
+        .bg-right {
+          background: url(../images/menu-bg/club75.svg) no-repeat;
+          background-position-x: 500px;
+          background-size: 90%;
+          background-position-y: 50%;
+        }
+      }
+      #renaunt-nav-bg {
+        display: none;
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        opacity: 0.2;
+        .bg-left {
+          background: url(../images/menu-bg/renault-reflect.svg) no-repeat;
+          background-position-x: -400px;
+          background-size: 90%;
+          background-position-y: 50%;
+        }
+        .bg-right {
+          background: url(../images/menu-bg/renault.svg) no-repeat;
+          background-position-x: 500px;
+          background-size: 90%;
+          background-position-y: 50%;
+        }
+      }
+      a {
+        position: relative;
+        display: inline-block;
+        padding: 20px 0;
+        text-decoration: none;
+        color: #fff;
+        &:before {
+          content: "";
+          position: absolute;
+          height: 10px;
+          background: #fff;
+          top: 50%;
+          transform: translateY(-50%);
+          left: 0;
+          right: 100%;
+          transition: all 0.5s ease;
+
+        }
+        &:hover {
+          &:before {
+            right: 0;
+          }
+          span {
+            &:before {
+              text-decoration: line-through;
+            }
+          }
+        }
+        span {
+          position: relative;
+          display: inline-block;
+          &:before {
+            position: absolute;
+            content: attr(data-order);
+            top: 50%;
+            height: 10px;
+            transform: translateY(-50%);
+            left: -20px;
+            font-size: 10px;
+          }
+
+        }
 
       }
     }
-
   }
 }
 

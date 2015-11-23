@@ -2757,7 +2757,6 @@ var Beany = {
         console.log('--End morph--');
         return object1;
     },
-
     drawNavProgressBar: function (paper) {
         var progress_bar = paper.rect(0, 0, 1920, 2);
         progress_bar.attr({
@@ -2840,7 +2839,41 @@ var Beany = {
 };
 
 jQuery(window).load(function () {
+    jQuery('#logo').click(function () {
+
+        if (!jQuery(this).hasClass('active')) {
+            jQuery(this).addClass('active');
+            jQuery('#container').removeClass('animated zoomIn').addClass('animated zoomOut');
+            jQuery('.main-menu').removeClass('animated zoomOut').addClass('animated zoomIn').show();
+            setTimeOut(function () {
+            }, 100)
+
+        }
+        else {
+            jQuery(this).removeClass('active');
+            jQuery('#container').removeClass('animated zoomOut').addClass('animated zoomIn');
+            jQuery('.main-menu').addClass('animated zoomIn').addClass('animated zoomOut').show();
+
+            setTimeOut(function () {
+            }, 100)
+        }
+
+    });
+    setTimeout(function () {
+            jQuery('.heading_wrapper').show();
+            jQuery('.heading_wrapper .txt-2').show();
+        }
+        , 3000);
+
+
+    jQuery('.main-menu li a').hover(function () {
+        jQuery(this).parent('li').find('.item-bg').show()
+    }, function () {
+        jQuery(this).parent('li').find('.item-bg').hide()
+    });
+
     var state = 1;
+    var heading_state = 1;
     var auto_play_status = 1;
     var paper = Beany.getPaperSingleton("container", jQuery(window).width(), jQuery(window).height());
     var bg = Beany.drawBg(paper);
@@ -2867,37 +2900,30 @@ jQuery(window).load(function () {
     // lion part
     var lion = Beany.drawLion(paper);
     lion.attr({'opacity': 0});
-    var heading = Beany.drawHeading(paper);
+    //var heading = Beany.drawHeading(paper);
     var btn = Beany.drawBtn(paper);
-    var lion_wrapper = (1920 / 2) - (lion[lion.length - 1].getBBox(true).width / 2);
+    var lion_wrapper = (1920 / 2) - (lion[lion.length - 1].getBBox(true).width / 2) - 50;
     Beany.recombine(lion, 't' + (lion_wrapper) + ',50');
 
     var morph_shape = [];
     var slide_nav = 1;
     var slide_limit_nav = 5;
-    if (slide_nav == 1) {
-        jQuery('.prev').addClass('disabled');
-        jQuery('.next').removeClass('disabled');
-    }
-    if (slide_nav == slide_limit_nav) {
-        jQuery('.prev').removeClass('disabled');
-        jQuery('.next').addClass('disabled');
-    }
-
 
     btn.click(function () {
         switch (state) {
             case 1:
-                Beany.transformEffect(heading[1], heading[2]);
+                jQuery('.txt-2').removeClass('animated fadeInup').addClass('animated fadeOutUp');
+                jQuery('.txt-3').removeClass('animated fadeOutUp').addClass('animated fadeInUp').show();
                 state++;
                 break;
             case 2:
-                Beany.transformEffect(heading[2], heading[3]);
+                jQuery('.txt-3').removeClass('animated fadeInUp').addClass('animated fadeOutUp');
+                jQuery('.txt-4').removeClass('animated fadeOutUp').addClass('animated fadeInUp').show();
                 state++;
                 break;
             case 3:
                 Beany.floatUp(lion, lion_wrapper);
-                Beany.floatUpSync(heading, 0, -1000);
+                jQuery('.heading_wrapper').addClass('animated fadeOutUpBig').hide();
                 Beany.fadeOut(btn);
                 Beany.changeBgColor(bg, '#000');
                 state++;
@@ -2906,20 +2932,20 @@ jQuery(window).load(function () {
                     Beany.fadeInUp(shape_obj, 250, 0);
                     Beany.morph(shape_obj, cresus, 1500);
                 }, 2300);
+                jQuery('.nav').addClass('animated FadeInUp').show();
 
-
-                var nav_progress_bar = Beany.drawNavProgressBar(paper);
-                var nav_passed_progress_bar = Beany.drawNavPassedProgressBar(paper);
-                var nav_next_btn = Beany.drawNavNextBtn(paper);
-                var nav_back_btn = Beany.drawNavBackBtn(paper);
-                var nav_dot_1 = Beany.drawNavDot1(paper);
-                var nav_dot_2 = Beany.drawNavDot2(paper);
-                var nav_dot_3 = Beany.drawNavDot3(paper);
-                var nav_dot_4 = Beany.drawNavDot4(paper);
-                var nav_dot_5 = Beany.drawNavDot5(paper);
-                var nav_pause_icon = Beany.drawNavPauseIcon(paper);
-                var nav_play_icon = Beany.drawNavPlayIcon(paper);
-                nav_pause_icon.attr({'opacity': 0});
+                //var nav_progress_bar = Beany.drawNavProgressBar(paper);
+                //var nav_passed_progress_bar = Beany.drawNavPassedProgressBar(paper);
+                //var nav_next_btn = Beany.drawNavNextBtn(paper);
+                //var nav_back_btn = Beany.drawNavBackBtn(paper);
+                //var nav_dot_1 = Beany.drawNavDot1(paper);
+                //var nav_dot_2 = Beany.drawNavDot2(paper);
+                //var nav_dot_3 = Beany.drawNavDot3(paper);
+                //var nav_dot_4 = Beany.drawNavDot4(paper);
+                //var nav_dot_5 = Beany.drawNavDot5(paper);
+                //var nav_pause_icon = Beany.drawNavPauseIcon(paper);
+                //var nav_play_icon = Beany.drawNavPlayIcon(paper);
+                //nav_pause_icon.attr({'opacity': 0});
 
                 setTimeout(function () {
                     jQuery('.prj1').addClass('animated fadeInUp').show();
@@ -2927,7 +2953,7 @@ jQuery(window).load(function () {
                 }, 2800);
 
 
-                nav_dot_1.click(function () {
+                jQuery('.slide_1').click(function () {
                     if (slide_nav != 1) {
                         Beany.morph(shape_obj, cresus, 1600);
                         slide_nav = 1;
@@ -2939,9 +2965,11 @@ jQuery(window).load(function () {
                         jQuery('.prj .prj_info').addClass('animated fadeOutUp');
                         jQuery('.prj1 .prj_info ').removeClass('animated fadeOutUp').addClass('animated fadeInUp');
                         jQuery('.prj1').show();
+                        jQuery('.slide').removeClass('active');
+                        jQuery(this).addClass('active');
                     }
                 });
-                nav_dot_2.click(function () {
+                jQuery('.slide_2').click(function () {
                     if (slide_nav != 2) {
                         Beany.morph(shape_obj, durance, 1600);
                         slide_nav = 2;
@@ -2953,9 +2981,11 @@ jQuery(window).load(function () {
                         jQuery('.prj .prj_info').addClass('animated fadeOutUp');
                         jQuery('.prj2 .prj_info ').removeClass('fadeOutUp').addClass('animated fadeInUp');
                         jQuery('.prj2').show();
+                        jQuery('.slide').removeClass('active');
+                        jQuery(this).addClass('active');
                     }
                 });
-                nav_dot_3.click(function () {
+                jQuery('.slide_3').click(function () {
                     if (slide_nav != 3) {
                         Beany.morph(shape_obj, bys, 1600);
                         slide_nav = 3;
@@ -2967,9 +2997,11 @@ jQuery(window).load(function () {
                         jQuery('.prj .prj_info').addClass('animated fadeOutUp');
                         jQuery('.prj3 .prj_info ').removeClass('fadeOutUp').addClass('animated fadeInUp');
                         jQuery('.prj3').show();
+                        jQuery('.slide').removeClass('active');
+                        jQuery(this).addClass('active');
                     }
                 });
-                nav_dot_4.click(function () {
+                jQuery('.slide_4').click(function () {
                     if (slide_nav != 4) {
                         Beany.morph(shape_obj, club75, 1600);
                         slide_nav = 4;
@@ -2981,9 +3013,11 @@ jQuery(window).load(function () {
                         jQuery('.prj .prj_info').addClass('animated fadeOutUp');
                         jQuery('.prj4 .prj_info ').removeClass('animated fadeOutUp').addClass('animated fadeInUp');
                         jQuery('.prj4').show();
+                        jQuery('.slide').removeClass('active');
+                        jQuery(this).addClass('active');
                     }
                 });
-                nav_dot_5.click(function () {
+                jQuery('.slide_5').click(function () {
                     if (slide_nav != 5) {
                         Beany.morph(shape_obj, renault, 1600);
                         slide_nav = 5;
@@ -2995,9 +3029,11 @@ jQuery(window).load(function () {
                         jQuery('.prj .prj_info').addClass('animated fadeOutUp');
                         jQuery('.prj5 .prj_info ').removeClass('animated fadeOutUp').addClass('animated fadeInUp');
                         jQuery('.prj5').show();
+                        jQuery('.slide').removeClass('active');
+                        jQuery(this).addClass('active');
                     }
                 });
-                nav_next_btn.click(function () {
+                jQuery('.slide-next').click(function () {
                     switch (slide_nav) {
                         case 1:
                             // current slide == 1 and move to the 2nd(durance)
@@ -3009,6 +3045,8 @@ jQuery(window).load(function () {
                             jQuery('.prj .prj_info').addClass('animated fadeOutUp');
                             jQuery('.prj2 .prj_info ').removeClass('animated fadeOutUp').addClass('animated fadeInUp');
                             jQuery('.prj2').show();
+                            jQuery('.slide').removeClass('active');
+                            jQuery('.slide_2').addClass('active');
                             break;
                         case 2:
                             // current slide == 2 and move to the 3rd(bys)
@@ -3020,6 +3058,8 @@ jQuery(window).load(function () {
                             jQuery('.prj .prj_info').addClass('animated fadeOutUp');
                             jQuery('.prj3 .prj_info ').removeClass('animated fadeOutUp').addClass('animated fadeInUp');
                             jQuery('.prj3').show();
+                            jQuery('.slide').removeClass('active');
+                            jQuery('.slide_3').addClass('active');
                             break;
 
                         case 3:
@@ -3032,6 +3072,8 @@ jQuery(window).load(function () {
                             jQuery('.prj .prj_info').addClass('animated fadeOutUp');
                             jQuery('.prj4 .prj_info ').removeClass('animated fadeOutUp').addClass('animated fadeInUp');
                             jQuery('.prj4').show();
+                            jQuery('.slide').removeClass('active');
+                            jQuery('.slide_4').addClass('active');
                             break;
                         case 4:
                             // current slide == 4 and move to the 5th(renault)
@@ -3043,6 +3085,8 @@ jQuery(window).load(function () {
                             jQuery('.prj .prj_info').addClass('animated fadeOutUp');
                             jQuery('.prj5 .prj_info ').removeClass('animated fadeOutUp').addClass('animated fadeInUp');
                             jQuery('.prj5').show();
+                            jQuery('.slide').removeClass('active');
+                            jQuery('.slide_5').addClass('active');
                             break;
                         case 5:
                             Beany.morph(shape_obj, cresus, 1600);
@@ -3053,13 +3097,14 @@ jQuery(window).load(function () {
                             jQuery('.prj .prj_info').addClass('animated fadeOutUp');
                             jQuery('.prj1 .prj_info ').removeClass('animated fadeOutUp').addClass('animated fadeInUp');
                             jQuery('.prj1').show();
-
+                            jQuery('.slide').removeClass('active');
+                            jQuery('.slide_1').addClass('active');
                             break;
                         default:
                             break;
                     }
                 });
-                nav_back_btn.click(function () {
+                jQuery('.slide-prev').click(function () {
                     switch (slide_nav) {
                         case 5:
                             Beany.morph(shape_obj, club75, 1600);
@@ -3071,6 +3116,8 @@ jQuery(window).load(function () {
                             jQuery('.prj5').removeClass('animated fadeInUp');
                             jQuery('.prj4 .prj_info ').removeClass('fadeOutUp').addClass('animated fadeInUp');
                             jQuery('.prj4').show();
+                            jQuery('.slide').removeClass('active');
+                            jQuery('.slide_4').addClass('active');
                             break;
                         case 4:
                             Beany.morph(shape_obj, bys, 1600);
@@ -3081,6 +3128,8 @@ jQuery(window).load(function () {
                             jQuery('.prj4').removeClass('animated fadeInUp');
                             jQuery('.prj3 .prj_info ').removeClass('fadeOutUp').addClass('animated fadeInUp');
                             jQuery('.prj3').show();
+                            jQuery('.slide').removeClass('active');
+                            jQuery('.slide_3').addClass('active');
                             break;
                         case 3:
                             Beany.morph(shape_obj, durance, 1600);
@@ -3091,6 +3140,8 @@ jQuery(window).load(function () {
                             jQuery('.prj3').removeClass('animated fadeInUp');
                             jQuery('.prj2 .prj_info ').removeClass('animated fadeOutUp').addClass('animated fadeInUp');
                             jQuery('.prj2').show();
+                            jQuery('.slide').removeClass('active');
+                            jQuery('.slide_2').addClass('active');
                             break;
                         case 2:
                             Beany.morph(shape_obj, cresus, 1600);
@@ -3102,6 +3153,8 @@ jQuery(window).load(function () {
                             jQuery('.prj2').removeClass('animated fadeInUp');
                             jQuery('.prj1 .prj_info ').removeClass('animated fadeOutUp').addClass('animated fadeInUp');
                             jQuery('.prj1').show();
+                            jQuery('.slide').removeClass('active');
+                            jQuery('.slide_1').addClass('active');
                             break;
                         case 1:
                             Beany.morph(shape_obj, renault, 1600);
@@ -3112,6 +3165,8 @@ jQuery(window).load(function () {
                             jQuery('.prj1').removeClass('animated fadeInUp');
                             jQuery('.prj5 .prj_info ').removeClass('animated fadeOutUp').addClass('animated fadeInUp');
                             jQuery('.prj5').show();
+                            jQuery('.slide').removeClass('active');
+                            jQuery('.slide_5').addClass('active');
                             break;
                         default:
                             break;
