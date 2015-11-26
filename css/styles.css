@@ -3606,6 +3606,57 @@ body {
   animation-name: zoomOut;
 }
 
+@-webkit-keyframes menu-acitve {
+  from {
+    background-position: -9px -11px;
+    width: 31px;
+    height: 28px;
+  }
+  .5% {
+    background-position: -6px -61px;
+    width: 34px;
+    height: 26px;
+  }
+  1% {
+    background-position: -7px -111px;
+    width: 34px;
+    height: 26px;
+  }
+  to {
+    background-position: -12px -162px;
+    width: 24px;
+    height: 25px;
+  }
+}
+
+@keyframes menu-acitve {
+  from {
+    background-position: -9px -11px;
+    width: 31px;
+    height: 28px;
+  }
+  .5% {
+    background-position: -6px -61px;
+    width: 34px;
+    height: 26px;
+  }
+  1% {
+    background-position: -7px -111px;
+    width: 34px;
+    height: 26px;
+  }
+  to {
+    background-position: -12px -162px;
+    width: 24px;
+    height: 25px;
+  }
+}
+
+.menu-active {
+  -webkit-animation-name: menu-acitve;
+          animation-name: menu-acitve;
+}
+
 .home_wrapper {
   position: relative;
 }
@@ -3759,6 +3810,36 @@ body {
   border-color: #696576;
 }
 
+.home_wrapper .btn-wrapper {
+  position: absolute;
+  bottom: 20%;
+  height: 30px;
+  left: 0;
+  right: 0;
+  text-align: center;
+}
+
+.home_wrapper .btn-wrapper button {
+  display: none;
+  border: 0;
+  outline: 0;
+  background: url(../images/btn.gif) no-repeat;
+  background-size: 22px 38px;
+  height: 38px;
+  width: 22px;
+}
+
+.home_wrapper .btn-wrapper .txt-wrapper {
+  overflow: hidden;
+  height: 50px;
+  padding: 20px 0;
+}
+
+.home_wrapper .btn-wrapper .txt-wrapper p {
+  display: none;
+  margin: 0;
+}
+
 .home_wrapper .nav {
   display: none;
   position: fixed;
@@ -3767,6 +3848,7 @@ body {
   border-top: 1px solid #fff;
   left: 0;
   right: 0;
+  z-index: 10;
 }
 
 .home_wrapper .nav .a-left #logo {
@@ -3873,7 +3955,7 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  bottom: 50px;
+  bottom: 0;
   background: #404040;
   text-align: center;
 }
@@ -3923,12 +4005,12 @@ body {
 
 .home_wrapper .main-menu li #cresus-nav-bg .bg-left {
   background: url(../images/menu-bg/cresus-reflect.svg) no-repeat;
-  background-position-x: -200%;
+  background-position-x: -300%;
 }
 
 .home_wrapper .main-menu li #cresus-nav-bg .bg-right {
   background: url(../images/menu-bg/cresus.svg) no-repeat;
-  background-position-x: 300%;
+  background-position-x: 400%;
 }
 
 .home_wrapper .main-menu li #durance-nav-bg {

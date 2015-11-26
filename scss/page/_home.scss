@@ -131,6 +131,33 @@
     }
   }
 
+  .btn-wrapper {
+    position: absolute;
+    bottom: 20%;
+    height: 30px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    button {
+      display: none;
+      border: 0;
+      outline: 0;
+      background: url(../images/btn.gif) no-repeat;
+      background-size: 22px 38px;
+      height: 38px;
+      width: 22px;
+    }
+    .txt-wrapper {
+      overflow: hidden;
+      height: 50px;
+      padding: 20px 0;
+      p {
+        display: none;
+        margin: 0;
+      }
+    }
+  }
+
   // the nav area
   .nav {
     display: none;
@@ -140,6 +167,7 @@
     border-top: 1px solid #fff;
     left: 0;
     right: 0;
+    z-index: 10;
     .a-left {
       #logo {
         display: inline-block;
@@ -230,7 +258,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    bottom: 50px;
+    bottom: 0;
     background: #404040;
     text-align: center;
     ul {
@@ -271,11 +299,11 @@
         opacity: 0.2;
         .bg-left {
           background: url(../images/menu-bg/cresus-reflect.svg) no-repeat;
-          background-position-x: -200%;
+          background-position-x: -300%;
         }
         .bg-right {
           background: url(../images/menu-bg/cresus.svg) no-repeat;
-          background-position-x: 300%;
+          background-position-x: 400%;
         }
       }
       #durance-nav-bg {

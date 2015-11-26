@@ -2840,40 +2840,38 @@ var Beany = {
 
 jQuery(window).load(function () {
     jQuery('#logo').click(function () {
-
         if (!jQuery(this).hasClass('active')) {
             jQuery(this).addClass('active');
             jQuery('#container').removeClass('animated zoomIn').addClass('animated zoomOut');
             jQuery('.main-menu').removeClass('animated zoomOut').addClass('animated zoomIn').show();
-            setTimeOut(function () {
-            }, 100)
+            jQuery('.slide-cpl').removeClass('animated fadeIn').addClass('animated fadeOut');
 
         }
         else {
             jQuery(this).removeClass('active');
             jQuery('#container').removeClass('animated zoomOut').addClass('animated zoomIn');
             jQuery('.main-menu').addClass('animated zoomIn').addClass('animated zoomOut').show();
-
-            setTimeOut(function () {
-            }, 100)
+            jQuery('.slide-cpl').removeClass('animated fadeOut').addClass('animated fadeIn');
         }
 
     });
     setTimeout(function () {
             jQuery('.heading_wrapper').show();
             jQuery('.heading_wrapper .txt-2').show();
+            jQuery('.btn-wrapper button').show();
+            jQuery('.btn-wrapper p').show();
         }
         , 3000);
 
 
-    jQuery('.main-menu li a').hover(function () {
+    jQuery('.main-menu li a').hover(
+        function () {
         jQuery(this).parent('li').find('.item-bg').show()
     }, function () {
         jQuery(this).parent('li').find('.item-bg').hide()
     });
 
     var state = 1;
-    var heading_state = 1;
     var auto_play_status = 1;
     var paper = Beany.getPaperSingleton("container", jQuery(window).width(), jQuery(window).height());
     var bg = Beany.drawBg(paper);
@@ -2901,7 +2899,7 @@ jQuery(window).load(function () {
     var lion = Beany.drawLion(paper);
     lion.attr({'opacity': 0});
     //var heading = Beany.drawHeading(paper);
-    var btn = Beany.drawBtn(paper);
+    //var btn = Beany.drawBtn(paper);
     var lion_wrapper = (1920 / 2) - (lion[lion.length - 1].getBBox(true).width / 2) - 50;
     Beany.recombine(lion, 't' + (lion_wrapper) + ',50');
 
@@ -2909,7 +2907,7 @@ jQuery(window).load(function () {
     var slide_nav = 1;
     var slide_limit_nav = 5;
 
-    btn.click(function () {
+    jQuery('.btn-wrapper button').click(function () {
         switch (state) {
             case 1:
                 jQuery('.txt-2').removeClass('animated fadeInup').addClass('animated fadeOutUp');
@@ -2924,7 +2922,13 @@ jQuery(window).load(function () {
             case 3:
                 Beany.floatUp(lion, lion_wrapper);
                 jQuery('.heading_wrapper').addClass('animated fadeOutUpBig').hide();
-                Beany.fadeOut(btn);
+                jQuery('.btn-wrapper button').addClass('animated fadeOutUp');
+                jQuery('.btn-wrapper p').addClass('animated fadeOutUp');
+
+                setTimeout(function () {
+                    jQuery('.btn-wrapper button').hide();
+                    jQuery('.btn-wrapper p').hide();
+                }, 400);
                 Beany.changeBgColor(bg, '#000');
                 state++;
                 // start with cresus
@@ -2932,26 +2936,13 @@ jQuery(window).load(function () {
                     Beany.fadeInUp(shape_obj, 250, 0);
                     Beany.morph(shape_obj, cresus, 1500);
                 }, 2300);
-                jQuery('.nav').addClass('animated FadeInUp').show();
-
-                //var nav_progress_bar = Beany.drawNavProgressBar(paper);
-                //var nav_passed_progress_bar = Beany.drawNavPassedProgressBar(paper);
-                //var nav_next_btn = Beany.drawNavNextBtn(paper);
-                //var nav_back_btn = Beany.drawNavBackBtn(paper);
-                //var nav_dot_1 = Beany.drawNavDot1(paper);
-                //var nav_dot_2 = Beany.drawNavDot2(paper);
-                //var nav_dot_3 = Beany.drawNavDot3(paper);
-                //var nav_dot_4 = Beany.drawNavDot4(paper);
-                //var nav_dot_5 = Beany.drawNavDot5(paper);
-                //var nav_pause_icon = Beany.drawNavPauseIcon(paper);
-                //var nav_play_icon = Beany.drawNavPlayIcon(paper);
-                //nav_pause_icon.attr({'opacity': 0});
+                jQuery('.nav').addClass('animated fadeInUp').show();
+                jQuery('.slide').first().addClass('active');
 
                 setTimeout(function () {
                     jQuery('.prj1').addClass('animated fadeInUp').show();
 
                 }, 2800);
-
 
                 jQuery('.slide_1').click(function () {
                     if (slide_nav != 1) {
@@ -3172,31 +3163,38 @@ jQuery(window).load(function () {
                             break;
                     }
                 });
-                nav_pause_icon.click(function () {
-                    auto_play_status = 1;
-                    nav_pause_icon.attr({'opacity': 0});
-                    nav_play_icon.attr({'opacity': 1});
+                jQuery('.slide-status').click(function () {
+
+                    switch (auto_play_status) {
+                        case 1:
+                            jQuery('.slide-status').removeClass('fa-pause').addClass('fa-play');
+                            auto_play_status = 0;
+                            console.log(auto_play_status);
+                            break;
+                        case 0:
+                            jQuery('.slide-status').removeClass('fa-play').addClass('fa-pause');
+                            auto_play_status = 1;
+                            console.log(auto_play_status);
+                            break;
+                        default:
+                            break;
+                    }
                 });
 
-                nav_play_icon.click(function () {
-                    auto_play_status = 0;
-                    nav_pause_icon.attr({'opacity': 1});
-                    nav_play_icon.attr({'opacity': 0});
-                });
                 // auto play
                 setInterval(function () {
                     if (auto_play_status == 1) {
-                        Beany.fireEvent(nav_next_btn.node, 'click');
-                        nav_pause_icon.attr({'opacity': 0});
-                        nav_play_icon.attr({'opacity': 1});
+                        jQuery('.slide-next').trigger('click');
+                        //nav_pause_icon.attr({'opacity': 0});
+                        //nav_play_icon.attr({'opacity': 1});
                         console.log('zzzz');
                     }
-                    else {
-                        Beany.fireEvent(nav_pause_icon.node, 'click');
-                        nav_pause_icon.attr({'opacity': 1});
-                        nav_play_icon.attr({'opacity': 0});
-                    }
-                }, 40000);
+                    //else {
+                    //    Beany.fireEvent(nav_pause_icon.node, 'click');
+                    //    nav_pause_icon.attr({'opacity': 1});
+                    //    nav_play_icon.attr({'opacity': 0});
+                    //}
+                }, 4000);
                 break;
             default:
                 break;
@@ -3210,4 +3208,5 @@ jQuery(window).load(function () {
         'stroke-width': 0,
         fill: '#fff'
     });
+
 });

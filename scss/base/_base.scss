@@ -197,3 +197,38 @@ body {
   -webkit-animation-name: zoomOut;
   animation-name: zoomOut;
 }
+
+@keyframes menu-acitve {
+  from {
+    background-position: -9px -11px;
+    width: 31px;
+    height: 28px;
+  }
+  .5% {
+    background-position: -6px -61px;
+    width: 34px;
+    height: 26px;
+  }
+  1% {
+    background-position: -7px -111px;
+    width: 34px;
+    height: 26px;
+  }
+  to {
+    background-position: -12px -162px;
+    width: 24px;
+    height: 25px;
+  }
+}
+
+.menu-active {
+  animation-name: menu-acitve;
+}
+
+//
+//#logo {
+//  width: 60px;
+//  height: 50px;
+//  background: url(../images/sprites.png) no-repeat;
+//
+//}
