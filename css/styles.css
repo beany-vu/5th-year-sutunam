@@ -4150,4 +4150,71 @@ body {
   font-size: 10px;
 }
 
+.body {
+  overflow: visible !important;
+}
+
+.about_wrapper {
+  background: #27242b;
+  color: #f5f5f5;
+}
+
+.about_wrapper h1 {
+  font-size: 83px;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.about_wrapper h2 {
+  font-size: 65px;
+  text-transform: uppercase;
+}
+
+.about_wrapper .block {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.about_wrapper .block .row {
+  width: 100%;
+  clear: both;
+}
+
+.about_wrapper .block .a-left {
+  width: 50%;
+  padding-right: 15px;
+}
+
+.about_wrapper .block .a-right {
+  width: 50%;
+  padding-left: 15px;
+}
+
+.about_wrapper .block .a-mid {
+  text-align: center;
+}
+
+.about_wrapper .block .message {
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.about_wrapper .block p {
+  font-family: 'gotham-book', arial, helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 200%;
+  text-align: justify;
+}
+
+.about_wrapper .block.block-heading .sub-heading {
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 18px;
+}
+
+.about_wrapper .block.block-heading .sub-heading .txt-bold {
+  font-family: 'gotham-medium', arial, helvetica, sans-serif;
+}
+
 /*# sourceMappingURL=styles.css.map */
