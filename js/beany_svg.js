@@ -2582,86 +2582,12 @@ var Beany = {
             path_ca, path_cb, path_cc, path_cd, path_ce, path_cf, path_cg, path_ch, path_ci, path_cj, path_ck, path_cl, path_cm, path_cn,
             path_co, path_cp, path_cq, path_cr, path_cs, path_ct, path_cu, path_cv, path_cw, path_cx, path_cy, path_cz, path_da], rsr);
     },
-    drawHeading: function (paper) {
-        var txt1 = paper.text(1920 / 2 - 200, 1080 / 2 + 160, "5 ");
-        var txt2 = paper.text(1920 / 2 - 75, 1080 / 2 + 160, "YEARS");
-        var txt3 = paper.text(1920 / 2 - 75, 1080 / 2 + 170, "PROJECTS");
-        var txt4 = paper.text(1920 / 2 - 75, 1080 / 2 + 170, "YEARS");
-        var txt5 = paper.text(1920 / 2 - 20, 1080 / 2 + 230, "WITH");
-        var txt6 = paper.text(1920 / 2 + 140, 1080 / 2 + 230, "SUTUNAM");
-
-        var big_txt = paper.set(txt1, txt2, txt3, txt4);
-        var small_txt = paper.set(txt5, txt6);
-
-        big_txt.attr({
-            "fill": "#fff",
-            "font-size": 100,
-            "text-anchor": "start",
-            "font-family": "gotham-exlight",
-            "letter-spacing": "2px",
-            "opacity": 0
-        });
-
-        small_txt.attr({
-            "fill": "brown",
-            "font-size": 35,
-            "font-family": "gotham-bold",
-            "opacity": 1
-        });
-
-        var txt_set = paper.set(txt1, txt2);
-        var faded_txt = Raphael.animation({transform: 't0' + ',-20', opacity: 1}, 2000, function () {
-            //Beany.transformEffect(txt2, txt3);
-        });
-        txt_set.animate(faded_txt.delay(2000));
-
-        return paper.set([txt1, txt2, txt3, txt4, txt5, txt6]);
-    },
-    drawBtn: function (paper) {
-        //var path_a = paper.path("M24,30c0,5.5-4.5,10-10,10h-4C4.5,40,0,35.5,0,30V10 C0,4.5,4.5,0,10,0h4c5.5,0,10,4.5,10,10V30z");
-        //path_a.attr({
-        //    fill: 'none',
-        //    stroke: '#000000',
-        //    "stroke-miterlimit": '10',
-        //    'stroke-width': '1',
-        //    'stroke-opacity': '1'
-        //}).data('id', 'path_a');
-        //var path_b = paper.path("M16,17.7c0,1.8-1.5,3.3-3.3,3.3h-1.5C9.5,21,8,19.5,8,17.7V9.3 C8,7.5,9.5,6,11.3,6h1.5C14.5,6,16,7.5,16,9.3V17.7z");
-        //path_b.attr({
-        //    fill: '#393939',
-        //    stroke: '#000000',
-        //    "stroke-miterlimit": '10',
-        //    'stroke-width': '0',
-        //    'stroke-opacity': '1'
-        //}).data('id', 'path_b');
-        //var ellipse_c = paper.ellipse(12.7, 9.5, 2.2, 2.5);
-        //ellipse_c.attr({
-        //    fill: '#FFFFFF',
-        //    stroke: '#000000',
-        //    "stroke-miterlimit": '10',
-        //    'stroke-width': '0',
-        //    'stroke-opacity': '1'
-        //}).data('id', 'ellipse_c');
-        //var tbn_el = paper.set(path_a, path_b, ellipse_c);
-        //tbn_el.attr({"transform": "t" + (1920 / 2 - 10) + "," + (1080 / 2 + 300)});
-        //
-        //return Beany.toSet([path_a, path_b, ellipse_c], paper);
-        btn = paper.image('images/btn.gif', (1920 / 2 - 10), (1080 / 2 + 300), 20, 35);
-        return btn;
-    },
     toSet: function (arr, paper) {
         var _set = paper.set();
         for (var i = 0; i < arr.length; i++) {
             _set.push(arr[i]);
         }
         return _set;
-    },
-    transformEffect: function (from_txt, to_txt) {
-        var from_txt_move_to = Raphael.animation({transform: 't0' + ',-40', opacity: 0}, 1000, function () {
-            var to_txt_move_to = Raphael.animation({transform: 't0' + ',-30', opacity: 1}, 1000);
-            to_txt.animate(to_txt_move_to)
-        });
-        from_txt.animate(from_txt_move_to.delay(10));
     },
     recombine: function (object, transform) {
         object.forEach(function (element, index) {
@@ -2701,15 +2627,8 @@ var Beany = {
 
         });
     },
-    floatUpSync: function (object, transformX, transformY) {
-        var fade_out_el = Raphael.animation({transform: 'T' + transformX + ',' + transformY, opacity: 0}, 3000);
-        object.animate(fade_out_el);
-    },
     changeBgColor: function (object, color) {
         object.animate({fill: color}, 2000, 'easeInOut');
-    },
-    fadeOut: function (object) {
-        object.animate({opacity: 0}, 1000);
     },
     fadeInUp: function (object, transformX, transformY) {
         object.forEach(function (element, index) {
@@ -2757,73 +2676,6 @@ var Beany = {
         console.log('--End morph--');
         return object1;
     },
-    drawNavProgressBar: function (paper) {
-        var progress_bar = paper.rect(0, 0, 1920, 2);
-        progress_bar.attr({
-            fill: '#ccc',
-            'stroke-width': 0,
-            "stroke-opacity": '0',
-            'opacity': 0.2
-        });
-        progress_bar.attr({transform: 'T0, 950'})
-    },
-    drawNavPassedProgressBar: function (paper) {
-        var passed_progress_bar = paper.rect(0, 0, 0, 2);
-        passed_progress_bar.attr({
-            fill: '#ccc',
-            'stroke-width': 0,
-            "stroke-opacity": '0',
-            'opacity': 1
-        });
-        passed_progress_bar.attr({transform: 'T0, 950'});
-        passed_progress_bar.animate({width: 1920}, 1500, 'easeInOut');
-    },
-    drawNavNextBtn: function (paper) {
-        var next_btn = paper.path('M10.129,22.186 16.316,15.999 10.129,9.812 13.665,6.276 23.389,15.999 13.665,25.725z');
-        next_btn.attr({transform: 'T1200, 955', cursor: 'pointer', fill: "#fff", 'stroke-width': 0});
-        return next_btn;
-
-    },
-    drawNavBackBtn: function (paper) {
-        var back_btn = paper.path('M21.871,9.814 15.684,16.001 21.871,22.188 18.335,25.725 8.612,16.001 18.335,6.276z');
-        back_btn.attr({transform: 'T800, 955', cursor: 'pointer', fill: "#fff", 'stroke-width': 0});
-        return back_btn;
-    },
-    drawNavDot1: function (paper) {
-        var dot1 = paper.circle(50, 40, 5);
-        dot1.attr({transform: 'T920, 935', cursor: 'pointer', fill: "#fff", 'stroke-width': 0});
-        return dot1;
-    },
-    drawNavDot2: function (paper) {
-        var dot2 = paper.circle(50, 40, 5);
-        dot2.attr({transform: 'T950, 935', cursor: 'pointer', fill: "#fff", 'stroke-width': 0});
-        return dot2;
-    },
-    drawNavDot3: function (paper) {
-        var dot3 = paper.circle(50, 40, 5);
-        dot3.attr({transform: 'T980, 935', cursor: 'pointer', fill: "#fff", 'stroke-width': 0});
-        return dot3;
-    },
-    drawNavDot4: function (paper) {
-        var dot4 = paper.circle(50, 40, 5);
-        dot4.attr({transform: 'T1010, 935', cursor: 'pointer', fill: "#fff", 'stroke-width': 0});
-        return dot4;
-    },
-    drawNavDot5: function (paper) {
-        var dot5 = paper.circle(50, 40, 5);
-        dot5.attr({transform: 'T1040, 935', cursor: 'pointer', fill: "#fff", 'stroke-width': 0});
-        return dot5;
-    },
-    drawNavPlayIcon: function (paper) {
-        var play_icon = paper.path('M6.684,25.682L24.316,15.5L6.684,5.318V25.682z');
-        play_icon.attr({transform: 'T1240, 955', cursor: 'pointer', fill: "#fff", 'stroke-width': 0});
-        return play_icon;
-    },
-    drawNavPauseIcon: function (paper) {
-        var pause_icon = paper.path('M5.5,5.5 h5 v20 h-5z M15.5,5.5 h5 v20 h-5z');
-        pause_icon.attr({transform: 'T1240, 955', cursor: 'pointer', fill: "#fff", 'stroke-width': 0});
-        return pause_icon;
-    },
     fireEvent: function (element, event) {
         if (document.createEventObject) {
             // dispatch for IE
@@ -2839,19 +2691,52 @@ var Beany = {
 };
 
 jQuery(window).load(function () {
+    var logo_bg = Raphael('logo', 60, 50);
+    var logo = logo_bg.path('M7.6,1L7.6,1c0.4,0.4,0.4,1,0,1.4L2.4,7.2C2,7.6,1.4,7.5,1,7.1l0,0c-0.4-0.4-0.4-1,0-1.4L6.2,1 C6.6,0.6,7.2,0.6,7.6,1z' +
+        'M12,1L12,1c0.4,0.4,0.4,1,0,1.4L6,8.1c-0.4,0.4-1,0.4-1.4,0l0,0c-0.4-0.4-0.4-1,0-1.4L10.6,1 C11,0.6,11.6,0.6,12,1z' +
+        'M13,4L13,4c0.4,0.4,0.4,1,0,1.4L9.5,8.7c-0.4,0.4-1,0.4-1.4,0l0,0c-0.4-0.4-0.4-1,0-1.4L11.6,4 C12,3.6,12.6,3.6,13,4z').attr({
+        transform: 'S3,3 T20,20',
+        'stroke-width': 0,
+        fill: '#fff'
+    });
+
+
     jQuery('#logo').click(function () {
         if (!jQuery(this).hasClass('active')) {
             jQuery(this).addClass('active');
             jQuery('#container').removeClass('animated zoomIn').addClass('animated zoomOut');
             jQuery('.main-menu').removeClass('animated zoomOut').addClass('animated zoomIn').show();
             jQuery('.slide-cpl').removeClass('animated fadeIn').addClass('animated fadeOut');
+            var menu_active_animation = Raphael.animation({
+                "20%": {"transform": "S3,3 T20,20r45"},
+                "50%": {"transform": "S3,3 T20,-50r45", opacity: 0},
+                "70%": {"transform": "S3,3 T20,50r45", opacity: 0},
+                "90%": {
+                    "path": "M24.778,21.419 19.276,15.917 24.777,10.415 21.949,7.585 16.447,13.087 10.945,7.585 8.117,10.415 13.618,15.917 8.116,21.419 10.946,24.248 16.447,18.746 21.948,24.248z",
+                    "transform": "S2,2 T10,50",
+                    opacity: 0
+                },
+                "100%": {"transform": "S2,2 T10,10", opacity: 1}
 
+            }, 1000);
+            logo.animate(menu_active_animation);
         }
         else {
             jQuery(this).removeClass('active');
             jQuery('#container').removeClass('animated zoomOut').addClass('animated zoomIn');
             jQuery('.main-menu').addClass('animated zoomIn').addClass('animated zoomOut').show();
             jQuery('.slide-cpl').removeClass('animated fadeOut').addClass('animated fadeIn');
+            var menu_deactive_animation = Raphael.animation({
+                "50%": {"transform": "S2,2 T10,10", opacity: 1},
+                "100%": {
+                    "path": 'M7.6,1L7.6,1c0.4,0.4,0.4,1,0,1.4L2.4,7.2C2,7.6,1.4,7.5,1,7.1l0,0c-0.4-0.4-0.4-1,0-1.4L6.2,1 C6.6,0.6,7.2,0.6,7.6,1z' +
+                    'M12,1L12,1c0.4,0.4,0.4,1,0,1.4L6,8.1c-0.4,0.4-1,0.4-1.4,0l0,0c-0.4-0.4-0.4-1,0-1.4L10.6,1 C11,0.6,11.6,0.6,12,1z' +
+                    'M13,4L13,4c0.4,0.4,0.4,1,0,1.4L9.5,8.7c-0.4,0.4-1,0.4-1.4,0l0,0c-0.4-0.4-0.4-1,0-1.4L11.6,4 C12,3.6,12.6,3.6,13,4z',
+                    'transform': 'S3,3 T20,20'
+                }
+
+            }, 500);
+            logo.animate(menu_deactive_animation);
         }
 
     });
@@ -2866,10 +2751,10 @@ jQuery(window).load(function () {
 
     jQuery('.main-menu li a').hover(
         function () {
-        jQuery(this).parent('li').find('.item-bg').show()
-    }, function () {
-        jQuery(this).parent('li').find('.item-bg').hide()
-    });
+            jQuery(this).parent('li').find('.item-bg').show()
+        }, function () {
+            jQuery(this).parent('li').find('.item-bg').hide()
+        });
 
     var state = 1;
     var auto_play_status = 1;
@@ -2898,14 +2783,10 @@ jQuery(window).load(function () {
     // lion part
     var lion = Beany.drawLion(paper);
     lion.attr({'opacity': 0});
-    //var heading = Beany.drawHeading(paper);
-    //var btn = Beany.drawBtn(paper);
     var lion_wrapper = (1920 / 2) - (lion[lion.length - 1].getBBox(true).width / 2) - 50;
     Beany.recombine(lion, 't' + (lion_wrapper) + ',50');
 
-    var morph_shape = [];
     var slide_nav = 1;
-    var slide_limit_nav = 5;
 
     jQuery('.btn-wrapper button').click(function () {
         switch (state) {
@@ -3185,28 +3066,20 @@ jQuery(window).load(function () {
                 setInterval(function () {
                     if (auto_play_status == 1) {
                         jQuery('.slide-next').trigger('click');
-                        //nav_pause_icon.attr({'opacity': 0});
-                        //nav_play_icon.attr({'opacity': 1});
-                        console.log('zzzz');
                     }
-                    //else {
-                    //    Beany.fireEvent(nav_pause_icon.node, 'click');
-                    //    nav_pause_icon.attr({'opacity': 1});
-                    //    nav_play_icon.attr({'opacity': 0});
-                    //}
                 }, 4000);
                 break;
             default:
                 break;
         }
     });
-    var logo = Raphael('logo', 60, 50);
-    logo.path('M7.6,1L7.6,1c0.4,0.4,0.4,1,0,1.4L2.4,7.2C2,7.6,1.4,7.5,1,7.1l0,0c-0.4-0.4-0.4-1,0-1.4L6.2,1 C6.6,0.6,7.2,0.6,7.6,1z' +
-        'M12,1L12,1c0.4,0.4,0.4,1,0,1.4L6,8.1c-0.4,0.4-1,0.4-1.4,0l0,0c-0.4-0.4-0.4-1,0-1.4L10.6,1 C11,0.6,11.6,0.6,12,1z' +
-        'M13,4L13,4c0.4,0.4,0.4,1,0,1.4L9.5,8.7c-0.4,0.4-1,0.4-1.4,0l0,0c-0.4-0.4-0.4-1,0-1.4L11.6,4 C12,3.6,12.6,3.6,13,4z').attr({
-        transform: 'S3,3 T20,20',
-        'stroke-width': 0,
-        fill: '#fff'
+
+    // trigger the animation when scrolldown
+    // (we have to do like this because our web page don't have the scrollbar ;))
+    jQuery(window).on('mousewheel', function (event) {
+        if (event.deltaY < 0 && state <= 3) {
+            jQuery('.btn-wrapper button').trigger('click');
+        }
     });
 
 });
