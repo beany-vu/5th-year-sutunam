@@ -3856,6 +3856,7 @@ body {
   float: left;
   position: relative;
   width: 60px;
+  cursor: pointer;
 }
 
 .home_wrapper .nav .a-left #logo:after {

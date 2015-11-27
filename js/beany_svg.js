@@ -2687,19 +2687,26 @@ var Beany = {
             evt.initEvent(event, true, true); // event type,bubbling,cancelable
             return !element.dispatchEvent(evt);
         }
-    }
+    },
+    drawLogoBg: function (id, width, height) {
+        return Raphael(id, width, height);
+    },
+    drawLogo: function (container) {
+        return container.path('M7.6,1L7.6,1c0.4,0.4,0.4,1,0,1.4L2.4,7.2C2,7.6,1.4,7.5,1,7.1l0,0c-0.4-0.4-0.4-1,0-1.4L6.2,1 C6.6,0.6,7.2,0.6,7.6,1z' +
+            'M12,1L12,1c0.4,0.4,0.4,1,0,1.4L6,8.1c-0.4,0.4-1,0.4-1.4,0l0,0c-0.4-0.4-0.4-1,0-1.4L10.6,1 C11,0.6,11.6,0.6,12,1z' +
+            'M13,4L13,4c0.4,0.4,0.4,1,0,1.4L9.5,8.7c-0.4,0.4-1,0.4-1.4,0l0,0c-0.4-0.4-0.4-1,0-1.4L11.6,4 C12,3.6,12.6,3.6,13,4z').attr({
+            transform: 'S3,3 T20,20',
+            'stroke-width': 0,
+            fill: '#fff'
+        });
+    },
+
 };
 
 jQuery(window).load(function () {
-    var logo_bg = Raphael('logo', 60, 50);
-    var logo = logo_bg.path('M7.6,1L7.6,1c0.4,0.4,0.4,1,0,1.4L2.4,7.2C2,7.6,1.4,7.5,1,7.1l0,0c-0.4-0.4-0.4-1,0-1.4L6.2,1 C6.6,0.6,7.2,0.6,7.6,1z' +
-        'M12,1L12,1c0.4,0.4,0.4,1,0,1.4L6,8.1c-0.4,0.4-1,0.4-1.4,0l0,0c-0.4-0.4-0.4-1,0-1.4L10.6,1 C11,0.6,11.6,0.6,12,1z' +
-        'M13,4L13,4c0.4,0.4,0.4,1,0,1.4L9.5,8.7c-0.4,0.4-1,0.4-1.4,0l0,0c-0.4-0.4-0.4-1,0-1.4L11.6,4 C12,3.6,12.6,3.6,13,4z').attr({
-        transform: 'S3,3 T20,20',
-        'stroke-width': 0,
-        fill: '#fff'
-    });
-
+    var logo_bg = Beany.drawLogoBg('logo', 60, 50);
+    var logo = Beany.drawLogo(logo_bg);
+    var interval = '';
 
     jQuery('#logo').click(function () {
         if (!jQuery(this).hasClass('active')) {
@@ -2707,36 +2714,48 @@ jQuery(window).load(function () {
             jQuery('#container').removeClass('animated zoomIn').addClass('animated zoomOut');
             jQuery('.main-menu').removeClass('animated zoomOut').addClass('animated zoomIn').show();
             jQuery('.slide-cpl').removeClass('animated fadeIn').addClass('animated fadeOut');
-            var menu_active_animation = Raphael.animation({
-                "20%": {"transform": "S3,3 T20,20r45"},
-                "50%": {"transform": "S3,3 T20,-50r45", opacity: 0},
-                "70%": {"transform": "S3,3 T20,50r45", opacity: 0},
-                "90%": {
-                    "path": "M24.778,21.419 19.276,15.917 24.777,10.415 21.949,7.585 16.447,13.087 10.945,7.585 8.117,10.415 13.618,15.917 8.116,21.419 10.946,24.248 16.447,18.746 21.948,24.248z",
-                    "transform": "S2,2 T10,50",
-                    opacity: 0
-                },
-                "100%": {"transform": "S2,2 T10,10", opacity: 1}
+            auto_play_status = 0;
+            setTimeout(function () {
+                var menu_active_animation = Raphael.animation({
+                    "0%": {"transform": "S3,3 T20,20r45"},
+                    "60%": {"transform": "S3,3 T20,-25r45", opacity: 0},
+                    "65%": {"transform": "S3,3 T20,25r45", opacity: 0},
+                    "70%": {
+                        "path": "M24.778,21.419 19.276,15.917 24.777,10.415 21.949,7.585 16.447,13.087 10.945,7.585 8.117,10.415 13.618,15.917 8.116,21.419 10.946,24.248 16.447,18.746 21.948,24.248z",
+                        "transform": "S2,2 T10,25",
+                        opacity: 0
+                    },
+                    "100%": {"transform": "S2,2 T10,10", opacity: 1}
 
-            }, 1000);
-            logo.animate(menu_active_animation);
+                }, 500);
+                logo.animate(menu_active_animation);
+            }, 200);
+
         }
         else {
             jQuery(this).removeClass('active');
             jQuery('#container').removeClass('animated zoomOut').addClass('animated zoomIn');
             jQuery('.main-menu').addClass('animated zoomIn').addClass('animated zoomOut').show();
             jQuery('.slide-cpl').removeClass('animated fadeOut').addClass('animated fadeIn');
-            var menu_deactive_animation = Raphael.animation({
-                "50%": {"transform": "S2,2 T10,10", opacity: 1},
-                "100%": {
-                    "path": 'M7.6,1L7.6,1c0.4,0.4,0.4,1,0,1.4L2.4,7.2C2,7.6,1.4,7.5,1,7.1l0,0c-0.4-0.4-0.4-1,0-1.4L6.2,1 C6.6,0.6,7.2,0.6,7.6,1z' +
-                    'M12,1L12,1c0.4,0.4,0.4,1,0,1.4L6,8.1c-0.4,0.4-1,0.4-1.4,0l0,0c-0.4-0.4-0.4-1,0-1.4L10.6,1 C11,0.6,11.6,0.6,12,1z' +
-                    'M13,4L13,4c0.4,0.4,0.4,1,0,1.4L9.5,8.7c-0.4,0.4-1,0.4-1.4,0l0,0c-0.4-0.4-0.4-1,0-1.4L11.6,4 C12,3.6,12.6,3.6,13,4z',
-                    'transform': 'S3,3 T20,20'
-                }
+            auto_play_status = 1;
+            setTimeout(function () {
+                var menu_deactive_animation = Raphael.animation({
+                    "0%": {"transform": "S2,2 T10,10", opacity: 1},
+                    "60%": {"transform": "S2,2 T10,-25", opacity: 1},
+                    "65%": {"transform": "S2,2 T10,-25", opacity: 0},
+                    "70%": {"transform": "S2,2 T10,25", opacity: 0},
+                    "90%": {
+                        "path": 'M7.6,1L7.6,1c0.4,0.4,0.4,1,0,1.4L2.4,7.2C2,7.6,1.4,7.5,1,7.1l0,0c-0.4-0.4-0.4-1,0-1.4L6.2,1 C6.6,0.6,7.2,0.6,7.6,1z' +
+                        'M12,1L12,1c0.4,0.4,0.4,1,0,1.4L6,8.1c-0.4,0.4-1,0.4-1.4,0l0,0c-0.4-0.4-0.4-1,0-1.4L10.6,1 C11,0.6,11.6,0.6,12,1z' +
+                        'M13,4L13,4c0.4,0.4,0.4,1,0,1.4L9.5,8.7c-0.4,0.4-1,0.4-1.4,0l0,0c-0.4-0.4-0.4-1,0-1.4L11.6,4 C12,3.6,12.6,3.6,13,4z',
+                        'transform': 'S3,3 T20,25'
+                    },
+                    "100%": {"transform": "S3,3 T20,20", opacity: 1},
 
-            }, 500);
-            logo.animate(menu_deactive_animation);
+                }, 300);
+                logo.animate(menu_deactive_animation);
+            }, 400);
+
         }
 
     });
@@ -3065,9 +3084,9 @@ jQuery(window).load(function () {
                 // auto play
                 setInterval(function () {
                     if (auto_play_status == 1) {
-                        jQuery('.slide-next').trigger('click');
+                        interval = jQuery('.slide-next').trigger('click');
                     }
-                }, 4000);
+                }, 6000);
                 break;
             default:
                 break;
