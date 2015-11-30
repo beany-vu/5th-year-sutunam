@@ -5,12 +5,15 @@
     <title>Demo recombine effect</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/styles.css"/>
+    <link rel="stylesheet" href="js/fullpage/dist/jquery.fullpage.css"/>
 </head>
 <body>
-<div class="about_wrapper">
-    <a href="" class="back-link">back to projects</a>
+<div class="about_wrapper" id="fullpage">
 
-    <div class="block block-heading">
+
+    <div class="block block-heading section ">
+        <a href="" class="back-link">back to projects</a>
+
         <h1>about 5 years</h1>
 
         <p class="sub-heading">with <span class="txt-bold">sutunam</span></p>
@@ -34,7 +37,7 @@
         <div class="separator"></div>
     </div>
 
-    <div class="block block-about">
+    <div class="block block-about section ">
         <div class="row a-left">
             <h2>We are sutunam</h2>
         </div>
@@ -44,18 +47,23 @@
             <p>Driven by our desire to provide a great service of complete digital branding, we are committed to the
                 satisfaction and celebration of your entrepreneurship.</p>
         </div>
-        <div class="row a-mid">
-            <p>Blow the candles with us on</p>
+        <div class="row a-right">
             <ul class="brand-list">
-                <li>magento</li>
-                <li>wordpress</li>
-                <li>symfony</li>
+                <li><a href="#"><img src="images/about/magento.gif" alt=""></a></li>
+                <li><a href="#"><img src="images/about/wordpress.gif" alt=""></a></li>
+                <li><a href="#"><img src="images/about/symfony.gif" alt=""></a>
+                <li>
             </ul>
+        </div>
+        <div class="row a-mid">
+            <img class="staff-img" src="images/about/staff.png" alt="">
+
+            <h3>our hanoian team</h3>
         </div>
         <div class="separator"></div>
     </div>
 
-    <div class="block block-contact">
+    <div class="block block-contact section ">
         <div class="row a-left">
             <h2>Get in touch</h2>
         </div>
@@ -88,14 +96,44 @@
                 </li>
             </ul>
         </div>
-        <div class="separator"></div>
     </div>
+    <div class="block block-carousel section">
+        <div class="project-carousel">
+            <div class="item-wrapper">
+                <img src="images/about/slide1.gif" alt="">
 
+                <h3>durance</h3>
+            </div>
+            <div class="item-wrapper">
+                <img src="images/about/slide1.gif" alt="">
+
+                <h3>durance</h3>
+            </div>
+            <div class="item-wrapper">
+                <img src="images/about/slide1.gif" alt="">
+
+                <h3>durance</h3>
+            </div>
+            <div class="item-wrapper">
+                <img src="images/about/slide1.gif" alt="">
+
+                <h3>durance</h3>
+            </div>
+            <div class="item-wrapper">
+                <img src="images/about/slide1.gif" alt="">
+
+                <h3>durance</h3>
+            </div>
+
+
+        </div>
+    </div>
 </div>
 <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
 <script src="js/slick/slick.js"></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.4/raphael-min.js'></script>
 <script src="js/jquery.mousewheel.js"></script>
+<script src="js/fullpage/dist/jquery.fullpage.js"></script>
 <script src="js/beany_svg.js"></script>
 </body>
 </html>
