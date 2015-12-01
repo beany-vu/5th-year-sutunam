@@ -1,3 +1,12 @@
+@charset "UTF-8";
+/* Media queries breakpoints */
+/* transition */
+/* placeholder */
+/* border radius */
+/* box-shadow */
+/* transform */
+/* breakpoint with one condition(min or max) */
+/* breakpoint with tưo conditions(min and max) */
 /*! normalize.css v3.0.2 | MIT License | git.io/normalize */
 /**
  * 1. Set default font family to sans-serif.
@@ -3665,8 +3674,35 @@ a, a:hover {
   position: relative;
 }
 
+.home_wrapper:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.home_wrapper #background {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+}
+
+@media only screen and (max-width: 1199px) {
+  .home_wrapper #container {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    -webkit-transform: scale(2, 2);
+        -ms-transform: scale(2, 2);
+            transform: scale(2, 2);
+  }
+}
+
 .home_wrapper .scroll_down {
-  position: absolute;
+  position: fixed;
   z-index: 999;
   left: 10%;
   width: 200px;
@@ -3679,7 +3715,7 @@ a, a:hover {
 
 .home_wrapper .heading_wrapper {
   display: none;
-  position: absolute;
+  position: fixed;
   height: 100px;
   width: 650px;
   top: 50%;
@@ -3689,9 +3725,33 @@ a, a:hover {
           transform: translateX(-50%);
 }
 
+@media only screen and (max-width: 1199px) {
+  .home_wrapper .heading_wrapper {
+    width: 60%;
+  }
+}
+
+@media only screen and (max-width: 991px) {
+  .home_wrapper .heading_wrapper {
+    width: 90%;
+  }
+}
+
 .home_wrapper .heading_wrapper h1 {
   text-transform: uppercase;
   letter-spacing: 15px;
+}
+
+@media only screen and (max-width: 1199px) {
+  .home_wrapper .heading_wrapper h1 {
+    font-size: 40px;
+  }
+}
+
+@media only screen and (max-width: 991px) {
+  .home_wrapper .heading_wrapper h1 {
+    font-size: 20px;
+  }
 }
 
 .home_wrapper .heading_wrapper span.txt-big {
@@ -3702,6 +3762,13 @@ a, a:hover {
   color: #fff;
   font-size: 80px;
   text-align: left;
+}
+
+@media only screen and (max-width: 1199px) {
+  .home_wrapper .heading_wrapper span.txt-big {
+    font-size: 40px;
+    height: 40px;
+  }
 }
 
 .home_wrapper .heading_wrapper span.txt-big .txt-left {
@@ -3717,11 +3784,36 @@ a, a:hover {
   margin-left: 100px;
 }
 
+@media only screen and (max-width: 1199px) {
+  .home_wrapper .heading_wrapper span.txt-big .txt-right {
+    margin-left: 30px;
+  }
+}
+
+@media only screen and (max-width: 1199px) {
+  .home_wrapper .heading_wrapper span.txt-big .txt-right {
+    margin-left: 10px;
+    letter-spacing: 0;
+  }
+}
+
 .home_wrapper .heading_wrapper span.txt-small {
   display: block;
   text-align: center;
   color: #a52a2a;
   font-size: 30px;
+}
+
+@media only screen and (max-width: 1199px) {
+  .home_wrapper .heading_wrapper span.txt-small {
+    font-size: 20px;
+  }
+}
+
+@media only screen and (max-width: 991px) {
+  .home_wrapper .heading_wrapper span.txt-small {
+    font-size: 12px;
+  }
 }
 
 .home_wrapper .heading_wrapper span.txt-small .txt-bold {
@@ -3735,7 +3827,7 @@ a, a:hover {
 }
 
 .home_wrapper .prj_wrapper {
-  position: absolute;
+  position: fixed;
   top: 40%;
   left: 50%;
   padding: 0 10px;
@@ -3745,11 +3837,23 @@ a, a:hover {
           transform: translateX(-50%);
 }
 
+@media only screen and (max-width: 1199px) {
+  .home_wrapper .prj_wrapper {
+    width: 100%;
+  }
+}
+
 .home_wrapper .prj_wrapper .prj {
   display: none;
   position: absolute;
   top: 0;
   left: 0;
+}
+
+@media only screen and (max-width: 1199px) {
+  .home_wrapper .prj_wrapper .prj {
+    left: 20px;
+  }
 }
 
 .home_wrapper .prj_wrapper .prj .prj_name {
@@ -3763,6 +3867,18 @@ a, a:hover {
   color: #f6f4f1;
   font-size: 68px;
   text-transform: uppercase;
+}
+
+@media only screen and (max-width: 1359px) {
+  .home_wrapper .prj_wrapper .prj .prj_name h2 {
+    font-size: 48px;
+  }
+}
+
+@media only screen and (max-width: 1199px) {
+  .home_wrapper .prj_wrapper .prj .prj_name h2 {
+    font-size: 28px;
+  }
 }
 
 .home_wrapper .prj_wrapper .prj .prj_name h2:before {
@@ -3815,8 +3931,8 @@ a, a:hover {
 }
 
 .home_wrapper .btn-wrapper {
-  position: absolute;
-  bottom: 20%;
+  position: fixed;
+  bottom: 10%;
   height: 30px;
   left: 0;
   right: 0;
@@ -3842,6 +3958,12 @@ a, a:hover {
 .home_wrapper .btn-wrapper .txt-wrapper p {
   display: none;
   margin: 0;
+}
+
+@media only screen and (max-width: 1199px) {
+  .home_wrapper .btn-wrapper .txt-wrapper p {
+    font-size: 12px;
+  }
 }
 
 .home_wrapper .nav {
@@ -3906,10 +4028,29 @@ a, a:hover {
           transform: translateX(-50%);
 }
 
+@media only screen and (max-width: 1199px) {
+  .home_wrapper .nav .a-center {
+    bottom: 80px;
+    position: fixed;
+  }
+}
+
+@media only screen and (max-width: 1199px) {
+  .home_wrapper .nav .a-center .slide-cpl {
+    text-align: center;
+  }
+}
+
 .home_wrapper .nav .a-center i {
   cursor: pointer;
   color: #fff;
   margin: 15px 20px;
+}
+
+@media only screen and (max-width: 1199px) {
+  .home_wrapper .nav .a-center i {
+    margin: 15px 10px;
+  }
 }
 
 .home_wrapper .nav .a-center i.slide {
@@ -3974,6 +4115,12 @@ a, a:hover {
   font-size: 100px;
   text-transform: uppercase;
   text-align: center;
+}
+
+@media only screen and (max-width: 1599px) {
+  .home_wrapper .main-menu li {
+    font-size: 70px;
+  }
 }
 
 .home_wrapper .main-menu li .bg-left {
@@ -4114,6 +4261,12 @@ a, a:hover {
   color: #fff;
 }
 
+@media only screen and (max-width: 1599px) {
+  .home_wrapper .main-menu li a {
+    padding: 10px 0;
+  }
+}
+
 .home_wrapper .main-menu li a:before {
   content: "";
   position: absolute;
@@ -4177,11 +4330,25 @@ body {
   letter-spacing: 15px;
 }
 
+@media only screen and (max-width: 1599px) {
+  .about_wrapper h1 {
+    font-size: 63px;
+    margin: 10px 0;
+  }
+}
+
 .about_wrapper h2 {
   margin-top: 10px;
   font-size: 65px;
   text-transform: uppercase;
   letter-spacing: 10px;
+}
+
+@media only screen and (max-width: 1599px) {
+  .about_wrapper h2 {
+    font-size: 45px;
+    margin: 10px 0;
+  }
 }
 
 .about_wrapper h3 {
@@ -4209,12 +4376,14 @@ body {
 
 .about_wrapper .back-link {
   margin-top: 80px;
-  margin-left: 70px;
   text-transform: uppercase;
   display: inline-block;
   position: relative;
   color: #fff;
   font-size: 11px;
+  position: absolute;
+  top: 0;
+  left: -20%;
 }
 
 .about_wrapper .back-link:before {
@@ -4223,7 +4392,22 @@ body {
   padding: 0 10px;
 }
 
+.about_wrapper .background {
+  display: none;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background: url(../images/about/lion.svg) no-repeat;
+  background-position: 125% 0%;
+  z-index: -1;
+  -webkit-filter: opacity(0.2);
+          filter: opacity(0.2);
+}
+
 .about_wrapper .block {
+  display: none;
   width: 100%;
   max-width: 960px;
   margin: 0 auto;
@@ -4258,6 +4442,12 @@ body {
   font-size: 13px;
   line-height: 200%;
   text-align: justify;
+}
+
+@media only screen and (max-width: 1599px) {
+  .about_wrapper .block p {
+    font-size: 12px;
+  }
 }
 
 .about_wrapper .block.block-heading .sub-heading {
@@ -4302,6 +4492,12 @@ body {
 .about_wrapper .block.block-about .brand-list a {
   display: block;
   padding: 50px 0;
+}
+
+@media only screen and (max-width: 1599px) {
+  .about_wrapper .block.block-about .brand-list a {
+    padding: 10px 0;
+  }
 }
 
 .about_wrapper .block.block-about .brand-list a img {
@@ -4379,7 +4575,7 @@ body {
   display: inline-block;
   float: left;
   -webkit-filter: brightness(70%);
-  filter: brightness(70%);
+          filter: brightness(70%);
 }
 
 .about_wrapper .block.block-carousel .project-carousel .item-wrapper img {
@@ -4392,15 +4588,15 @@ body {
   margin: auto;
   left: 50%;
   -webkit-transform: translateX(-50%);
-  -ms-transform: translateX(-50%);
-  transform: translateX(-50%);
+      -ms-transform: translateX(-50%);
+          transform: translateX(-50%);
   font-family: 'gotham-exlight', arial, helvetica, sans-serif;
   font-size: 68px;
 }
 
 .about_wrapper .block.block-carousel .project-carousel .item-wrapper:hover {
   -webkit-filter: brightness(100%);
-  filter: brightness(100%);
+          filter: brightness(100%);
 }
 
 .about_wrapper .block.block-carousel .project-carousel .item-wrapper:hover h3 {

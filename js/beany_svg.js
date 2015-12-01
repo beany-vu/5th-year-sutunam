@@ -14,8 +14,11 @@ var Beany = {
         }
         return _paper;
     },
-    drawBg: function (paper) {
-        var rect = paper.rect(0, 0, '100%', '100%');
+    drawBg: function (id) {
+        var bg_container = Raphael("background");
+        bg_container.setViewBox(0, 0, '100%', '100%', true);
+        bg_container.setSize('100%', '100%');
+        var rect = bg_container.rect(0, 0, '100%', '100%');
         rect.attr("fill", "#D74D26");
         rect.attr("stroke", "none");
         return rect;
@@ -2779,7 +2782,7 @@ jQuery(window).load(function () {
         var state = 1;
         var auto_play_status = 1;
         var paper = Beany.getPaperSingleton("container", jQuery(window).width(), jQuery(window).height());
-        var bg = Beany.drawBg(paper);
+        var bg = Beany.drawBg('background');
 
 
         var cresus = Beany.drawCresus(paper);
@@ -3087,7 +3090,7 @@ jQuery(window).load(function () {
                         if (auto_play_status == 1) {
                             interval = jQuery('.slide-next').trigger('click');
                         }
-                    }, 6000);
+                    }, 7000);
                     break;
                 default:
                     break;
@@ -3110,10 +3113,15 @@ jQuery(window).load(function () {
         autoplaySpeed: 2000,
         arrows: false
     });
-    jQuery(document).ready(function () {
-        jQuery('#fullpage').fullpage({
-            paddingTop: '20px',
-        });
+
+});
+
+jQuery(document).ready(function () {
+    jQuery('#fullpage').fullpage({
+        paddingTop: '10px'
     });
+});
+jQuery(window).load(function () {
+    jQuery('.about_wrapper .background').show();
 
 });

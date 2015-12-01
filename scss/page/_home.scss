@@ -1,8 +1,32 @@
 .home_wrapper {
   position: relative;
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  //background
+  #background {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+  }
+
+  #container {
+    @include bp(max-width, $screen-md-max) {
+      position: fixed;
+      top: 0;
+      right: 0;
+      left: 0;
+      bottom: 0;
+      transform: scale(2, 2);
+    }
+  }
   // the lion area
   .scroll_down {
-    position: absolute;
+    position: fixed;
     z-index: 999;
     left: 10%;
     width: 200px;
@@ -14,15 +38,27 @@
   // the heading(h1) area
   .heading_wrapper {
     display: none;
-    position: absolute;
+    position: fixed;
     height: 100px;
     width: 650px;
     top: 50%;
     left: 55%;
     transform: translateX(-50%);
+    @include bp(max-width, $screen-md-max) {
+      width: 60%;
+    }
+    @include bp(max-width, $screen-sm-max) {
+      width: 90%;
+    }
     h1 {
       text-transform: uppercase;
       letter-spacing: 15px;
+      @include bp(max-width, $screen-md-max) {
+        font-size: 40px;
+      }
+      @include bp(max-width, $screen-sm-max) {
+        font-size: 20px;
+      }
     }
     span {
       &.txt-big {
@@ -33,6 +69,10 @@
         color: #fff;
         font-size: 80px;
         text-align: left;
+        @include bp(max-width, $screen-md-max) {
+          font-size: 40px;
+          height: 40px;
+        }
         .txt-left {
           font-style: normal;
           float: left;
@@ -43,6 +83,13 @@
           position: absolute;
           font-style: normal;
           margin-left: 100px;
+          @include bp(max-width, $screen-md-max) {
+            margin-left: 30px;
+          }
+          @include bp(max-width, $screen-md-max) {
+            margin-left: 10px;
+            letter-spacing: 0;
+          }
         }
       }
       &.txt-small {
@@ -50,6 +97,12 @@
         text-align: center;
         color: #a52a2a;
         font-size: 30px;
+        @include bp(max-width, $screen-md-max) {
+          font-size: 20px;
+        }
+        @include bp(max-width, $screen-sm-max) {
+          font-size: 12px;
+        }
         .txt-bold {
           color: #a52a2a;
           font-family: 'gotham-medium', arial, helvetica, sans-serif;
@@ -65,18 +118,23 @@
 
   // the project detail area
   .prj_wrapper {
-    position: absolute;
+    position: fixed;
     top: 40%;
     left: 50%;
     padding: 0 10px;
     width: 960px;
     transform: translateX(-50%);
-
+    @include bp(max-width, $screen-md-max) {
+      width: 100%;
+    }
     .prj {
       display: none;
       position: absolute;
       top: 0;
       left: 0;
+      @include bp(max-width, $screen-md-max) {
+        left: 20px;
+      }
       .prj_name {
         overflow: hidden;
         h2 {
@@ -86,6 +144,12 @@
           color: #f6f4f1;
           font-size: 68px;
           text-transform: uppercase;
+          @include bp(max-width, $screen-lg-max) {
+            font-size: 48px;
+          }
+          @include bp(max-width, $screen-md-max) {
+            font-size: 28px;
+          }
           &:before {
             content: attr(data-order);
             position: absolute;
@@ -132,8 +196,8 @@
   }
 
   .btn-wrapper {
-    position: absolute;
-    bottom: 20%;
+    position: fixed;
+    bottom: 10%;
     height: 30px;
     left: 0;
     right: 0;
@@ -154,6 +218,9 @@
       p {
         display: none;
         margin: 0;
+        @include bp(max-width, $screen-md-max) {
+          font-size: 12px;
+        }
       }
     }
   }
@@ -209,10 +276,22 @@
       position: absolute;
       left: 50%;
       transform: translateX(-50%);
+      @include bp(max-width, $screen-md-max) {
+        bottom: 80px;
+        position: fixed;
+      }
+      .slide-cpl {
+        @include bp(max-width, $screen-md-max) {
+          text-align: center;
+        }
+      }
       i {
         cursor: pointer;
         color: #fff;
         margin: 15px 20px;
+        @include bp(max-width, $screen-md-max) {
+          margin: 15px 10px;
+        }
         &.slide {
           color: rgba(255, 255, 255, 0.5);
           transition: all 0.5s ease;
@@ -270,6 +349,9 @@
       font-size: 100px;
       text-transform: uppercase;
       text-align: center;
+      @include bp(max-width, $screen-lg1-max) {
+        font-size: 70px;
+      }
       .bg-left {
         float: left;
         width: 50%;
@@ -389,6 +471,9 @@
         padding: 20px 0;
         text-decoration: none;
         color: #fff;
+        @include bp(max-width, $screen-lg1-max) {
+          padding: 10px 0;
+        }
         &:before {
           content: "";
           position: absolute;

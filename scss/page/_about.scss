@@ -16,12 +16,20 @@ body {
     text-transform: uppercase;
     text-align: center;
     letter-spacing: 15px;
+    @include bp(max-width, $screen-lg1-max) {
+      font-size: 63px;
+      margin: 10px 0;
+    }
   }
   h2 {
     margin-top: 10px;
     font-size: 65px;
     text-transform: uppercase;
     letter-spacing: 10px;
+    @include bp(max-width, $screen-lg1-max) {
+      font-size: 45px;
+      margin: 10px 0;
+    }
   }
   h3 {
     font-size: 45px;
@@ -44,19 +52,34 @@ body {
   }
   .back-link {
     margin-top: 80px;
-    margin-left: 70px;
     text-transform: uppercase;
     display: inline-block;
     position: relative;
     color: #fff;
     font-size: 11px;
+    position: absolute;
+    top: 0;
+    left: -20%;
     &:before {
       content: "<";
       font-size: 12px;
       padding: 0 10px;
     }
   }
+  .background {
+    display: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background: url(../images/about/lion.svg) no-repeat;
+    background-position: 125% 0%;
+    z-index: -1;
+    filter: opacity(0.2);
+  }
   .block {
+    display: none;
     width: 100%;
     max-width: 960px;
     margin: 0 auto;
@@ -84,6 +107,9 @@ body {
       font-size: 13px;
       line-height: 200%;
       text-align: justify;
+      @include bp(max-width, $screen-lg1-max) {
+        font-size: 12px;
+      }
     }
     &.block-heading {
       .sub-heading {
@@ -123,6 +149,9 @@ body {
         a {
           display: block;
           padding: 50px 0;
+          @include bp(max-width, $screen-lg1-max) {
+            padding: 10px 0;
+          }
           img {
             vertical-align: top;
           }
