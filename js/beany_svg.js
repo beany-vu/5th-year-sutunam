@@ -1,4 +1,4 @@
-var Beany = {
+var Stn = {
     /**
      * get the paper that used to draw every element(shape, path,...) on it
      * return paper if exist otherwise create the new paper and return it
@@ -16,7 +16,6 @@ var Beany = {
     },
     drawBg: function (id) {
         var bg_container = Raphael("background");
-        bg_container.setViewBox(0, 0, '100%', '100%', true);
         bg_container.setSize('100%', '100%');
         var rect = bg_container.rect(0, 0, '100%', '100%');
         rect.attr("fill", "#D74D26");
@@ -237,7 +236,7 @@ var Beany = {
             'stroke-width': '0',
             'stroke-opacity': '1'
         }).data('id', '_x3C_Slice_x3E_');
-        return Beany.toSet([path_a, path_b, path_c, path_d, path_e, path_f, path_g, path_h, path_i, path_j, path_k, path_l, path_m, path_n,
+        return Stn.toSet([path_a, path_b, path_c, path_d, path_e, path_f, path_g, path_h, path_i, path_j, path_k, path_l, path_m, path_n,
             path_o, path_p, path_q, path_r, path_s, path_t, path_u, path_v, path_w, path_x, path_y, path_x, path_z,
             path_aa, path_ab, path_ac, path_ad, path_ae, path_af, path_ag, path_ah, path_ai, path_aj, path_ak, path_al, path_am, path_an,
             path_ao, path_ap, path_aq, path_ar, path_as, path_at, path_au, path_av, path_aw, path_ax, path_ay, path_ax, path_az,
@@ -906,7 +905,7 @@ var Beany = {
         path_cu.attr({fill: '#AA814E', 'stroke-width': '0', 'stroke-opacity': '1'}).data('id', 'path_cu');
         var path_cv = rsr.path("M 1173.6,487.6 1148.9,496.8 1177.1,509 z");
         path_cv.attr({fill: '#F3E2E4', 'stroke-width': '0', 'stroke-opacity': '1'}).data('id', 'path_cv');
-        return Beany.toSet([path_d, path_e, path_f, path_g, path_h, path_i, path_j, path_k, path_l, path_m, path_n,
+        return Stn.toSet([path_d, path_e, path_f, path_g, path_h, path_i, path_j, path_k, path_l, path_m, path_n,
             path_o, path_p, path_q, path_r, path_s, path_t, path_u, path_v, path_w, path_x, path_y, path_x, path_z,
             path_aa, path_ab, path_ac, path_ad, path_ae, path_af, path_ag, path_ah, path_ai, path_aj, path_ak, path_al, path_am, path_an,
             path_ao, path_ap, path_aq, path_ar, path_as, path_at, path_au, path_av, path_aw, path_ax, path_ay, path_ax, path_az,
@@ -1256,7 +1255,7 @@ var Beany = {
         path_cv.attr({fill: '#DBD0D3', 'stroke-width': '0', 'stroke-opacity': '1'}).data('id', 'path_cv');
         var path_cw = rsr.path("M 1302,624.9 1268.1,718.6 1319.7,718.6 z");
         path_cw.attr({fill: '#E5DADC', 'stroke-width': '0', 'stroke-opacity': '1'}).data('id', 'path_cw');
-        return Beany.toSet([path_e, path_f, path_g, path_h, path_i, path_j, path_k, path_l, path_m, path_n,
+        return Stn.toSet([path_e, path_f, path_g, path_h, path_i, path_j, path_k, path_l, path_m, path_n,
             path_o, path_p, path_q, path_r, path_s, path_t, path_u, path_v, path_w, path_x, path_y, path_x, path_z,
             path_aa, path_ab, path_ac, path_ad, path_ae, path_af, path_ag, path_ah, path_ai, path_aj, path_ak, path_al, path_am, path_an,
             path_ao, path_ap, path_aq, path_ar, path_as, path_at, path_au, path_av, path_aw, path_ax, path_ay, path_ax, path_az,
@@ -1834,7 +1833,7 @@ var Beany = {
             'stroke-opacity': '1'
         }).data('id', 'path_cz');
         group_g.attr({'name': 'group_g'});
-        return Beany.toSet([path_h, path_i, path_j, path_k, path_l, path_m, path_n,
+        return Stn.toSet([path_h, path_i, path_j, path_k, path_l, path_m, path_n,
             path_o, path_p, path_q, path_r, path_s, path_t, path_u, path_v, path_w, path_x, path_y, path_x, path_z,
             path_aa, path_ab, path_ac, path_ad, path_ae, path_af, path_ag, path_ah, path_ai, path_aj, path_ak, path_al, path_am, path_an,
             path_ao, path_ap, path_aq, path_ar, path_as, path_at, path_au, path_av, path_aw, path_ax, path_ay, path_ax, path_az,
@@ -2052,7 +2051,7 @@ var Beany = {
             'stroke-opacity': '1'
         }).data('id', 'path_ct');
         group_a.attr({'name': 'group_a'});
-        return Beany.toSet([path_b, path_c, path_d, path_e, path_f, path_g, path_h, path_i, path_j, path_k, path_l, path_m, path_n,
+        return Stn.toSet([path_b, path_c, path_d, path_e, path_f, path_g, path_h, path_i, path_j, path_k, path_l, path_m, path_n,
             path_o, path_p, path_q, path_r, path_s, path_t, path_u, path_v, path_w, path_x, path_y, path_x, path_z,
             path_aa, path_ab, path_ac, path_ad, path_ae, path_af, path_ag, path_ah, path_ai, path_aj, path_ak, path_al, path_am, path_an,
             path_ao, path_ap, path_aq, path_ar, path_as, path_at, path_au, path_av, path_aw, path_ax, path_ay, path_ax, path_az,
@@ -2576,7 +2575,7 @@ var Beany = {
             'stroke-width': '0',
             'stroke-opacity': '1'
         }).data('id', 'path_da');
-        return Beany.toSet([path_i, path_j, path_k, path_l, path_m, path_n,
+        return Stn.toSet([path_i, path_j, path_k, path_l, path_m, path_n,
             path_o, path_p, path_q, path_r, path_s, path_t, path_u, path_v, path_w, path_x, path_y, path_x, path_z,
             path_aa, path_ab, path_ac, path_ad, path_ae, path_af, path_ag, path_ah, path_ai, path_aj, path_ak, path_al, path_am, path_an,
             path_ao, path_ap, path_aq, path_ar, path_as, path_at, path_au, path_av, path_aw, path_ax, path_ay, path_ax, path_az,
@@ -2703,13 +2702,21 @@ var Beany = {
             fill: '#fff'
         });
     },
-
+    updateInterval: function (interval, auto_play_status) {
+        clearInterval(interval);
+        return setInterval(function () {
+            if (auto_play_status == 1) {
+                interval = jQuery('.slide-next').trigger('click');
+            }
+        }, 5000);
+    },
 };
 
 jQuery(window).load(function () {
     if (jQuery('.home_wrapper').length != 0) {
-        var logo_bg = Beany.drawLogoBg('logo', 60, 50);
-        var logo = Beany.drawLogo(logo_bg);
+        var interval = '';
+        var logo_bg = Stn.drawLogoBg('logo', 60, 50);
+        var logo = Stn.drawLogo(logo_bg);
         var interval = '';
 
         jQuery('#logo').click(function () {
@@ -2781,33 +2788,33 @@ jQuery(window).load(function () {
 
         var state = 1;
         var auto_play_status = 1;
-        var paper = Beany.getPaperSingleton("container", jQuery(window).width(), jQuery(window).height());
-        var bg = Beany.drawBg('background');
+        var paper = Stn.getPaperSingleton("container", jQuery(window).width(), jQuery(window).height());
+        var bg = Stn.drawBg('background');
 
 
-        var cresus = Beany.drawCresus(paper);
+        var cresus = Stn.drawCresus(paper);
         cresus.attr({'opacity': 0, transform: 'T250,0'});
 
-        var durance = Beany.drawDurance(paper);
+        var durance = Stn.drawDurance(paper);
         durance.attr({'opacity': 0, transform: 'T0,0'});
 
-        var bys = Beany.drawBYS(paper);
+        var bys = Stn.drawBYS(paper);
         bys.attr({'opacity': 0, transform: 'T150,0'});
 
-        var club75 = Beany.drawClub75(paper);
+        var club75 = Stn.drawClub75(paper);
         club75.attr({'opacity': 0, transform: 'T150,0'});
 
-        var renault = Beany.drawRenault(paper);
+        var renault = Stn.drawRenault(paper);
         renault.attr({'opacity': 0, transform: 'T150,0'});
 
         var shape_obj = cresus.clone();
         shape_obj.attr({transform: 'T150,1000', opacity: 0});
 
         // lion part
-        var lion = Beany.drawLion(paper);
+        var lion = Stn.drawLion(paper);
         lion.attr({'opacity': 0});
         var lion_wrapper = (1920 / 2) - (lion[lion.length - 1].getBBox(true).width / 2) - 50;
-        Beany.recombine(lion, 't' + (lion_wrapper) + ',50');
+        Stn.recombine(lion, 't' + (lion_wrapper) + ',50');
 
         var slide_nav = 1;
 
@@ -2824,7 +2831,7 @@ jQuery(window).load(function () {
                     state++;
                     break;
                 case 3:
-                    Beany.floatUp(lion, lion_wrapper);
+                    Stn.floatUp(lion, lion_wrapper);
                     jQuery('.heading_wrapper').addClass('animated fadeOutUpBig').hide();
                     jQuery('.btn-wrapper button').addClass('animated fadeOutUp');
                     jQuery('.btn-wrapper p').addClass('animated fadeOutUp');
@@ -2833,12 +2840,12 @@ jQuery(window).load(function () {
                         jQuery('.btn-wrapper button').hide();
                         jQuery('.btn-wrapper p').hide();
                     }, 400);
-                    Beany.changeBgColor(bg, '#000');
+                    Stn.changeBgColor(bg, '#000');
                     state++;
                     // start with cresus
                     setTimeout(function () {
-                        Beany.fadeInUp(shape_obj, 250, 0);
-                        Beany.morph(shape_obj, cresus, 1500);
+                        Stn.fadeInUp(shape_obj, 250, 0);
+                        Stn.morph(shape_obj, cresus, 1500);
                     }, 2300);
                     jQuery('.nav').addClass('animated fadeInUp').show();
                     jQuery('.slide').first().addClass('active');
@@ -2850,9 +2857,9 @@ jQuery(window).load(function () {
 
                     jQuery('.slide_1').click(function () {
                         if (slide_nav != 1) {
-                            Beany.morph(shape_obj, cresus, 1600);
+                            Stn.morph(shape_obj, cresus, 1600);
                             slide_nav = 1;
-                            Beany.changeBgColor(bg, '#191919');
+                            Stn.changeBgColor(bg, '#191919');
                             jQuery('.prev').addClass('disabled');
                             jQuery('.next').removeClass('disabled');
 
@@ -2862,13 +2869,14 @@ jQuery(window).load(function () {
                             jQuery('.prj1').show();
                             jQuery('.slide').removeClass('active');
                             jQuery(this).addClass('active');
+                            interval = Stn.updateInterval(interval, auto_play_status);
                         }
                     });
                     jQuery('.slide_2').click(function () {
                         if (slide_nav != 2) {
-                            Beany.morph(shape_obj, durance, 1600);
+                            Stn.morph(shape_obj, durance, 1600);
                             slide_nav = 2;
-                            Beany.changeBgColor(bg, '#EE5688');
+                            Stn.changeBgColor(bg, '#EE5688');
                             jQuery('.prev').addClass('disabled');
                             jQuery('.next').addClass('disabled');
 
@@ -2878,13 +2886,14 @@ jQuery(window).load(function () {
                             jQuery('.prj2').show();
                             jQuery('.slide').removeClass('active');
                             jQuery(this).addClass('active');
+                            interval = Stn.updateInterval(interval, auto_play_status);
                         }
                     });
                     jQuery('.slide_3').click(function () {
                         if (slide_nav != 3) {
-                            Beany.morph(shape_obj, bys, 1600);
+                            Stn.morph(shape_obj, bys, 1600);
                             slide_nav = 3;
-                            Beany.changeBgColor(bg, '#AB39DB');
+                            Stn.changeBgColor(bg, '#AB39DB');
                             jQuery('.prev').addClass('disabled');
                             jQuery('.next').addClass('disabled');
 
@@ -2894,13 +2903,14 @@ jQuery(window).load(function () {
                             jQuery('.prj3').show();
                             jQuery('.slide').removeClass('active');
                             jQuery(this).addClass('active');
+                            interval = Stn.updateInterval(interval, auto_play_status);
                         }
                     });
                     jQuery('.slide_4').click(function () {
                         if (slide_nav != 4) {
-                            Beany.morph(shape_obj, club75, 1600);
+                            Stn.morph(shape_obj, club75, 1600);
                             slide_nav = 4;
-                            Beany.changeBgColor(bg, '#157C80');
+                            Stn.changeBgColor(bg, '#157C80');
                             jQuery('.prev').addClass('disabled');
                             jQuery('.next').addClass('disabled');
 
@@ -2910,13 +2920,14 @@ jQuery(window).load(function () {
                             jQuery('.prj4').show();
                             jQuery('.slide').removeClass('active');
                             jQuery(this).addClass('active');
+                            interval = Stn.updateInterval(interval, auto_play_status);
                         }
                     });
                     jQuery('.slide_5').click(function () {
                         if (slide_nav != 5) {
-                            Beany.morph(shape_obj, renault, 1600);
+                            Stn.morph(shape_obj, renault, 1600);
                             slide_nav = 5;
-                            Beany.changeBgColor(bg, '#A90806');
+                            Stn.changeBgColor(bg, '#A90806');
                             jQuery('.prev').removeClass('disabled');
                             jQuery('.next').addClass('disabled');
 
@@ -2926,15 +2937,16 @@ jQuery(window).load(function () {
                             jQuery('.prj5').show();
                             jQuery('.slide').removeClass('active');
                             jQuery(this).addClass('active');
+                            interval = Stn.updateInterval(interval, auto_play_status);
                         }
                     });
                     jQuery('.slide-next').click(function () {
                         switch (slide_nav) {
                             case 1:
                                 // current slide == 1 and move to the 2nd(durance)
-                                Beany.morph(shape_obj, durance, 1600);
+                                Stn.morph(shape_obj, durance, 1600);
                                 slide_nav++;
-                                Beany.changeBgColor(bg, '#EE5688');
+                                Stn.changeBgColor(bg, '#EE5688');
 
                                 jQuery('.prj').removeClass('animated fadeInUp');
                                 jQuery('.prj .prj_info').addClass('animated fadeOutUp');
@@ -2942,12 +2954,13 @@ jQuery(window).load(function () {
                                 jQuery('.prj2').show();
                                 jQuery('.slide').removeClass('active');
                                 jQuery('.slide_2').addClass('active');
+                                interval = Stn.updateInterval(interval, auto_play_status);
                                 break;
                             case 2:
                                 // current slide == 2 and move to the 3rd(bys)
-                                Beany.morph(shape_obj, bys, 1600);
+                                Stn.morph(shape_obj, bys, 1600);
                                 slide_nav++;
-                                Beany.changeBgColor(bg, '#AB39DB');
+                                Stn.changeBgColor(bg, '#AB39DB');
 
                                 jQuery('.prj').removeClass('animated fadeInUp');
                                 jQuery('.prj .prj_info').addClass('animated fadeOutUp');
@@ -2955,12 +2968,13 @@ jQuery(window).load(function () {
                                 jQuery('.prj3').show();
                                 jQuery('.slide').removeClass('active');
                                 jQuery('.slide_3').addClass('active');
+                                interval = Stn.updateInterval(interval, auto_play_status);
                                 break;
 
                             case 3:
                                 // current slide == 3 and move to the 4th(club75)
-                                Beany.morph(shape_obj, club75, 1600);
-                                Beany.changeBgColor(bg, '#157C80');
+                                Stn.morph(shape_obj, club75, 1600);
+                                Stn.changeBgColor(bg, '#157C80');
                                 slide_nav++;
 
                                 jQuery('.prj').removeClass('animated fadeInUp');
@@ -2969,12 +2983,13 @@ jQuery(window).load(function () {
                                 jQuery('.prj4').show();
                                 jQuery('.slide').removeClass('active');
                                 jQuery('.slide_4').addClass('active');
+                                interval = Stn.updateInterval(interval, auto_play_status);
                                 break;
                             case 4:
                                 // current slide == 4 and move to the 5th(renault)
-                                Beany.morph(shape_obj, renault, 1600);
+                                Stn.morph(shape_obj, renault, 1600);
                                 slide_nav++;
-                                Beany.changeBgColor(bg, '#A90806');
+                                Stn.changeBgColor(bg, '#A90806');
 
                                 jQuery('.prj').removeClass('animated fadeInUp');
                                 jQuery('.prj .prj_info').addClass('animated fadeOutUp');
@@ -2982,11 +2997,12 @@ jQuery(window).load(function () {
                                 jQuery('.prj5').show();
                                 jQuery('.slide').removeClass('active');
                                 jQuery('.slide_5').addClass('active');
+                                interval = Stn.updateInterval(interval, auto_play_status);
                                 break;
                             case 5:
-                                Beany.morph(shape_obj, cresus, 1600);
+                                Stn.morph(shape_obj, cresus, 1600);
                                 slide_nav = 1;
-                                Beany.changeBgColor(bg, '#191919');
+                                Stn.changeBgColor(bg, '#191919');
 
                                 jQuery('.prj').removeClass('animated fadeInUp');
                                 jQuery('.prj .prj_info').addClass('animated fadeOutUp');
@@ -2994,6 +3010,7 @@ jQuery(window).load(function () {
                                 jQuery('.prj1').show();
                                 jQuery('.slide').removeClass('active');
                                 jQuery('.slide_1').addClass('active');
+                                interval = Stn.updateInterval(interval, auto_play_status);
                                 break;
                             default:
                                 break;
@@ -3002,9 +3019,9 @@ jQuery(window).load(function () {
                     jQuery('.slide-prev').click(function () {
                         switch (slide_nav) {
                             case 5:
-                                Beany.morph(shape_obj, club75, 1600);
+                                Stn.morph(shape_obj, club75, 1600);
                                 slide_nav--;
-                                Beany.changeBgColor(bg, '#157C80');
+                                Stn.changeBgColor(bg, '#157C80');
                                 jQuery('.next').removeClass('disabled');
 
                                 jQuery('.prj5 .prj_info').addClass('animated fadeOutUp');
@@ -3013,10 +3030,11 @@ jQuery(window).load(function () {
                                 jQuery('.prj4').show();
                                 jQuery('.slide').removeClass('active');
                                 jQuery('.slide_4').addClass('active');
+                                interval = Stn.updateInterval(interval, auto_play_status);
                                 break;
                             case 4:
-                                Beany.morph(shape_obj, bys, 1600);
-                                Beany.changeBgColor(bg, '#AB39DB');
+                                Stn.morph(shape_obj, bys, 1600);
+                                Stn.changeBgColor(bg, '#AB39DB');
                                 slide_nav--;
 
                                 jQuery('.prj4 .prj_info').addClass('animated fadeOutUp');
@@ -3025,10 +3043,11 @@ jQuery(window).load(function () {
                                 jQuery('.prj3').show();
                                 jQuery('.slide').removeClass('active');
                                 jQuery('.slide_3').addClass('active');
+                                interval = Stn.updateInterval(interval, auto_play_status);
                                 break;
                             case 3:
-                                Beany.morph(shape_obj, durance, 1600);
-                                Beany.changeBgColor(bg, '#EE5688');
+                                Stn.morph(shape_obj, durance, 1600);
+                                Stn.changeBgColor(bg, '#EE5688');
                                 slide_nav--;
 
                                 jQuery('.prj3 .prj_info').addClass('animated fadeOutUp');
@@ -3037,11 +3056,12 @@ jQuery(window).load(function () {
                                 jQuery('.prj2').show();
                                 jQuery('.slide').removeClass('active');
                                 jQuery('.slide_2').addClass('active');
+                                interval = Stn.updateInterval(interval, auto_play_status);
                                 break;
                             case 2:
-                                Beany.morph(shape_obj, cresus, 1600);
+                                Stn.morph(shape_obj, cresus, 1600);
                                 slide_nav--;
-                                Beany.changeBgColor(bg, '#191919');
+                                Stn.changeBgColor(bg, '#191919');
                                 jQuery('.prev').addClass('disabled');
 
                                 jQuery('.prj2 .prj_info').addClass('animated fadeOutUp');
@@ -3050,11 +3070,12 @@ jQuery(window).load(function () {
                                 jQuery('.prj1').show();
                                 jQuery('.slide').removeClass('active');
                                 jQuery('.slide_1').addClass('active');
+                                interval = Stn.updateInterval(interval, auto_play_status);
                                 break;
                             case 1:
-                                Beany.morph(shape_obj, renault, 1600);
+                                Stn.morph(shape_obj, renault, 1600);
                                 slide_nav = 5;
-                                Beany.changeBgColor(bg, '#A90806');
+                                Stn.changeBgColor(bg, '#A90806');
 
                                 jQuery('.prj1 .prj_info').addClass('animated fadeOutUp');
                                 jQuery('.prj1').removeClass('animated fadeInUp');
@@ -3062,6 +3083,7 @@ jQuery(window).load(function () {
                                 jQuery('.prj5').show();
                                 jQuery('.slide').removeClass('active');
                                 jQuery('.slide_5').addClass('active');
+                                interval = Stn.updateInterval(interval, auto_play_status);
                                 break;
                             default:
                                 break;
@@ -3074,11 +3096,13 @@ jQuery(window).load(function () {
                                 jQuery('.slide-status').removeClass('fa-pause').addClass('fa-play');
                                 auto_play_status = 0;
                                 console.log(auto_play_status);
+                                Stn.updateInterval(interval, auto_play_status);
                                 break;
                             case 0:
                                 jQuery('.slide-status').removeClass('fa-play').addClass('fa-pause');
                                 auto_play_status = 1;
                                 console.log(auto_play_status);
+                                interval = Stn.updateInterval(interval, auto_play_status);
                                 break;
                             default:
                                 break;
@@ -3086,11 +3110,7 @@ jQuery(window).load(function () {
                     });
 
                     // auto play
-                    setInterval(function () {
-                        if (auto_play_status == 1) {
-                            interval = jQuery('.slide-next').trigger('click');
-                        }
-                    }, 7000);
+                    interval = Stn.updateInterval(interval, auto_play_status);
                     break;
                 default:
                     break;
@@ -3109,17 +3129,33 @@ jQuery(window).load(function () {
     jQuery('.project-carousel').slick({
         slidesToShow: 2,
         slidesToScroll: 1,
-        autoplay: false,
+        autoplay: true,
         autoplaySpeed: 2000,
-        arrows: false
+        arrows: false,
+        responsive: [
+            {
+                breakpoint: 768,
+                settings: {
+                    slidesToShow: 1,
+                }
+            }
+        ]
     });
 
 });
 
 jQuery(document).ready(function () {
     jQuery('#fullpage').fullpage({
-        paddingTop: '10px'
+        paddingTop: '10px',
+        afterLoad: function (anchorLink, index) {
+            console.log(this)
+        }
     });
+    jQuery(".animated").waypoint(function () {
+            console.log(jQuery(this));
+            jQuery(this).addClass('fadeInUp');
+        }
+        , {offset: '100%'});
 });
 jQuery(window).load(function () {
     jQuery('.about_wrapper .background').show();

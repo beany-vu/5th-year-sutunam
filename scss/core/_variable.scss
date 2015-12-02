@@ -1,0 +1,13 @@
+/* Media queries breakpoints */
+$screen-xs: 480px;
+$screen-sm: 768px;
+$screen-md: 992px;
+$screen-lg: 1200px;
+$screen-lg1: 1360px;
+$screen-lg2: 1600px;
+$screen-xxs-max: ($screen-xs - 1);
+$screen-xs-max: ($screen-sm - 1);
+$screen-sm-max: ($screen-md - 1);
+$screen-md-max: ($screen-lg - 1);
+$screen-lg-max: ($screen-lg1 - 1);
+$screen-lg1-max: ($screen-lg2 - 1);
