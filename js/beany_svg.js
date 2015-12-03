@@ -3195,8 +3195,8 @@ jQuery(window).load(function () {
     jQuery('.project-carousel').slick({
         slidesToShow: 2,
         slidesToScroll: 1,
-        autoplay: true,
-        autoplaySpeed: 2000,
+        autoplay: false,
+        autoplaySpeed: 5000,
         arrows: false,
         responsive: [
             {
@@ -3213,17 +3213,24 @@ jQuery(window).load(function () {
 jQuery(document).ready(function () {
     jQuery('#fullpage').fullpage({
         paddingTop: '10px',
+        navigation: true,
         afterLoad: function (anchorLink, index) {
-            console.log(this)
+            if (index == 1) {
+                jQuery('.background.animated').addClass('fadeInUp').show();
+                jQuery('.block:nth-of-type(' + index + ')').find('.animated').addClass('fadeInUp').show();
+            }
+        },
+        onLeave: function (index, nextIndex, direction) {
+            console.log(jQuery('.block:nth-of-type(' + nextIndex + ')'));
+            setTimeout(function () {
+                jQuery('.block:nth-of-type(' + nextIndex + ')').find('.animated').addClass('fadeInUp').show();
+            }, 150)
+
         }
     });
-    jQuery(".animated").waypoint(function () {
-            console.log(jQuery(this));
-            jQuery(this).addClass('fadeInUp');
-        }
-        , {offset: '100%'});
+
 });
 jQuery(window).load(function () {
-    jQuery('.about_wrapper .background').show();
+
 
 });
