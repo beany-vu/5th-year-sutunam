@@ -5,6 +5,7 @@ var Stn = {
      * @param id
      * @returns {*}
      */
+    isProcessing: false,
     getPaperSingleton: function (id, width, height) {
         if (!_paper) {
             var _paper = Raphael(id);
@@ -2592,7 +2593,11 @@ var Stn = {
         return _set;
     },
     recombine: function (object, transform) {
+        Stn.startProcessing('recombine');
+        var last_index = object.length - 1;
+        console.log('length of recombine array = ' + last_index);
         object.forEach(function (element, index) {
+            console.log('index of element in recombine array = ' + index);
             var x = Math.cos(Math.PI * Math.round(Math.random())) * 1000;
             var y = Math.cos(Math.PI * Math.round(Math.random())) * 1000;
             if (index % 11 == 0) x = 0;
@@ -2611,20 +2616,24 @@ var Stn = {
             if (index % 25 == 0) x = 200, y = 1000;
             var exploded_object = Raphael.animation({transform: 't' + x + ',' + y, opacity: 0}, 0, function () {
                 var _recombined_effect = Raphael.animation({transform: transform, opacity: 1}, 2900);
-                element.animate(_recombined_effect)
+                element.animate(_recombined_effect);
+                if (last_index == index) {
+                    setTimeout(function () {
+                        Stn.finishProcessing('recombine');
+                    }, 2900)
+                }
             });
             element.animate(exploded_object);
-            setTimeout(function () {
-            }, 5);
         });
     },
     floatUp: function (object, transformX) {
+        Stn.startProcessing('floatUp');
         object.forEach(function (element, index) {
             var y = Math.random() * -20000;
             var duration = Math.random() * 1800;
             setTimeout(function () {
                 fade_out_el = Raphael.animation({transform: 'T' + transformX + ',' + y, opacity: 0}, duration);
-                element.animate(fade_out_el);
+                element.animate(fade_out_el, Stn.finishProcessing('floatUp'));
             }, 100);
 
         });
@@ -2633,26 +2642,32 @@ var Stn = {
         object.animate({fill: color}, 2000, 'easeInOut');
     },
     fadeInUp: function (object, transformX, transformY) {
+        Stn.startProcessing('fadeInUp');
         object.forEach(function (element, index) {
             var duration = Math.random() * 2000;
             fade_out_el = Raphael.animation({
                 transform: 'T ' + transformX + ',' + transformY,
                 opacity: 1
             }, duration, 'cubic-bezier(.24, .51, 0, 1)').delay(100);
-            element.animate(fade_out_el);
+            element.animate(fade_out_el, Stn.finishProcessing('fadeInUp'));
         });
     },
     morph: function (object1, object2, duration) {
-        console.log('--Start morph--');
+        Stn.startProcessing('morph');
+        //console.log('--Start morph--');
         var max = object1.length;
         if (max == undefined) max = 0;
-        console.log('object2.length = ' + object2.length);
+        //console.log('object2.length = ' + object2.length);
         if (max < object2.length) {
-
             max = object2.length;
         }
-        console.log('--max = ' + max + '--');
+        //console.log('--max = ' + max + '--');
         for (var i = 0; i < max; i++) {
+            if (i == max - 1) {
+                setTimeout(function () {
+                    Stn.finishProcessing('morph');
+                }, duration);
+            }
             //console.log('--' + i + '--');
             if (object1[i]) {
                 if (object2[i]) {
@@ -2665,17 +2680,38 @@ var Stn = {
                         'stroke': object2[i].attr('stroke'),
                         'fill': object2[i].attr('fill'),
                         transform: object2[i].attr('transform')
-                    }, duration, 'easeInOut');
+                    }, duration, 'easeInOut', function () {
+                        //if (i == (max - 1)) {
+                        //    console.log('zzzzzzzdddddddzzzzz')
+                        //    setTimeout(function() {
+                        //        Stn.finishProcessing('morph');
+                        //    },0)
+                        //}
+                    });
                 }
                 else {
-                    object1[i].animate({'opacity': 1, transform: 'T150,0'}, duration);
+                    object1[i].animate({'opacity': 1, transform: 'T150,0'}, duration, function () {
+                        //if (i == (max - 1)) {
+                        //    console.log('zzzzaaaaaaaaazzzzzzzz')
+                        //    setTimeout(function() {
+                        //        Stn.finishProcessing('morph');
+                        //    },duration)
+                        //}
+                    });
                 }
             }
             else if (object2[i]) {
-                object2[i].animate({'opacity': 0, transform: 'T150,0'}, duration);
+                object2[i].animate({'opacity': 0, transform: 'T150,0'}, duration, function () {
+                    //if (i == (max - 1)) {
+                    //    console.log(duration)
+                    //    setTimeout(function() {
+                    //        Stn.finishProcessing('morph');
+                    //    },duration)
+                    //}
+                });
             }
         }
-        console.log('--End morph--');
+        //console.log('--End morph--');
         return object1;
     },
     fireEvent: function (element, event) {
@@ -2710,6 +2746,17 @@ var Stn = {
             }
         }, 5000);
     },
+    startProcessing: function (signal_from) {
+        console.log("start_processing: " + signal_from);
+        Stn.isProcessing = true;
+    },
+    finishProcessing: function (signal_from) {
+        console.log("finish_processing: " + signal_from);
+        Stn.isProcessing = false;
+    },
+    getProcessingStatus: function () {
+        return Stn.isProcessing;
+    }
 };
 
 jQuery(window).load(function () {
@@ -2821,16 +2868,26 @@ jQuery(window).load(function () {
         jQuery('.btn-wrapper button').click(function () {
             switch (state) {
                 case 1:
-                    jQuery('.txt-2').removeClass('animated fadeInup').addClass('animated fadeOutUp');
-                    jQuery('.txt-3').removeClass('animated fadeOutUp').addClass('animated fadeInUp').show();
+                    setTimeout(function () {
+                        Stn.startProcessing('scroll text');
+                        jQuery('.txt-2').removeClass('animated fadeInup').addClass('animated fadeOutUp');
+                        jQuery('.txt-3').removeClass('animated fadeOutUp').addClass('animated fadeInUp').show();
+                        Stn.finishProcessing('scroll text 1st');
+                    }, 800);
                     state++;
                     break;
+
                 case 2:
-                    jQuery('.txt-3').removeClass('animated fadeInUp').addClass('animated fadeOutUp');
-                    jQuery('.txt-4').removeClass('animated fadeOutUp').addClass('animated fadeInUp').show();
+                    setTimeout(function () {
+                        Stn.startProcessing('scroll text');
+                        jQuery('.txt-3').removeClass('animated fadeInUp').addClass('animated fadeOutUp');
+                        jQuery('.txt-4').removeClass('animated fadeOutUp').addClass('animated fadeInUp').show();
+                        Stn.finishProcessing('scroll text 2nd');
+                    }, 800);
                     state++;
                     break;
                 case 3:
+                    Stn.startProcessing('scroll text 3rd');
                     Stn.floatUp(lion, lion_wrapper);
                     jQuery('.heading_wrapper').addClass('animated fadeOutUpBig').hide();
                     jQuery('.btn-wrapper button').addClass('animated fadeOutUp');
@@ -2842,6 +2899,7 @@ jQuery(window).load(function () {
                     }, 400);
                     Stn.changeBgColor(bg, '#000');
                     state++;
+                    Stn.finishProcessing('scroll text + fadeout the lion');
                     // start with cresus
                     setTimeout(function () {
                         Stn.fadeInUp(shape_obj, 250, 0);
@@ -2856,7 +2914,7 @@ jQuery(window).load(function () {
                     }, 2800);
 
                     jQuery('.slide_1').click(function () {
-                        if (slide_nav != 1) {
+                        if (slide_nav != 1 && Stn.getProcessingStatus() == false) {
                             Stn.morph(shape_obj, cresus, 1600);
                             slide_nav = 1;
                             Stn.changeBgColor(bg, '#191919');
@@ -2873,7 +2931,7 @@ jQuery(window).load(function () {
                         }
                     });
                     jQuery('.slide_2').click(function () {
-                        if (slide_nav != 2) {
+                        if (slide_nav != 2 && Stn.getProcessingStatus() == false) {
                             Stn.morph(shape_obj, durance, 1600);
                             slide_nav = 2;
                             Stn.changeBgColor(bg, '#EE5688');
@@ -2890,7 +2948,7 @@ jQuery(window).load(function () {
                         }
                     });
                     jQuery('.slide_3').click(function () {
-                        if (slide_nav != 3) {
+                        if (slide_nav != 3 && Stn.getProcessingStatus() == false) {
                             Stn.morph(shape_obj, bys, 1600);
                             slide_nav = 3;
                             Stn.changeBgColor(bg, '#AB39DB');
@@ -2907,7 +2965,7 @@ jQuery(window).load(function () {
                         }
                     });
                     jQuery('.slide_4').click(function () {
-                        if (slide_nav != 4) {
+                        if (slide_nav != 4 && Stn.getProcessingStatus() == false) {
                             Stn.morph(shape_obj, club75, 1600);
                             slide_nav = 4;
                             Stn.changeBgColor(bg, '#157C80');
@@ -2924,7 +2982,7 @@ jQuery(window).load(function () {
                         }
                     });
                     jQuery('.slide_5').click(function () {
-                        if (slide_nav != 5) {
+                        if (slide_nav != 5 && Stn.getProcessingStatus() == false) {
                             Stn.morph(shape_obj, renault, 1600);
                             slide_nav = 5;
                             Stn.changeBgColor(bg, '#A90806');
@@ -2941,152 +2999,156 @@ jQuery(window).load(function () {
                         }
                     });
                     jQuery('.slide-next').click(function () {
-                        switch (slide_nav) {
-                            case 1:
-                                // current slide == 1 and move to the 2nd(durance)
-                                Stn.morph(shape_obj, durance, 1600);
-                                slide_nav++;
-                                Stn.changeBgColor(bg, '#EE5688');
+                        if (Stn.getProcessingStatus() == false) {
+                            switch (slide_nav) {
+                                case 1:
+                                    // current slide == 1 and move to the 2nd(durance)
+                                    Stn.morph(shape_obj, durance, 1600);
+                                    slide_nav++;
+                                    Stn.changeBgColor(bg, '#EE5688');
 
-                                jQuery('.prj').removeClass('animated fadeInUp');
-                                jQuery('.prj .prj_info').addClass('animated fadeOutUp');
-                                jQuery('.prj2 .prj_info ').removeClass('animated fadeOutUp').addClass('animated fadeInUp');
-                                jQuery('.prj2').show();
-                                jQuery('.slide').removeClass('active');
-                                jQuery('.slide_2').addClass('active');
-                                interval = Stn.updateInterval(interval, auto_play_status);
-                                break;
-                            case 2:
-                                // current slide == 2 and move to the 3rd(bys)
-                                Stn.morph(shape_obj, bys, 1600);
-                                slide_nav++;
-                                Stn.changeBgColor(bg, '#AB39DB');
+                                    jQuery('.prj').removeClass('animated fadeInUp');
+                                    jQuery('.prj .prj_info').addClass('animated fadeOutUp');
+                                    jQuery('.prj2 .prj_info ').removeClass('animated fadeOutUp').addClass('animated fadeInUp');
+                                    jQuery('.prj2').show();
+                                    jQuery('.slide').removeClass('active');
+                                    jQuery('.slide_2').addClass('active');
+                                    interval = Stn.updateInterval(interval, auto_play_status);
+                                    break;
+                                case 2:
+                                    // current slide == 2 and move to the 3rd(bys)
+                                    Stn.morph(shape_obj, bys, 1600);
+                                    slide_nav++;
+                                    Stn.changeBgColor(bg, '#AB39DB');
 
-                                jQuery('.prj').removeClass('animated fadeInUp');
-                                jQuery('.prj .prj_info').addClass('animated fadeOutUp');
-                                jQuery('.prj3 .prj_info ').removeClass('animated fadeOutUp').addClass('animated fadeInUp');
-                                jQuery('.prj3').show();
-                                jQuery('.slide').removeClass('active');
-                                jQuery('.slide_3').addClass('active');
-                                interval = Stn.updateInterval(interval, auto_play_status);
-                                break;
+                                    jQuery('.prj').removeClass('animated fadeInUp');
+                                    jQuery('.prj .prj_info').addClass('animated fadeOutUp');
+                                    jQuery('.prj3 .prj_info ').removeClass('animated fadeOutUp').addClass('animated fadeInUp');
+                                    jQuery('.prj3').show();
+                                    jQuery('.slide').removeClass('active');
+                                    jQuery('.slide_3').addClass('active');
+                                    interval = Stn.updateInterval(interval, auto_play_status);
+                                    break;
 
-                            case 3:
-                                // current slide == 3 and move to the 4th(club75)
-                                Stn.morph(shape_obj, club75, 1600);
-                                Stn.changeBgColor(bg, '#157C80');
-                                slide_nav++;
+                                case 3:
+                                    // current slide == 3 and move to the 4th(club75)
+                                    Stn.morph(shape_obj, club75, 1600);
+                                    Stn.changeBgColor(bg, '#157C80');
+                                    slide_nav++;
 
-                                jQuery('.prj').removeClass('animated fadeInUp');
-                                jQuery('.prj .prj_info').addClass('animated fadeOutUp');
-                                jQuery('.prj4 .prj_info ').removeClass('animated fadeOutUp').addClass('animated fadeInUp');
-                                jQuery('.prj4').show();
-                                jQuery('.slide').removeClass('active');
-                                jQuery('.slide_4').addClass('active');
-                                interval = Stn.updateInterval(interval, auto_play_status);
-                                break;
-                            case 4:
-                                // current slide == 4 and move to the 5th(renault)
-                                Stn.morph(shape_obj, renault, 1600);
-                                slide_nav++;
-                                Stn.changeBgColor(bg, '#A90806');
+                                    jQuery('.prj').removeClass('animated fadeInUp');
+                                    jQuery('.prj .prj_info').addClass('animated fadeOutUp');
+                                    jQuery('.prj4 .prj_info ').removeClass('animated fadeOutUp').addClass('animated fadeInUp');
+                                    jQuery('.prj4').show();
+                                    jQuery('.slide').removeClass('active');
+                                    jQuery('.slide_4').addClass('active');
+                                    interval = Stn.updateInterval(interval, auto_play_status);
+                                    break;
+                                case 4:
+                                    // current slide == 4 and move to the 5th(renault)
+                                    Stn.morph(shape_obj, renault, 1600);
+                                    slide_nav++;
+                                    Stn.changeBgColor(bg, '#A90806');
 
-                                jQuery('.prj').removeClass('animated fadeInUp');
-                                jQuery('.prj .prj_info').addClass('animated fadeOutUp');
-                                jQuery('.prj5 .prj_info ').removeClass('animated fadeOutUp').addClass('animated fadeInUp');
-                                jQuery('.prj5').show();
-                                jQuery('.slide').removeClass('active');
-                                jQuery('.slide_5').addClass('active');
-                                interval = Stn.updateInterval(interval, auto_play_status);
-                                break;
-                            case 5:
-                                Stn.morph(shape_obj, cresus, 1600);
-                                slide_nav = 1;
-                                Stn.changeBgColor(bg, '#191919');
+                                    jQuery('.prj').removeClass('animated fadeInUp');
+                                    jQuery('.prj .prj_info').addClass('animated fadeOutUp');
+                                    jQuery('.prj5 .prj_info ').removeClass('animated fadeOutUp').addClass('animated fadeInUp');
+                                    jQuery('.prj5').show();
+                                    jQuery('.slide').removeClass('active');
+                                    jQuery('.slide_5').addClass('active');
+                                    interval = Stn.updateInterval(interval, auto_play_status);
+                                    break;
+                                case 5:
+                                    Stn.morph(shape_obj, cresus, 1600);
+                                    slide_nav = 1;
+                                    Stn.changeBgColor(bg, '#191919');
 
-                                jQuery('.prj').removeClass('animated fadeInUp');
-                                jQuery('.prj .prj_info').addClass('animated fadeOutUp');
-                                jQuery('.prj1 .prj_info ').removeClass('animated fadeOutUp').addClass('animated fadeInUp');
-                                jQuery('.prj1').show();
-                                jQuery('.slide').removeClass('active');
-                                jQuery('.slide_1').addClass('active');
-                                interval = Stn.updateInterval(interval, auto_play_status);
-                                break;
-                            default:
-                                break;
+                                    jQuery('.prj').removeClass('animated fadeInUp');
+                                    jQuery('.prj .prj_info').addClass('animated fadeOutUp');
+                                    jQuery('.prj1 .prj_info ').removeClass('animated fadeOutUp').addClass('animated fadeInUp');
+                                    jQuery('.prj1').show();
+                                    jQuery('.slide').removeClass('active');
+                                    jQuery('.slide_1').addClass('active');
+                                    interval = Stn.updateInterval(interval, auto_play_status);
+                                    break;
+                                default:
+                                    break;
+                            }
                         }
                     });
                     jQuery('.slide-prev').click(function () {
-                        switch (slide_nav) {
-                            case 5:
-                                Stn.morph(shape_obj, club75, 1600);
-                                slide_nav--;
-                                Stn.changeBgColor(bg, '#157C80');
-                                jQuery('.next').removeClass('disabled');
+                        if (Stn.getProcessingStatus() == false) {
+                            switch (slide_nav) {
+                                case 5:
+                                    Stn.morph(shape_obj, club75, 1600);
+                                    slide_nav--;
+                                    Stn.changeBgColor(bg, '#157C80');
+                                    jQuery('.next').removeClass('disabled');
 
-                                jQuery('.prj5 .prj_info').addClass('animated fadeOutUp');
-                                jQuery('.prj5').removeClass('animated fadeInUp');
-                                jQuery('.prj4 .prj_info ').removeClass('fadeOutUp').addClass('animated fadeInUp');
-                                jQuery('.prj4').show();
-                                jQuery('.slide').removeClass('active');
-                                jQuery('.slide_4').addClass('active');
-                                interval = Stn.updateInterval(interval, auto_play_status);
-                                break;
-                            case 4:
-                                Stn.morph(shape_obj, bys, 1600);
-                                Stn.changeBgColor(bg, '#AB39DB');
-                                slide_nav--;
+                                    jQuery('.prj5 .prj_info').addClass('animated fadeOutUp');
+                                    jQuery('.prj5').removeClass('animated fadeInUp');
+                                    jQuery('.prj4 .prj_info ').removeClass('fadeOutUp').addClass('animated fadeInUp');
+                                    jQuery('.prj4').show();
+                                    jQuery('.slide').removeClass('active');
+                                    jQuery('.slide_4').addClass('active');
+                                    interval = Stn.updateInterval(interval, auto_play_status);
+                                    break;
+                                case 4:
+                                    Stn.morph(shape_obj, bys, 1600);
+                                    Stn.changeBgColor(bg, '#AB39DB');
+                                    slide_nav--;
 
-                                jQuery('.prj4 .prj_info').addClass('animated fadeOutUp');
-                                jQuery('.prj4').removeClass('animated fadeInUp');
-                                jQuery('.prj3 .prj_info ').removeClass('fadeOutUp').addClass('animated fadeInUp');
-                                jQuery('.prj3').show();
-                                jQuery('.slide').removeClass('active');
-                                jQuery('.slide_3').addClass('active');
-                                interval = Stn.updateInterval(interval, auto_play_status);
-                                break;
-                            case 3:
-                                Stn.morph(shape_obj, durance, 1600);
-                                Stn.changeBgColor(bg, '#EE5688');
-                                slide_nav--;
+                                    jQuery('.prj4 .prj_info').addClass('animated fadeOutUp');
+                                    jQuery('.prj4').removeClass('animated fadeInUp');
+                                    jQuery('.prj3 .prj_info ').removeClass('fadeOutUp').addClass('animated fadeInUp');
+                                    jQuery('.prj3').show();
+                                    jQuery('.slide').removeClass('active');
+                                    jQuery('.slide_3').addClass('active');
+                                    interval = Stn.updateInterval(interval, auto_play_status);
+                                    break;
+                                case 3:
+                                    Stn.morph(shape_obj, durance, 1600);
+                                    Stn.changeBgColor(bg, '#EE5688');
+                                    slide_nav--;
 
-                                jQuery('.prj3 .prj_info').addClass('animated fadeOutUp');
-                                jQuery('.prj3').removeClass('animated fadeInUp');
-                                jQuery('.prj2 .prj_info ').removeClass('animated fadeOutUp').addClass('animated fadeInUp');
-                                jQuery('.prj2').show();
-                                jQuery('.slide').removeClass('active');
-                                jQuery('.slide_2').addClass('active');
-                                interval = Stn.updateInterval(interval, auto_play_status);
-                                break;
-                            case 2:
-                                Stn.morph(shape_obj, cresus, 1600);
-                                slide_nav--;
-                                Stn.changeBgColor(bg, '#191919');
-                                jQuery('.prev').addClass('disabled');
+                                    jQuery('.prj3 .prj_info').addClass('animated fadeOutUp');
+                                    jQuery('.prj3').removeClass('animated fadeInUp');
+                                    jQuery('.prj2 .prj_info ').removeClass('animated fadeOutUp').addClass('animated fadeInUp');
+                                    jQuery('.prj2').show();
+                                    jQuery('.slide').removeClass('active');
+                                    jQuery('.slide_2').addClass('active');
+                                    interval = Stn.updateInterval(interval, auto_play_status);
+                                    break;
+                                case 2:
+                                    Stn.morph(shape_obj, cresus, 1600);
+                                    slide_nav--;
+                                    Stn.changeBgColor(bg, '#191919');
+                                    jQuery('.prev').addClass('disabled');
 
-                                jQuery('.prj2 .prj_info').addClass('animated fadeOutUp');
-                                jQuery('.prj2').removeClass('animated fadeInUp');
-                                jQuery('.prj1 .prj_info ').removeClass('animated fadeOutUp').addClass('animated fadeInUp');
-                                jQuery('.prj1').show();
-                                jQuery('.slide').removeClass('active');
-                                jQuery('.slide_1').addClass('active');
-                                interval = Stn.updateInterval(interval, auto_play_status);
-                                break;
-                            case 1:
-                                Stn.morph(shape_obj, renault, 1600);
-                                slide_nav = 5;
-                                Stn.changeBgColor(bg, '#A90806');
+                                    jQuery('.prj2 .prj_info').addClass('animated fadeOutUp');
+                                    jQuery('.prj2').removeClass('animated fadeInUp');
+                                    jQuery('.prj1 .prj_info ').removeClass('animated fadeOutUp').addClass('animated fadeInUp');
+                                    jQuery('.prj1').show();
+                                    jQuery('.slide').removeClass('active');
+                                    jQuery('.slide_1').addClass('active');
+                                    interval = Stn.updateInterval(interval, auto_play_status);
+                                    break;
+                                case 1:
+                                    Stn.morph(shape_obj, renault, 1600);
+                                    slide_nav = 5;
+                                    Stn.changeBgColor(bg, '#A90806');
 
-                                jQuery('.prj1 .prj_info').addClass('animated fadeOutUp');
-                                jQuery('.prj1').removeClass('animated fadeInUp');
-                                jQuery('.prj5 .prj_info ').removeClass('animated fadeOutUp').addClass('animated fadeInUp');
-                                jQuery('.prj5').show();
-                                jQuery('.slide').removeClass('active');
-                                jQuery('.slide_5').addClass('active');
-                                interval = Stn.updateInterval(interval, auto_play_status);
-                                break;
-                            default:
-                                break;
+                                    jQuery('.prj1 .prj_info').addClass('animated fadeOutUp');
+                                    jQuery('.prj1').removeClass('animated fadeInUp');
+                                    jQuery('.prj5 .prj_info ').removeClass('animated fadeOutUp').addClass('animated fadeInUp');
+                                    jQuery('.prj5').show();
+                                    jQuery('.slide').removeClass('active');
+                                    jQuery('.slide_5').addClass('active');
+                                    interval = Stn.updateInterval(interval, auto_play_status);
+                                    break;
+                                default:
+                                    break;
+                            }
                         }
                     });
                     jQuery('.slide-status').click(function () {
@@ -3114,14 +3176,18 @@ jQuery(window).load(function () {
                     break;
                 default:
                     break;
+
             }
         });
 
         // trigger the animation when scrolldown
         // (we have to do like this because our web page don't have the scrollbar ;))
         jQuery(window).on('mousewheel', function (event) {
-            if (event.deltaY < 0 && state <= 3) {
-                jQuery('.btn-wrapper button').trigger('click');
+            console.log('Stn.getProcessingStatus():' + Stn.getProcessingStatus());
+            if (Stn.getProcessingStatus() == false) {
+                if (event.deltaY < 0 && state <= 3) {
+                    jQuery('.btn-wrapper button').trigger('click');
+                }
             }
         });
     }
